@@ -57,8 +57,6 @@ public class Team implements Serializable{
     public String toString() {
         return "Team{" + "teamSkill=" + teamSkill + ", teamSupplies=" + teamSupplies + ", teamStamina=" + teamStamina + '}';
     }
-    
-    
 
     @Override
     public boolean equals(Object obj) {
@@ -79,10 +77,6 @@ public class Team implements Serializable{
             return false;
         }
         return this.teamStamina == other.teamStamina;
-    }
-    
-    
-    
-    
+    }     
     
 }
