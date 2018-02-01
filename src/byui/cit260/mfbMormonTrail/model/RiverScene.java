@@ -92,12 +92,11 @@ private int oxyenStrength;
     }
 
     public void setRiverDepth(String string) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    
     }
 
     public void getOxyenStrength(String string) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+}
     
     
     
