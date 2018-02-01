@@ -16,6 +16,28 @@ public class Team implements Serializable{
     private int teamSkill;
     private int teamSupplies;
     private int teamStamina;
+    private Player player;
+    public Game game;
+
+    public Game getGame() {
+        return game;
+    }
+
+    public void setGame(Game game) {
+        this.game = game;
+    }
+    
+    
+
+    public Player getPlayer() {
+        return player;
+    }
+
+    public void setPlayer(Player player) {
+        this.player = player;
+    }
+    
+    
 
     public Team() {
     }

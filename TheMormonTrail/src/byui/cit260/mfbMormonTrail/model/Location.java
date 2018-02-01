@@ -5,6 +5,8 @@
  */
 package byui.cit260.mfbMormonTrail.model;
 
+import java.util.Objects;
+
 /**
  *
  * @author Mike
@@ -17,57 +19,18 @@ public class Location implements Serializable {
     private int columnCount;
     private int currentColumn;
     private int currentRow;
-
-    public Location() {
-    }
-
-    @Override
-    public int hashCode() {
-        int hash = 7;
-        hash = 29 * hash + this.row;
-        hash = 29 * hash + this.rowCount;
-        hash = 29 * hash + this.columnCount;
-        hash = 29 * hash + this.currentColumn;
-        hash = 29 * hash + this.currentRow;
-        return hash;
-    }
+    private String locationType;
 
     @Override
     public String toString() {
-        return "Location{" + "row=" + row + ", rowCount=" + rowCount + ", columnCount=" + columnCount + ", currentColumn=" + currentColumn + ", currentRow=" + currentRow + '}';
-    }
-
-    
-    
-    @Override
-    public boolean equals(Object obj) {
-        if (this == obj) {
-            return true;
-        }
-        if (obj == null) {
-            return false;
-        }
-        if (getClass() != obj.getClass()) {
-            return false;
-        }
-        final Location other = (Location) obj;
-        if (this.row != other.row) {
-            return false;
-        }
-        if (this.rowCount != other.rowCount) {
-            return false;
-        }
-        if (this.columnCount != other.columnCount) {
-            return false;
-        }
-        if (this.currentColumn != other.currentColumn) {
-            return false;
-        }
-        return this.currentRow == other.currentRow;
+        return "Location{" + "row=" + row + ", rowCount=" + rowCount + ", columnCount=" + columnCount + ", currentColumn=" + currentColumn + ", currentRow=" + currentRow + ", locationType=" + locationType + '}';
     }
     
     
 
+    public Location() {
+    }
+    
     public int getRow() {
         return row;
     }
@@ -106,6 +69,60 @@ public class Location implements Serializable {
 
     public void setCurrentRow(int currentRow) {
         this.currentRow = currentRow;
-    }  
+    }
+
+    public String getLocationType() {
+        return locationType;
+    }
+
+    public void setLocationType(String locationType) {
+        this.locationType = locationType;
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 3;
+        hash = 83 * hash + this.row;
+        hash = 83 * hash + this.rowCount;
+        hash = 83 * hash + this.columnCount;
+        hash = 83 * hash + this.currentColumn;
+        hash = 83 * hash + this.currentRow;
+        hash = 83 * hash + Objects.hashCode(this.locationType);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Location other = (Location) obj;
+        if (this.row != other.row) {
+            return false;
+        }
+        if (this.rowCount != other.rowCount) {
+            return false;
+        }
+        if (this.columnCount != other.columnCount) {
+            return false;
+        }
+        if (this.currentColumn != other.currentColumn) {
+            return false;
+        }
+        if (this.currentRow != other.currentRow) {
+            return false;
+        }
+        return Objects.equals(this.locationType, other.locationType);
+    }
+    
+    
+
+    
     
 }

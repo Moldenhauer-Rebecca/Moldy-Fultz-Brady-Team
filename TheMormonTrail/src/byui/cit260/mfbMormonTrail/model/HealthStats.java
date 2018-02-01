@@ -21,6 +21,17 @@ public class HealthStats implements Serializable{
     private String weather;
     private String hazards;
     private int teamPace;
+    public Team team;
+
+    public Team getTeam() {
+        return team;
+    }
+
+    public void setTeam(Team team) {
+        this.team = team;
+    }
+    
+    
 
     public HealthStats() {
     }
