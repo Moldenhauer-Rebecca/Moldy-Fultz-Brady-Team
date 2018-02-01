@@ -6,6 +6,7 @@
 package byui.cit260.mfbMormonTrail.model;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Objects;
 
 /**
@@ -24,7 +25,31 @@ public class Game implements Serializable {
     private double currentMoneyBalance;
     private String Pace;
     private Player player;
+    public Map map;
+    public ArrayList<InventoryItem> inventoryItem = new ArrayList<>();
 
+    public Map getMap() {
+        return map;
+    }
+
+    public void setMap(Map map) {
+        this.map = map;
+    }
+
+    public ArrayList<InventoryItem> getInventoryItem() {
+        return inventoryItem;
+    }
+
+    public void setInventoryItem(ArrayList<InventoryItem> inventoryItem) {
+        this.inventoryItem = inventoryItem;
+    }
+    
+    
+
+    /**
+     *
+     * @return
+     */
     public Player getPlayer() {
         return player;
     }
@@ -155,10 +180,11 @@ public class Game implements Serializable {
         if (!Objects.equals(this.dayOfWeek, other.dayOfWeek)) {
             return false;
         }
-        if (!Objects.equals(this.Pace, other.Pace)) {
-            return false;
-        }
-        return true;
+        return Objects.equals(this.Pace, other.Pace);
+    }
+
+    public void setDayofWeek(String thursday) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
     

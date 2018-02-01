@@ -16,7 +16,17 @@ public class HotelScene implements Serializable{
     
     //class instance variables
     private String addPlayer;
+    public RegularSceneType regularSceneType;
 
+    public RegularSceneType getRegularSceneType() {
+        return regularSceneType;
+    }
+
+    public void setRegularSceneType(RegularSceneType regularSceneType) {
+        this.regularSceneType = regularSceneType;
+    }
+    
+    
     public HotelScene() {
     }
     

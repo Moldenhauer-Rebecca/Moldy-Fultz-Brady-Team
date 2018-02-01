@@ -5,7 +5,8 @@
  */
 package mormontrail;
 
-import byui.cit260.mfbMormonTrail.model.Player;
+import byui.cit260.mfbMormonTrail.model.Game;
+
 
 /**
  *
@@ -17,10 +18,9 @@ public class MormonTrail {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        Player player = new Player();
-        player.setName("OurTeam");
+        Game game = new Game();
         
-        System.out.println(player.toString());
+        System.out.println(game.toString());
     }
     
 }

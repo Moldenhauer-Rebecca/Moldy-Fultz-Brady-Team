@@ -6,6 +6,7 @@
 package byui.cit260.mfbMormonTrail.model;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 
 /**
  *
@@ -14,22 +15,32 @@ import java.io.Serializable;
 
 public class Team implements Serializable{
     
-    // class instance variables
+    //class instance variables
+    private int teamPace;
     private int teamSkill;
     private int teamSupplies;
     private int teamStamina;
-    private Player player;
-    public Game game;
+    private HealthStats healthStats;
+    public Player player;
+    public ArrayList<Game> games = new ArrayList<>();
 
-    public Game getGame() {
-        return game;
+    public ArrayList<Game> getGames() {
+        return games;
     }
 
-    public void setGame(Game game) {
-        this.game = game;
+    public void setGames(ArrayList<Game> games) {
+        this.games = games;
     }
     
     
+
+    public HealthStats getHealthStats() {
+        return healthStats;
+    }
+
+    public void setHealthStats(HealthStats healthStats) {
+        this.healthStats = healthStats;
+    }
 
     public Player getPlayer() {
         return player;
@@ -38,12 +49,21 @@ public class Team implements Serializable{
     public void setPlayer(Player player) {
         this.player = player;
     }
-    
-    
 
+    
     public Team() {
     }
     
+    
+
+    public int getTeamPace() {
+        return teamPace;
+    }
+
+    public void setTeamPace(int teamPace) {
+        this.teamPace = teamPace;
+    }
+
     public int getTeamSkill() {
         return teamSkill;
     }
@@ -70,17 +90,20 @@ public class Team implements Serializable{
 
     @Override
     public int hashCode() {
-        int hash = 3;
-        hash = 31 * hash + this.teamSkill;
-        hash = 31 * hash + this.teamSupplies;
-        hash = 31 * hash + this.teamStamina;
+        int hash = 7;
+        hash = 19 * hash + this.teamPace;
+        hash = 19 * hash + this.teamSkill;
+        hash = 19 * hash + this.teamSupplies;
+        hash = 19 * hash + this.teamStamina;
         return hash;
     }
 
     @Override
     public String toString() {
-        return "Team{" + "teamSkill=" + teamSkill + ", teamSupplies=" + teamSupplies + ", teamStamina=" + teamStamina + '}';
+        return "Team{" + "teamPace=" + teamPace + ", teamSkill=" + teamSkill + ", teamSupplies=" + teamSupplies + ", teamStamina=" + teamStamina + '}';
     }
+    
+    
 
     @Override
     public boolean equals(Object obj) {
@@ -94,6 +117,9 @@ public class Team implements Serializable{
             return false;
         }
         final Team other = (Team) obj;
+        if (this.teamPace != other.teamPace) {
+            return false;
+        }
         if (this.teamSkill != other.teamSkill) {
             return false;
         }
@@ -101,6 +127,10 @@ public class Team implements Serializable{
             return false;
         }
         return this.teamStamina == other.teamStamina;
-    }     
+    }
     
-}
+    
+    
+    
+    }
+    

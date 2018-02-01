@@ -6,6 +6,7 @@
 package byui.cit260.mfbMormonTrail.model;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Objects;
 
 /**
@@ -20,6 +21,21 @@ public class RegularSceneType implements Serializable {
     public EventsScene eventsScene;
     public ResourceScene resourceScene;
     private HotelScene hotelscene;
+
+    /**
+     *
+     */
+    public ArrayList<Location> location;
+
+    public ArrayList<Location> getLocation() {
+        return location;
+    }
+
+    public void setLocation(ArrayList<Location> location) {
+        this.location = location;
+    }
+
+      
 
     public ResourceScene getResourceScene() {
         return resourceScene;
@@ -50,6 +66,7 @@ public class RegularSceneType implements Serializable {
     
 
     public RegularSceneType() {
+        this.location = new ArrayList<>();
     }
     
     

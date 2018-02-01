@@ -16,6 +16,17 @@ public class HuntingGathering implements Serializable {
 //class instant variable
 private int teamSkillLevel;
 private String resourceAvailablity;
+public EventsScene eventScene;
+
+    public EventsScene getEventScene() {
+        return eventScene;
+    }
+
+    public void setEventScene(EventsScene eventScene) {
+        this.eventScene = eventScene;
+    }
+
+
 
     public int getTeamSkillLevel() {
         return teamSkillLevel;
