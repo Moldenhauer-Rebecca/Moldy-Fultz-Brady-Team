@@ -1,46 +1,43 @@
-package byui.cit260.mfbMormonTrail.model;
-
-
-import java.util.Objects;
-
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+package byui.cit260.mfbMormonTrail.model;
+
+import java.io.Serializable;
+import java.util.Objects;
 
 /**
  *
  * @author Mike
  */
-public class Map implements Serializable{
+public class Location implements Serializable {
     
     //class instance variables
-    private String description;
+    private int row;
     private int rowCount;
     private int columnCount;
     private int currentColumn;
     private int currentRow;
-    public Game game;
+    private String locationType;
 
-    public Map() {
+    @Override
+    public String toString() {
+        return "Location{" + "row=" + row + ", rowCount=" + rowCount + ", columnCount=" + columnCount + ", currentColumn=" + currentColumn + ", currentRow=" + currentRow + ", locationType=" + locationType + '}';
     }
-
-    public Game getGame() {
-        return game;
-    }
-
-    public void setGame(Game game) {
-        this.game = game;
-    }   
+    
     
 
-    public String getDescription() {
-        return description;
+    public Location() {
+    }
+    
+    public int getRow() {
+        return row;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    public void setRow(int row) {
+        this.row = row;
     }
 
     public int getRowCount() {
@@ -75,23 +72,25 @@ public class Map implements Serializable{
         this.currentRow = currentRow;
     }
 
-    @Override
-    public int hashCode() {
-        int hash = 7;
-        hash = 43 * hash + Objects.hashCode(this.description);
-        hash = 43 * hash + this.rowCount;
-        hash = 43 * hash + this.columnCount;
-        hash = 43 * hash + this.currentColumn;
-        hash = 43 * hash + this.currentRow;
-        return hash;
+    public String getLocationType() {
+        return locationType;
+    }
+
+    public void setLocationType(String locationType) {
+        this.locationType = locationType;
     }
 
     @Override
-    public String toString() {
-        return "Map{" + "description=" + description + ", rowCount=" + rowCount + ", columnCount=" + columnCount + ", currentColumn=" + currentColumn + ", currentRow=" + currentRow + '}';
+    public int hashCode() {
+        int hash = 3;
+        hash = 83 * hash + this.row;
+        hash = 83 * hash + this.rowCount;
+        hash = 83 * hash + this.columnCount;
+        hash = 83 * hash + this.currentColumn;
+        hash = 83 * hash + this.currentRow;
+        hash = 83 * hash + Objects.hashCode(this.locationType);
+        return hash;
     }
-    
-    
 
     @Override
     public boolean equals(Object obj) {
@@ -104,7 +103,10 @@ public class Map implements Serializable{
         if (getClass() != obj.getClass()) {
             return false;
         }
-        final Map other = (Map) obj;
+        final Location other = (Location) obj;
+        if (this.row != other.row) {
+            return false;
+        }
         if (this.rowCount != other.rowCount) {
             return false;
         }
@@ -117,9 +119,11 @@ public class Map implements Serializable{
         if (this.currentRow != other.currentRow) {
             return false;
         }
-        return Objects.equals(this.description, other.description);
+        return Objects.equals(this.locationType, other.locationType);
     }
     
+    
+
     
     
 }

@@ -5,6 +5,8 @@
  */
 package byui.cit260.mfbMormonTrail.model;
 
+import java.io.Serializable;
+
 /**
  *
  * @author Mike
