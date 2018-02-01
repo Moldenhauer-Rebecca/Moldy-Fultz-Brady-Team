@@ -5,7 +5,7 @@
  */
 package mormontrail;
 
-import byui.cit260.mfbMormonTrail.model.Player;
+import byui.cit260.mfbMormonTrail.model.RiverScene;
 
 /**
  *
@@ -17,10 +17,11 @@ public class MormonTrail {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        Player player = new Player();
-        player.setName("OurTeam");
+        RiverScene riverscene;
+        riverscene = new RiverScene();
+        riverscene.getOxyenStrength("10");
         
-        System.out.println(player.toString());
+        System.out.println(riverscene.toString());
     }
     
 }
