@@ -11,16 +11,37 @@ package byui.cit260.mfbMormonTrail.model;
  */
 public enum Actor {
     
+    Actor1("Benjamin", "He is a blacksmith from Boston"),
+    Actor2("Zeke", "He is a farmer from New York"),
+    Actor3("Mary", "She is a widow from Philadelphia");
+    
     private String name;
-    private String description;
-    private Point coordinates;
+    private String description;  
 
-Actor(String name, String description, Point corrdinates) {
+Actor(String name, String description) {
     this.name = name;
     this.description = description;
-    this.corrdinates = coordinates; 
-
 }
 
-    
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+
+    @Override
+    public String toString() {
+        return '}' + "Actor{" + "name=" + name + ", description=" + description;
+    }
 }
