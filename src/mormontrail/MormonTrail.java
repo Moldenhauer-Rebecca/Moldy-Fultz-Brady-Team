@@ -5,7 +5,9 @@
  */
 package mormontrail;
 
-import byui.cit260.mfbMormonTrail.model.RiverScene;
+import byui.cit260.mfbMormonTrail.model.LocationType;
+
+
 
 /**
  *
@@ -17,11 +19,8 @@ public class MormonTrail {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        RiverScene riverscene;
-        riverscene = new RiverScene();
-        riverscene.getOxyenStrength("10");
-        
-        System.out.println(riverscene.toString());
+       LocationType.HuntGather.getName();
+      
     }
     
 }
