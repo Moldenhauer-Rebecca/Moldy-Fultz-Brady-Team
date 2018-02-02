@@ -5,7 +5,6 @@
  */
 package mormontrail;
 
-import byui.cit260.mfbMormonTrail.model.Game;
 
 import byui.cit260.mfbMormonTrail.model.Team;
 
@@ -22,7 +21,6 @@ public class MormonTrail {
 
         Team team = new Team();
       
-
     }
     
 }
