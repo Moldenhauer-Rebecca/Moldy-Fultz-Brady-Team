@@ -66,10 +66,7 @@ public class HotelScene implements Serializable{
             return false;
         }
         final HotelScene other = (HotelScene) obj;
-        if (!Objects.equals(this.addPlayer, other.addPlayer)) {
-            return false;
-        }
-        return true;
+        return Objects.equals(this.addPlayer, other.addPlayer);
     }
     
     

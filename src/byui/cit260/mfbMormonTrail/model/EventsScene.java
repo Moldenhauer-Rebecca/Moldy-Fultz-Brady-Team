@@ -84,7 +84,5 @@ private RiverScene riverScene;
         return "EventsScene{" + "noToAnswer=" + noToAnswer + ", successRate=" + successRate + '}';
     }
 
-
-
     
 }

@@ -101,6 +101,13 @@ public EventsScene eventsScene;
     public String toString() {
         return "RiverScene{" + "riverDepth=" + riverDepth + ", successRate=" + successRate + ", wagonWeight=" + wagonWeight + ", oxyenStrength=" + oxyenStrength + '}';
     }
+
+    public void setRiverDepth(String string) {
+    
+    }
+
+    public void getOxyenStrength(String string) {
+}
     
     
     
