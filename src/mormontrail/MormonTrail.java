@@ -5,23 +5,18 @@
  */
 package mormontrail;
 
-import byui.cit260.mfbMormonTrail.model.RiverScene;
-
-/**
- *
- * @author crmol
- */
+import byui.cit260.mfbMormonTrail.model.EventsScene;
 public class MormonTrail {
 
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        RiverScene riverscene;
-        riverscene = new RiverScene();
-        riverscene.getOxyenStrength("10");
+        EventsScene eventsscene;
+      eventsscene = new EventsScene();
+      eventsscene.noToAnswer();
         
-        System.out.println(riverscene.toString());
+        System.out.println(eventsscene.toString());
     }
     
 }

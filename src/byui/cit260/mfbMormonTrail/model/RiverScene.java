@@ -97,6 +97,22 @@ private int oxyenStrength;
 
     public void getOxyenStrength(String string) {
 }
+
+    public void getOxyenStrength(int i) {
+        
+    }
+
+    public void getRiverDepth(int i) {
+       
+    }
+
+    public void getSuccessRate(int i) {
+        
+    }
+
+    public void getWagonWeight(int i) {
+       
+    }
     
     
     

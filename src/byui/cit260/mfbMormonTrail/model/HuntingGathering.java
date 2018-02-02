@@ -68,6 +68,14 @@ private String resourceAvailablity;
         return Objects.equals(this.resourceAvailablity, other.resourceAvailablity);
     }
 
+    public void getTeamSkillLevel(int i) {
+       
+    }
+
+    public void getResourceAvailability(int i) {
+        
+    }
+
     
     }
 

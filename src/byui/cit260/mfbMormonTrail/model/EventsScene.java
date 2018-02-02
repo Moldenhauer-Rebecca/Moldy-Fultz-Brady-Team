@@ -15,6 +15,7 @@ private int noToAnswer;
 private String successRate;
 private HuntingGathering huntingGathering;
 private RiverScene riverScene;
+    public boolean toString;
 
     private HuntingGathering getHuntingGathering() {
         return huntingGathering;
@@ -82,6 +83,14 @@ private RiverScene riverScene;
     @Override
     public String toString() {
         return "EventsScene{" + "noToAnswer=" + noToAnswer + ", successRate=" + successRate + '}';
+    }
+
+    public void getsuccessRate() {
+        
+    }
+
+    public void noToAnswer() {
+      
     }
 
 
