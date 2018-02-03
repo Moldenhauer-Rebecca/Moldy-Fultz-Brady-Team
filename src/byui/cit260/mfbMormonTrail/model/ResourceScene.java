@@ -18,6 +18,26 @@ public class ResourceScene implements Serializable{
     private int amount;
     private String buy;
     private String sell;
+    public InventoryItem inventoryItem;
+    public RegularSceneType regularSceneType;
+
+    public InventoryItem getInventoryItem() {
+        return inventoryItem;
+    }
+
+    public void setInventoryItem(InventoryItem inventoryItem) {
+        this.inventoryItem = inventoryItem;
+    }
+
+    public RegularSceneType getRegularSceneType() {
+        return regularSceneType;
+    }
+
+    public void setRegularSceneType(RegularSceneType regularSceneType) {
+        this.regularSceneType = regularSceneType;
+    }
+    
+    
 
     public ResourceScene() {
     }

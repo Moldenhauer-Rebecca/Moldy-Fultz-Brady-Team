@@ -21,6 +21,28 @@ public class Location implements Serializable {
     private int currentColumn;
     private int currentRow;
     private String locationType;
+    public RegularSceneType regularSceneType;
+    public Actor actor;
+
+    public Actor getActor() {
+        return actor;
+    }
+
+    public void setActor(Actor actor) {
+        this.actor = actor;
+    }
+    
+    
+
+    public RegularSceneType getRegularSceneType() {
+        return regularSceneType;
+    }
+
+    public void setRegularSceneType(RegularSceneType regularSceneType) {
+        this.regularSceneType = regularSceneType;
+    }
+    
+    
 
     @Override
     public String toString() {

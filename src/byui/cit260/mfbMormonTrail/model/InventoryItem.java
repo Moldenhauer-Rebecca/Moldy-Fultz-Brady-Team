@@ -20,6 +20,26 @@ public class InventoryItem implements Serializable{
     private int requiredAmount;
     private int itemWeight;
     private int currentStrength;
+    public ResourceScene resourceScene;
+    public Game game;
+
+    public ResourceScene getResourceScene() {
+        return resourceScene;
+    }
+
+    public void setResourceScene(ResourceScene resourceScene) {
+        this.resourceScene = resourceScene;
+    }
+
+    public Game getGame() {
+        return game;
+    }
+
+    public void setGame(Game game) {
+        this.game = game;
+    }
+    
+    
 
     public InventoryItem() {
     }

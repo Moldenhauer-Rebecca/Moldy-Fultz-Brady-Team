@@ -16,6 +16,17 @@ private int riverDepth;
 private String successRate;
 private int wagonWeight;
 private int oxyenStrength;
+public EventsScene eventsScene;
+
+    public EventsScene getEventsScene() {
+        return eventsScene;
+    }
+
+    public void setEventsScene(EventsScene eventsScene) {
+        this.eventsScene = eventsScene;
+    }
+
+
 
     public int getRiverDepth() {
         return riverDepth;

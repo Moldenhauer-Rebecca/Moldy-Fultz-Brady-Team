@@ -16,7 +16,17 @@ public class HotelScene implements Serializable{
     
     //class instance variables
     private String addPlayer;
+    public RegularSceneType regularSceneType;
 
+    public RegularSceneType getRegularSceneType() {
+        return regularSceneType;
+    }
+
+    public void setRegularSceneType(RegularSceneType regularSceneType) {
+        this.regularSceneType = regularSceneType;
+    }
+    
+    
     public HotelScene() {
     }
     
@@ -56,10 +66,7 @@ public class HotelScene implements Serializable{
             return false;
         }
         final HotelScene other = (HotelScene) obj;
-        if (!Objects.equals(this.addPlayer, other.addPlayer)) {
-            return false;
-        }
-        return true;
+        return Objects.equals(this.addPlayer, other.addPlayer);
     }
     
     
