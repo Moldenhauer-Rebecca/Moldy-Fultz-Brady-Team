@@ -11,7 +11,7 @@ import java.util.Objects;
 
 public class EventsScene implements Serializable {
 //class instant variable
-private int noToAnswer;
+private String noToAnswer;
 private String successRate;
 private HuntingGathering huntingGathering;
 private RiverScene riverScene;
@@ -35,12 +35,12 @@ private RiverScene riverScene;
 
 
 
-    public int getNoToAnswer() {
+    public String getNoToAnswer() {
         return noToAnswer;
     }
 
-    public void setNoToAnswer(int noToAnswer) {
-        this.noToAnswer = noToAnswer;
+    public void setNoToAnswer(String noToAnswer) {
+         this.noToAnswer = noToAnswer; 
     }
 
     public String getSuccessRate() {
@@ -57,8 +57,7 @@ private RiverScene riverScene;
     @Override
     public int hashCode() {
         int hash = 3;
-        hash = 83 * hash + this.noToAnswer;
-        hash = 83 * hash + Objects.hashCode(this.successRate);
+         hash = 83 * hash + Objects.hashCode(this.successRate);
         return hash;
     }
 
@@ -74,7 +73,7 @@ private RiverScene riverScene;
             return false;
         }
         final EventsScene other = (EventsScene) obj;
-        if (this.noToAnswer != other.noToAnswer) {
+        if (this.noToAnswer == null ? other.noToAnswer != null : !this.noToAnswer.equals(other.noToAnswer)) {
             return false;
         }
         return Objects.equals(this.successRate, other.successRate);
