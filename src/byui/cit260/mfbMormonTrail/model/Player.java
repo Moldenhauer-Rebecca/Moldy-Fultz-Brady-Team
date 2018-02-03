@@ -146,6 +146,10 @@ public class Player implements Serializable{
         }
         return Objects.equals(this.currentHealth, other.currentHealth);
     }
+
+    public String getName(String tester) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
     
     
