@@ -6,6 +6,10 @@
 package mormontrail;
 
 
+import byui.cit260.mfbMormonTrail.model.Actor;
+import byui.cit260.mfbMormonTrail.model.Game;
+import byui.cit260.mfbMormonTrail.model.HealthStats;
+import byui.cit260.mfbMormonTrail.model.Player;
 import byui.cit260.mfbMormonTrail.model.Team;
 
 /**
@@ -19,8 +23,22 @@ public class MormonTrail {
      */
     public static void main(String[] args) {
 
-        Team team = new Team();
-      
+       HealthStats healthStats = new HealthStats();
+       healthStats.setWeather("rainy");
+       
+       System.out.println(healthStats.toString());
+       
+       Player player = new Player();
+       player.setName("Chelsie");
+       
+       System.out.println(player.toString());
+       
+       Game game = new Game();
+       game.setPace("fast");
+       
+       System.out.println(game.toString());
     }
+    
+    
     
 }
