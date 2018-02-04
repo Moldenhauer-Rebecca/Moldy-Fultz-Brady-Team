@@ -102,13 +102,10 @@ public class ResourceScene implements Serializable{
         if (!Objects.equals(this.buy, other.buy)) {
             return false;
         }
-        if (!Objects.equals(this.sell, other.sell)) {
-            return false;
-        }
-        return true;
+        return Objects.equals(this.sell, other.sell);
     }
-    
-    
+
+  
     
     
     

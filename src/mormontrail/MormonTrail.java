@@ -6,9 +6,14 @@
 package mormontrail;
 
 
-import byui.cit260.mfbMormonTrail.model.HuntingGathering;
-import byui.cit260.mfbMormonTrail.model.RiverScene;
-import byui.cit260.mfbMormonTrail.model.EventsScene;
+import byui.cit260.mfbMormonTrail.model.Actor;
+import byui.cit260.mfbMormonTrail.model.Game;
+import byui.cit260.mfbMormonTrail.model.HotelScene;
+import byui.cit260.mfbMormonTrail.model.InventoryItem;
+import byui.cit260.mfbMormonTrail.model.InventoryItemType;
+import byui.cit260.mfbMormonTrail.model.LocationType;
+import byui.cit260.mfbMormonTrail.model.Player;
+import byui.cit260.mfbMormonTrail.model.ResourceScene;
 
 
 /**
@@ -22,40 +27,123 @@ public class MormonTrail {
      */
     public static void main(String[] args) {
 
-       //HuntingGathering Class Stats 
+        
+         //**********
+       //Game Class
+       Game game = new Game();
+       game.setPace("fast");
        
-       HuntingGathering huntingGathering = new HuntingGathering();
-       
-       huntingGathering.setTeamSkillLevel(5);
-       huntingGathering.setResourceAvailablity("tools");
-       
-       System.out.println(huntingGathering.toString());
-       
+       System.out.println(game.toString());
+        
        //**********
-       //RiverScene Class
+       //Player Class
        
-       RiverScene riverScene = new RiverScene();
+       Player player = new Player();
        
-     riverScene.setOxyenStrength(50);
-     riverScene.setRiverDepth(4);
-     riverScene.setSuccessRate("Is my Wagon to heavy?");
-     riverScene.setWagonWeight(40);
+       player.getName();
 
-       System.out.println(riverScene.toString());
+       System.out.println(player.toString());
        
+        //**********
+        //Actor Class
+        
+        Actor.Actor1.getName();
+        Actor.Actor1.getDescription();
+       
+       System.out.println(Actor.Actor1.toString());
+       
+       Actor.Actor2.getName();
+        Actor.Actor2.getDescription();
+       
+       System.out.println(Actor.Actor2.toString());
+       
+       Actor.Actor3.getName();
+       Actor.Actor3.getDescription();
+       
+       System.out.println(Actor.Actor3.toString());
+              
+       //**********
+       //InventoryItem Class
+         
+       InventoryItem inventoryItem = new InventoryItem();
+       
+       inventoryItem.setInventoryType("Wagon");
+       inventoryItem.setQuantityInStock(3);
+       inventoryItem.setRequiredAmount(1);
+       inventoryItem.setItemWeight(1500);
+       inventoryItem.setCurrentStrength(2);
+              
+       System.out.println(inventoryItem.toString());
+       
+      //**********
+       //HotelScene Class
+       
+       HotelScene hotelScene = new HotelScene();
+       
+       hotelScene.setAddPlayer("Yes");
+       
+       System.out.println(hotelScene.toString());
+       
+       //**********
+       //ResourceScene Class
+       
+       ResourceScene resourceScene = new ResourceScene();
+       
+       resourceScene.setAmount(4);
+       resourceScene.setBuy("yes");
+       resourceScene.setSell("no");  
+
+       
+       System.out.println(resourceScene.toString()); 
       
        //**********
-       //EventsScene Class
-       
-       EventsScene eventsScene = new EventsScene();
-       
-       eventsScene.setNoToAnswer("yes or no");
-       eventsScene.setSuccessRate("Do I really want to shoot that Buffalo?");
+       //LocationType Class
       
+       LocationType.Town.getName();
+       LocationType.Town.getDescription();
        
-       System.out.println(eventsScene.toString());
-              
+       System.out.println(LocationType.Town.toString());
        
+       LocationType.Fort.getName();
+       LocationType.Fort.getDescription();
+       
+       System.out.println(LocationType.Fort.toString());
+       
+       LocationType.River.getName();
+       LocationType.River.getDescription();
+       
+       System.out.println(LocationType.River.toString());
+       
+       LocationType.HuntGather.getName();
+       LocationType.HuntGather.getDescription();
+       
+       System.out.println(LocationType.HuntGather.toString());
+       
+        //**********
+        //InventoyType Class
+  
+       InventoryItemType.Ox.getItem();
+       InventoryItemType.Ox.getMaxWeight();
+       System.out.println(InventoryItemType.Ox.toString());
+
+        
+       InventoryItemType.Wagon.getItem();
+       InventoryItemType.Wagon.getMaxWeight();
+       
+       System.out.println(InventoryItemType.Wagon.toString());
+       
+       InventoryItemType.Food.getItem();
+       InventoryItemType.Food.getMaxWeight();
+       System.out.println(InventoryItemType.Food.toString());
+       
+       InventoryItemType.SpareWheel.getItem();
+       InventoryItemType.SpareWheel.getMaxWeight();
+       System.out.println(InventoryItemType.SpareWheel.toString());
+       
+       InventoryItemType.Ammunition.getItem();
+       InventoryItemType.Ammunition.getMaxWeight();
+       System.out.println(InventoryItemType.Ammunition.toString());
+
       
         
         

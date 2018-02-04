@@ -54,6 +54,11 @@ InventoryItemType(String item, int maxWeight) {
         return maxWeight;
     }
 
+    @Override
+    public String toString() {
+        return "InventoryItemType{" + "item=" + item + ", maxWeight=" + maxWeight + '}';
+    }
+
 
     
 }
