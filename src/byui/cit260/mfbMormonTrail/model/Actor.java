@@ -11,9 +11,9 @@ package byui.cit260.mfbMormonTrail.model;
  */
 public enum Actor {
     
-    Actor1("Benjamin", "He is a blacksmith from Boston"),
-    Actor2("Zeke", "He is a farmer from New York"),
-    Actor3("Mary", "She is a widow from Philadelphia");
+    Benjamin("Benjamin", "He is a blacksmith from Boston"),
+    Zeke("Zeke", "He is a farmer from New York"),
+    Mary("Mary", "She is a widow from Philadelphia");
     
     private String name;
     private String description;  

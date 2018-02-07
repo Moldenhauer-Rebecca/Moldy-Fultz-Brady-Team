@@ -23,7 +23,7 @@ public class Game implements Serializable {
     private int dailyMilesTraveled;
     private int totalTime;
     private double currentMoneyBalance;
-    private String Pace;
+    private String pace;
     private Player player;
     public Map map;
     public ArrayList<InventoryItem> inventoryItem = new ArrayList<>();
@@ -182,12 +182,5 @@ public class Game implements Serializable {
         }
         return Objects.equals(this.Pace, other.Pace);
     }
-
-    public void setDayofWeek(String thursday) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-    
-    
-    
     
 }

@@ -47,20 +47,20 @@ public class MormonTrail {
         //**********
         //Actor Class
         
-        Actor.Actor1.getName();
-        Actor.Actor1.getDescription();
+        Actor.Benjamin.getName();
+        Actor.Benjamin.getDescription();
        
-       System.out.println(Actor.Actor1.toString());
+       System.out.println(Actor.Benjamin.toString());
        
-       Actor.Actor2.getName();
-        Actor.Actor2.getDescription();
+       Actor.Zeke.getName();
+        Actor.Zeke.getDescription();
        
-       System.out.println(Actor.Actor2.toString());
+       System.out.println(Actor.Zeke.toString());
        
-       Actor.Actor3.getName();
-       Actor.Actor3.getDescription();
+       Actor.Mary.getName();
+       Actor.Mary.getDescription();
        
-       System.out.println(Actor.Actor3.toString());
+       System.out.println(Actor.Mary.toString());
               
        //**********
        //InventoryItem Class
