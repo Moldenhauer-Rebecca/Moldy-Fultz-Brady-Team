@@ -31,7 +31,7 @@ public class MormonTrail {
          //**********
        //Game Class
        Game game = new Game();
-       game.setPace("fast");
+       //game.setPace("fast");
        
        System.out.println(game.toString());
         

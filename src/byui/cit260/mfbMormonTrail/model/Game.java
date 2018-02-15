@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package byui.cit260.mfbMormonTrail.model;
 
 import java.io.Serializable;
@@ -97,7 +93,7 @@ public class Game implements Serializable {
         this.distanceRemaining = distanceRemaining;
     }
 
-    public int getDailyMilesTraveled() {
+    public double getDailyMilesTraveled() {
         return dailyMilesTraveled;
     }
 
@@ -121,13 +117,14 @@ public class Game implements Serializable {
         this.currentMoneyBalance = currentMoneyBalance;
     }
 
-    public String getPace() {
-        return Pace;
+     public String getPace() {
+        return pace;
     }
 
     public void setPace(String Pace) {
-        this.Pace = Pace;
+        this.pace = Pace;
     }
+
 
     @Override
     public int hashCode() {
@@ -139,13 +136,12 @@ public class Game implements Serializable {
         hash = 41 * hash + this.dailyMilesTraveled;
         hash = 41 * hash + this.totalTime;
         hash = 41 * hash + (int) (Double.doubleToLongBits(this.currentMoneyBalance) ^ (Double.doubleToLongBits(this.currentMoneyBalance) >>> 32));
-        hash = 41 * hash + Objects.hashCode(this.Pace);
         return hash;
     }
 
     @Override
     public String toString() {
-        return "Game{" + "numPeople=" + numPeople + ", dayOfWeek=" + dayOfWeek + ", distanceTraveled=" + distanceTraveled + ", distanceRemaining=" + distanceRemaining + ", dailyMilesTraveled=" + dailyMilesTraveled + ", totalTime=" + totalTime + ", currentMoneyBalance=" + currentMoneyBalance + ", Pace=" + Pace + '}';
+        return "Game{" + "numPeople=" + numPeople + ", dayOfWeek=" + dayOfWeek + ", distanceTraveled=" + distanceTraveled + ", distanceRemaining=" + distanceRemaining + ", dailyMilesTraveled=" + dailyMilesTraveled + ", totalTime=" + totalTime + ", currentMoneyBalance=" + currentMoneyBalance + ", Pace=" + '}';
     }
     
     
@@ -180,7 +176,8 @@ public class Game implements Serializable {
         if (!Objects.equals(this.dayOfWeek, other.dayOfWeek)) {
             return false;
         }
-        return Objects.equals(this.Pace, other.Pace);
+       // return Objects.equals(this.Pace, other.Pace);
+        return false;
     }
     
 }
