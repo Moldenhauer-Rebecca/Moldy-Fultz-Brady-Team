@@ -24,6 +24,8 @@ public enum LocationType {
     }
 
     public static LocationType getTown() {
+        
+        
         return Town;
     }
 
