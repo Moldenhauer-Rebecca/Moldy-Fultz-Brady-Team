@@ -5,10 +5,30 @@
  */
 package byui.cit260.mfbMormonTrail.control;
 
+import byui.cit260.mfbMormonTrail.model.Player;
+
 /**
  *
  * @author crmol
  */
 public class GameControl {
+
+    public static Player savePlayer(String playerName) {
+        if ((playerName == null) || (playerName.length() <1)) {
+            return null;
+        }
+        
+        Player player = new Player();
+        player.setName(playerName);
+       
+        return player;
+    }
+
+    public static void createNewGame() {
+         System.out.println("createNewGame function called");
+    }
+
+
+    
     
 }

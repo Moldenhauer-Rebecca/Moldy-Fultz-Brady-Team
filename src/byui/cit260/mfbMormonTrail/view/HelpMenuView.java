@@ -5,19 +5,18 @@
  */
 package byui.cit260.mfbMormonTrail.view;
 
-import byui.cit260.mfbMormonTrail.control.GameControl;
-import byui.cit260.mfbMormonTrail.model.Player;
 import java.util.Scanner;
 
 /**
  *
- * @author crmol
+ * @author Mike
  */
-public class MainMenu {
+class HelpMenuView {
+    
     private String[] getInput() {	
         String[] input = new String[1];
-        boolean valid;
-        valid = false;
+        
+        boolean valid = false;
         
         while (valid == false) {
             System.out.println("Please make your selection");
@@ -27,7 +26,6 @@ public class MainMenu {
     
             if (input[0].length() < 1) {     //We check for invalid input, trimmed the value, and now check to see if there's a value. 
                 System.out.println("Please enter a valid selection.");
-                continue;
             }
             valid = true;
         }
@@ -35,28 +33,30 @@ public class MainMenu {
         return input; 
 	}
     
-    /**
-     * perform the actions of the menu
-     * @param input
-     * @return true if the menu should exit, otherwise false 
-     */
     private boolean doAction(String[] input) {
         
         String menuItem = input[0];
         menuItem = menuItem.toUpperCase();               
        
         switch (menuItem) {
-            case "N":
-                startNewGame();
+            case "G":
+                System.out.println("The goal of the game");
                 break;
-            case "R":
-                restartGame();
-                break;
-            case "H":
-                getHelp();
+            case "M":
+                System.out.println("How to move");
                 break;
             case "E":
+                System.out.println("Estimate the number of resources");
+                break;
+            case "H":
+                System.out.println("Harvest resources");
+                break;
+            case "D":
+                System.out.println("Delivering resources to warehouse");
+                break;
+            case "Q":
                 return true;
+                
             default:
                 System.out.println("Invalid menu item.");
                 break;                        
@@ -65,41 +65,22 @@ public class MainMenu {
         return false;
     }
 
-
-    public void displayMainMenu() {
-        boolean exitMenu;
+    public void displayHelpMenuView(){
+        boolean exitHelpMenu;
         do {
-            System.out.println("\n Main Menu"
-                + "\n N - Start new game"
-                + "\n R - Restart existing game"
-                + "\n H - Get help on how to play the game"
-                + "\n E - Exit");
+            System.out.println("\n Help Menu"
+                + "\n G - What is the goal of the game?"
+                + "\n M - How to move"
+                + "\n E - Estimate the number of resources"
+                + "\n H - Harvest resources"
+                + "\n D - Delivering resources to warehouse"
+                + "\n Q - Quit");
             
             String[] input = getInput(); 
             
-            exitMenu = doAction(input);
+            exitHelpMenu = doAction(input);
         } 
-        while (exitMenu == false);
+        while (exitHelpMenu == false);    
         
-        
     }
-
-    private void startNewGame() {
-        GameControl.createNewGame();
-        
-        GameMenuView gameMenuView = new GameMenuView();
-        gameMenuView.displayGameMenuView();
-    }
-
-    private void restartGame() {
-       StartExistingGameView startExistingGameView = new StartExistingGameView();
-       startExistingGameView.displayStartExistingGameView();
-    }
-
-    private void getHelp() {
-       HelpMenuView helpMenuView = new HelpMenuView();
-       helpMenuView.displayHelpMenuView();
-    }
-   
-    
 }
