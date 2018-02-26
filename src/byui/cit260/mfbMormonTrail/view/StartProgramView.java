@@ -14,6 +14,7 @@ import java.util.Scanner;
  * @author crmol
  */
 public class StartProgramView {
+    Scanner inputScanner = new Scanner(System.in);
     
     public void displayStartProgramView(){
         boolean exit = false;
@@ -132,16 +133,5 @@ public class StartProgramView {
 		return nameScanner.nextLine();
     
     }
-    
-    public void displayMainMenu() {
-        System.out.println("Main Menu Display");
-    }
-   
-    public void runStartProgramView() {
-        System.out.println("runStartProgramView ran successfully"); //To change body of generated methods, choose Tools | Templates.
-    }
 
-    private void performHelpMenuAction(int choice) {
-        System.out.println("performHelpMenuAction ran successfully"); //To change body of generated methods, choose Tools | Templates.
-    }
-    }
+}

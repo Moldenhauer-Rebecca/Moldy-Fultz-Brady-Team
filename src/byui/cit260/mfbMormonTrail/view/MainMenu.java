@@ -88,8 +88,7 @@ public class MainMenu {
             exitMenu = doAction(input);
         } 
         while (exitMenu == false);
-        
-        
+         
     }
 
     private void startNewGame() {
