@@ -5,6 +5,7 @@
  */
 package byui.cit260.mfbMormonTrail.view;
 
+import byui.cit260.mfbMormonTrail.control.GameControl;
 import java.util.Scanner;
 
 /**
@@ -75,7 +76,7 @@ public class DailyTrailStopSceneMenuView {
                     + "\n F - Visit the Fort."
                     + "\n C - Cross the river."
                     + "\n R - Rest for a day."
-                    + "\n G - Go hunting."
+                    + "\n H - Go hunting."
                     + "\n L - Look for edible plants."
                     + "\n Q - Quit");
 
@@ -86,8 +87,29 @@ public class DailyTrailStopSceneMenuView {
 
     }
 
+    private void enterTownScene() {
+        TownSceneMenu townSceneMenu = new TownSceneMenu();
+        townSceneMenu.displayTownSceneMenu();
+    }
+
     private void fortView() {
-        FortView fortview = new FortView();
-        fortview.displayFortView();
+        FortView fortView = new FortView();
+        fortView.displayFortView();
+    }
+
+    private void crossRiverView() {
+        System.out.println("crossRiverView ran successfully");
+    }
+
+    private void restForDayView() {
+        System.out.println("restForDay ran successfully");
+    }
+
+    private void goHuntView() {
+        System.out.println("goHuntView ran successfully");
+    }
+
+    private void goGatherView() {
+        System.out.println("goGatherView ran successfully");
     }
 }
