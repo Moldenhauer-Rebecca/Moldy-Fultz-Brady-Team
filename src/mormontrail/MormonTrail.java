@@ -16,6 +16,7 @@ import byui.cit260.mfbMormonTrail.model.Player;
 import byui.cit260.mfbMormonTrail.model.ResourceScene;
 import byui.cit260.mfbMormonTrail.view.MainMenu;
 import byui.cit260.mfbMormonTrail.view.StartProgramView;
+import byui.cit260.mfbMormonTrail.view.TownSceneMenu;
 
 
 
@@ -33,6 +34,8 @@ public class MormonTrail {
        
        StartProgramView startProgramView = new StartProgramView();      
        startProgramView.displayStartProgramView();
+       TownSceneMenu townSceneMenu = new TownSceneMenu();
+       townSceneMenu.displayTownSceneMenu();
        
         
     }

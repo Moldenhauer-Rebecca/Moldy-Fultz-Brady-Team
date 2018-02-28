@@ -28,7 +28,15 @@ public class GameControl {
          System.out.println("createNewGame function called");
     }
 
+    public static void visitTheHotel() {
+    
+    }
+
+
+      
+    }
+
 
     
     
-}
+

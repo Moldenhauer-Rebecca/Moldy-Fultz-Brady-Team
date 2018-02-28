@@ -55,6 +55,9 @@ public class MainMenu {
             case "H":
                 getHelp();
                 break;
+            case "T":
+                enterTownScene();
+                break;                 
             case "E":
                 return true;
             default:
@@ -73,6 +76,7 @@ public class MainMenu {
                 + "\n N - Start new game"
                 + "\n R - Restart existing game"
                 + "\n H - Get help on how to play the game"
+                + "\n T - Enter Town scene"
                 + "\n E - Exit");
             
             String[] input = getInput(); 
@@ -101,5 +105,8 @@ public class MainMenu {
        helpMenuView.displayHelpMenuView();
     }
    
-    
+    private void enterTownScene() {
+       TownSceneMenu townSceneMenu = new TownSceneMenu();
+       townSceneMenu.displayTownSceneMenu();
+    }
 }

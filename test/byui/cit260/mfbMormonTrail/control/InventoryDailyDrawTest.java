@@ -75,6 +75,21 @@ public class InventoryDailyDrawTest {
         double result = InventoryDailyDraw.calcInventoryDailyDraw(5, 2000.0);
         assertEquals(1987.5, result, 0.001);
     }
+
+    /**
+     * Test of calcInventoryDailyDraw method, of class InventoryDailyDraw.
+     */
+    @Test
+    public void testCalcInventoryDailyDraw() {
+        System.out.println("calcInventoryDailyDraw");
+        int numPeople = 0;
+        double inventoryAmount = 0.0;
+        double expResult = 0.0;
+        double result = InventoryDailyDraw.calcInventoryDailyDraw(numPeople, inventoryAmount);
+        assertEquals(expResult, result, 0.0);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
     
     
 }

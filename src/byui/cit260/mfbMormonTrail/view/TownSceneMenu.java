@@ -1,8 +1,5 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
+
 package byui.cit260.mfbMormonTrail.view;
 
 import byui.cit260.mfbMormonTrail.control.GameControl;
@@ -49,7 +46,7 @@ public class TownSceneMenu {
        
         switch (menuItem) {
             case "H":
-                visitTheHotel();
+                visitHotelView();
                 break;
             case "G":
                 visitGeneralStore();
@@ -81,18 +78,18 @@ public class TownSceneMenu {
         
     }
 
-    private void visitTheHotel() {
+    private void visitHotelView() {
         GameControl.visitTheHotel();
         
-        VisitHotelView visitHotelView = new VisitHotelView();
-        visitHotelView.displayVisitHotelView();
+        HotelView visitTheHotel = new HotelView();
+        visitTheHotel.displayHotelView();
         
         
         
     }
 
     private void visitGeneralStore() {
-        
+     System.out.println("visit general store function");
     }
     
     
