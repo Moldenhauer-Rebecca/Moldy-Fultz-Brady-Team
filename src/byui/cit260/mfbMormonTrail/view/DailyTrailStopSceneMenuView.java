@@ -27,6 +27,7 @@ public class DailyTrailStopSceneMenuView {
 
             if (input[0].length() < 1) {     //We check for invalid input, trimmed the value, and now check to see if there's a value. 
                 System.out.println("Please enter a valid selection.");
+                continue;
             }
             valid = true;
         }
