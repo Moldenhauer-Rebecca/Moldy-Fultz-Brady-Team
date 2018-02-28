@@ -14,5 +14,9 @@ class GeneralStoreView {
     void displayGeneralStoreView() {
          System.out.println("GeneralStoreView ran successfully"); //This will look just like visit hotel
     }
+
+    void displayGeneralStore() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
 }

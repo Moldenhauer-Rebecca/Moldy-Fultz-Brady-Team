@@ -52,9 +52,9 @@ public class FortView {
 
     private String[] getInput() {
         String[] input = new String[1];
-        
+
         printFortMenu();
-        
+
         boolean valid = false;
 
         while (valid == false) {
@@ -79,8 +79,8 @@ public class FortView {
 
         if (choice.equals("G")) {
 
-            GeneralStoreView view = new GeneralStoreView();
-            view.displayGeneralStoreView();
+            GeneralStoreView storeView = new GeneralStoreView();
+            storeView.displayGeneralStoreView();
         } else {
             return true;
 
@@ -90,11 +90,16 @@ public class FortView {
 
     private void printFortMenu() {
         System.out.println("\n*"
-                + "Welcome to the Fort Scene Menu."
-                + "Please Make a Selection:"
-                + "G: Visit General Store"
-                + "R: Return to Trail"
-                + "0: Exit");
+                + "\nWelcome to the Fort Scene Menu."
+                + "\nPlease Make a Selection:"
+                + "\nG: Visit General Store"
+                + "\nR: Return to Trail"
+                + "\nE: Exit");
+    }
+
+    private void generalStoreView() {
+        GeneralStoreView generalStore = new GeneralStoreView();
+        generalStore.displayGeneralStore();
     }
 
 }
