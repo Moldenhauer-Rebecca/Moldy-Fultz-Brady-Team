@@ -57,7 +57,10 @@ public class MainMenu {
                 break;
             case "T":
                 enterTownScene();
-                break;                 
+                break;    
+            case "D" :  
+                dailyTrailStop();
+                break;
             case "E":
                 return true;
             default:
@@ -77,6 +80,7 @@ public class MainMenu {
                 + "\n R - Restart existing game"
                 + "\n H - Get help on how to play the game"
                 + "\n T - Enter Town scene"
+                + "\n D - Daily Tail Stop Scene"
                 + "\n E - Exit");
             
             String[] input = getInput(); 
@@ -108,5 +112,10 @@ public class MainMenu {
     private void enterTownScene() {
        TownSceneMenu townSceneMenu = new TownSceneMenu();
        townSceneMenu.displayTownSceneMenu();
+    }
+    
+     private void dailyTrailStop() {
+       DailyTrailStopSceneMenuView view = new DailyTrailStopSceneMenuView();
+       view.displayDailyTrailStopSceneMenuView();
     }
 }
