@@ -11,47 +11,34 @@ import java.util.Scanner;
  *
  * @author samue
  */
-public class TownSceneMenu {
+public class TownSceneMenu extends View {
     
-     private String[] getInput() {	
-        String[] input = new String[1];
-        boolean valid;
-        valid = false;
+    public TownSceneMenu() {
+        super ("\n "
+                +"\n----------------------------------------"
+                +"\n Town Scene Menu"
+                +"\n----------------------------------------"
+                + "\n H - Visit the Hotel"
+                + "\n R - Visit the General Store"
+                + "\n Q - Quit"
+                +"\n----------------------------------------");
+                
+    }   
+          
+    @Override 
+    public boolean doAction(String value) {
         
-        while (valid == false) {
-            System.out.println("Please make your selection");
-            Scanner inputScanner = new Scanner(System.in);
-            input[0] = inputScanner.nextLine();
-            input[0] = input[0].trim();
-    
-            if (input[0].length() < 1) {     //We check for invalid input, trimmed the value, and now check to see if there's a value. 
-                System.out.println("Please enter a valid selection.");
-                continue;
-            }
-            valid = true;
-        }
         
-        return input; 
-	}
-     
-        /**
-     * perform the actions of the menu
-     * @param input
-     * @return true if the menu should exit, otherwise false 
-     */
-    private boolean doAction(String[] input) {
-        
-        String menuItem = input[0];
-        menuItem = menuItem.toUpperCase();               
+        value = value.toUpperCase();               
        
-        switch (menuItem) {
+        switch (value) {
             case "H":
                 visitHotelView();
                 break;
             case "G":
                 visitGeneralStore();
                 break;
-            case "E":
+            case "Q":
                 return true;
             default:
                 System.out.println("Invalid menu item.");
@@ -61,28 +48,13 @@ public class TownSceneMenu {
         return false;
     }
     
-    public void displayTownSceneMenu() {
-        boolean exitMenu;
-        do {
-            System.out.println("\n "
-                + "\n H - Visit the Hotel"
-                + "\n R - Visit the General Store"
-                + "\n E - Exit");
-            
-            String[] input = getInput(); 
-            
-            exitMenu = doAction(input);
-        } 
-        while (exitMenu == false);
-        
-        
-    }
+  
 
     private void visitHotelView() {
         GameControl.visitTheHotel();
         
         HotelView visitTheHotel = new HotelView();
-        visitTheHotel.displayHotelView();
+        visitTheHotel.display();
         
         
         
@@ -92,9 +64,8 @@ public class TownSceneMenu {
      System.out.println("visit general store function");
     }
 
-    void display() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+    //To change body of generated methods, choose Tools | Templates.
+    
     
     
     
