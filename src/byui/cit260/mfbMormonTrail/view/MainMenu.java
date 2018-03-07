@@ -13,28 +13,9 @@ import java.util.Scanner;
  *
  * @author crmol
  */
-public class MainMenu {
+public class MainMenu extends View {
 
-    private String[] getInput() {
-        String[] input = new String[1];
-        boolean valid;
-        valid = false;
-
-        while (valid == false) {
-            System.out.println("Please make your selection");
-            Scanner inputScanner = new Scanner(System.in);
-            input[0] = inputScanner.nextLine();
-            input[0] = input[0].trim();
-
-            if (input[0].length() < 1) {     //We check for invalid input, trimmed the value, and now check to see if there's a value. 
-                System.out.println("Please enter a valid selection.");
-                continue;
-            }
-            valid = true;
-        }
-
-        return input;
-    }
+    
 
     /**
      * perform the actions of the menu
@@ -88,7 +69,7 @@ public class MainMenu {
                     + "\n G - Game Play Menu"
                     + "\n E - Exit");
 
-            String[] input = getInput();
+            String input = getInput();
 
             exitMenu = doAction(input);
         } while (exitMenu == false);
@@ -125,5 +106,10 @@ public class MainMenu {
     private void gamePlayMenu() {
         GamePlayMenu gamePlayMenu = new GamePlayMenu();
         gamePlayMenu.displayGamePlayMenu();
+    }
+
+    @Override
+    public boolean doAction(String value) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }
