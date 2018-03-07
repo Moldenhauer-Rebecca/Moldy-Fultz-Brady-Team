@@ -15,11 +15,11 @@ import byui.cit260.mfbMormonTrail.model.Player;
  *
  * @author samue
  */
-public class HotelView { 
+public class HotelView {
 
-    private HotelScene hotelScene = new HotelScene();
+    private final HotelScene hotelScene = new HotelScene();
 
-    public void displayHotelView() {
+    public void displayHotelScene() {
 
         boolean exit = false;
         printHotelMenu();
@@ -42,13 +42,13 @@ public class HotelView {
 
         while (i < hotelScene.getPlayers().size()) {
             Player player = hotelScene.getPlayers().get(i);
-            System.out.println((i+1) + " " + player.getName());
+            System.out.println((i + 1) + " " + player.getName());
             i = i + 1;
 
         }
 
         System.out.println("Q Quit");
-           
+
     }
 
     private String[] getInput() {
@@ -66,7 +66,7 @@ public class HotelView {
             if (input[0].length() < 1) {     //We check for invalid input, trimmed the value, and now check to see if there's a value. 
                 System.out.println("Please make your valid selction");
             }
-            
+
             valid = true;
         }
 
@@ -79,20 +79,20 @@ public class HotelView {
         // Or Q to quit.
         // Check to see if input[0].equals("Q")
         // If true, then return true (exit menu)
-        if(input[0].toUpperCase().equals("Q")){
+        if (input[0].toUpperCase().equals("Q")) {
             return true;
         }
-       
-       // Convert input[0] to an integer
-       int playerIndex = Integer.parseInt(input[0]);
-       
-       // Get the player object from hotelScene.getPlayers() that 
-       // corresponds to the the playerIndex selected 
-       // Don't forget about -1 because arrays start at 0.
-       Player player = hotelScene.getPlayers().get(playerIndex - 1 );
-       // Print the message "You selected [player name]"
-       System.out.println(player);
-       return false; // keep the menu going
+
+        // Convert input[0] to an integer
+        int playerIndex = Integer.parseInt(input[0]);
+
+        // Get the player object from hotelScene.getPlayers() that 
+        // corresponds to the the playerIndex selected 
+        // Don't forget about -1 because arrays start at 0.
+        Player player = hotelScene.getPlayers().get(playerIndex - 1);
+        // Print the message "You selected [player name]"
+        System.out.println(player);
+        return false; // keep the menu going
     }
 
 }
