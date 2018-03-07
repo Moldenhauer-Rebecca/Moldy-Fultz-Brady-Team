@@ -7,32 +7,26 @@ package byui.cit260.mfbMormonTrail.view;
 
 import byui.cit260.mfbMormonTrail.model.FortScene;
 import byui.cit260.mfbMormonTrail.model.GeneralStoreScene;
-import java.util.Scanner;
+
 
 /**
  *
  * @author crmol
  */
-public class FortView {
+public class FortView extends View {
 
     private final FortScene fortScene = new FortScene();
 
-    public void displayFortView() {
-        boolean exit = false;
-
-        printDescription();
-
-        do {
-            String[] input = this.getInput();
-
-            if (input == null || input[0].toUpperCase().equals("Q")) {
-                return;
-
-            }
-            exit = this.doAction(input);
-
-        } while (exit != true);
-
+    public FortView() {
+        super("\n*"
+                + "\n----------------------------------------"
+                + "\n Fort Menu"
+                +"\n----------------------------------------"
+                + "\nWelcome to the Fort Scene Menu."
+                + "\nPlease Make a Selection:"
+                + "\nG: Visit General Store"
+                + "\nR: Return to Trail"
+                + "\nQ: Quit");
     }
 
     public void printDescription() {
@@ -49,35 +43,15 @@ public class FortView {
                 + "\n**************************************************"
         );
     }
+    
+    @Override
+    public boolean doAction(String value) {
 
-    private String[] getInput() {
-        String[] input = new String[1];
+        printDescription();
 
-        printFortMenu();
+        value = value.toUpperCase();
 
-        boolean valid = false;
-
-        while (valid == false) {
-            System.out.println("Please make your selection");
-            Scanner inputScanner = new Scanner(System.in);
-            input[0] = inputScanner.nextLine();
-            input[0] = input[0].trim();
-
-            if (input[0].length() < 1) {     //We check for invalid input, trimmed the value, and now check to see if there's a value. 
-                System.out.println("Please enter a valid selection.");
-            }
-            valid = true;
-        }
-
-        return input;
-    }
-
-    private boolean doAction(String[] input) {
-
-        String choice = input[0];
-        choice = choice.toUpperCase();
-
-        if (choice.equals("G")) {
+        if (value.equals("G")) {
 
             GeneralStoreView storeView = new GeneralStoreView();
             storeView.displayGeneralStoreView();
@@ -86,15 +60,6 @@ public class FortView {
 
         }
         return false;
-    }
-
-    private void printFortMenu() {
-        System.out.println("\n*"
-                + "\nWelcome to the Fort Scene Menu."
-                + "\nPlease Make a Selection:"
-                + "\nG: Visit General Store"
-                + "\nR: Return to Trail"
-                + "\nE: Exit");
     }
 
     private void generalStoreView() {

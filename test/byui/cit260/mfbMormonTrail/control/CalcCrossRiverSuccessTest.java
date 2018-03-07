@@ -9,7 +9,7 @@ import static org.junit.Assert.*;
  * @author crmol
  */
 public class CalcCrossRiverSuccessTest {
-    
+
     public CalcCrossRiverSuccessTest() {
     }
 
