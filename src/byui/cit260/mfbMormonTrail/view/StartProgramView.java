@@ -123,7 +123,7 @@ public class StartProgramView {
                                 + "\n**************************************************");
         
         MainMenu mainMenu = new MainMenu();
-        mainMenu.displayMainMenu();
+        mainMenu.display();
                
             return true;
     }
