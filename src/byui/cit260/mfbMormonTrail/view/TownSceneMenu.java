@@ -54,7 +54,7 @@ public class TownSceneMenu extends View {
         GameControl.visitTheHotel();
         
         HotelView visitTheHotel = new HotelView();
-        visitTheHotel.display();
+        visitTheHotel.displayHotelScene();
         
         
         
