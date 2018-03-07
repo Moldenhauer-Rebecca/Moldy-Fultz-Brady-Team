@@ -20,10 +20,12 @@ public class CalcHuntingSuccessRate {
             return -2;
         }
         
-         int huntingSuccessRate = (teamSkillLevel + resourceAvailablity)*10;
+        int huntingSuccessRate = (teamSkillLevel + resourceAvailablity)*10;
     
         
         return huntingSuccessRate;
+        
+        
         
     }
  }
