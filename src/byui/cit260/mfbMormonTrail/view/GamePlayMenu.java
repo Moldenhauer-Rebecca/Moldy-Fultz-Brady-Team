@@ -116,6 +116,6 @@ class GamePlayMenu {
 
     private void helpMenuView() {
         HelpMenuView helpMenuView = new HelpMenuView();
-        helpMenuView.displayHelpMenuView();
+        helpMenuView.display();
     }
 }

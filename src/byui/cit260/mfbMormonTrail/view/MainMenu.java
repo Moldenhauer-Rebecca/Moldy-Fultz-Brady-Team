@@ -41,7 +41,6 @@ public class MainMenu extends View {
 
        value = value.toUpperCase();  // convert to all upper case 
         
-
         switch (value) {
             case "N":
                 startNewGame();
@@ -80,7 +79,7 @@ public class MainMenu extends View {
 
     private void getHelp() {
         HelpMenuView helpMenuView = new HelpMenuView();
-        helpMenuView.displayHelpMenuView();
+        helpMenuView.display();
     }
 
     private void saveGame() {

@@ -69,7 +69,7 @@ public class DailyTrailStopView extends View {
 
     private void fortView() {
         FortView fortView = new FortView();
-        fortView.displayFortView();
+        fortView.display();
     }
 
     private void crossRiverView() {
