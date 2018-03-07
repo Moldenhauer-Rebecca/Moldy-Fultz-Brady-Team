@@ -15,7 +15,19 @@ import java.util.Scanner;
  */
 public class MainMenu extends View {
 
-    
+    public MainMenu() {
+        super("\n"
+                +"\n----------------------------------------"
+                + "\n Main Menu"
+                +"\n----------------------------------------"
+                + "\nN - Start new game"
+                + "\nR - Restart existing game"
+                + "\nH - Get help on how to play the game" 
+                + "\nS - Save game"
+                + "\nQ - Quit"
+                +"\n----------------------------------------");
+
+    }
 
     /**
      * perform the actions of the menu
@@ -23,12 +35,13 @@ public class MainMenu extends View {
      * @param input
      * @return true if the menu should exit, otherwise false
      */
-    private boolean doAction(String[] input) {
+    @Override 
+    public boolean doAction(String value) {
 
-        String menuItem = input[0];
-        menuItem = menuItem.toUpperCase();
+       value = value.toUpperCase();  // convert to all upper case 
+        
 
-        switch (menuItem) {
+        switch (value) {
             case "N":
                 startNewGame();
                 break;
@@ -57,25 +70,7 @@ public class MainMenu extends View {
         return false;
     }
 
-    public void displayMainMenu() {
-        boolean exitMenu;
-        do {
-            System.out.println("\n Main Menu"
-                    + "\n N - Start new game"
-                    + "\n R - Restart existing game"
-                    + "\n H - Get help on how to play the game"
-                    + "\n T - Enter Town scene"
-                    + "\n D - Daily Tail Stop Scene"
-                    + "\n G - Game Play Menu"
-                    + "\n E - Exit");
-
-            String input = getInput();
-
-            exitMenu = doAction(input);
-        } while (exitMenu == false);
-
-    }
-
+   
     private void startNewGame() {
         GameControl.createNewGame();
 
@@ -102,14 +97,11 @@ public class MainMenu extends View {
         DailyTrailStopSceneMenuView view = new DailyTrailStopSceneMenuView();
         view.displayDailyTrailStopSceneMenuView();
     }
-    
+
     private void gamePlayMenu() {
         GamePlayMenu gamePlayMenu = new GamePlayMenu();
         gamePlayMenu.displayGamePlayMenu();
     }
 
-    @Override
-    public boolean doAction(String value) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+   
 }
