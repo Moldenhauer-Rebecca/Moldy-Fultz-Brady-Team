@@ -5,48 +5,28 @@
  */
 package byui.cit260.mfbMormonTrail.view;
 
-import java.util.Scanner;
-
 /**
  *
  * @author Mike
  */
-class GamePlayMenu {
-
-    private String[] getInput() {
-
-        String[] input = new String[1];
-        boolean valid;
-        valid = false;
-
-        while (valid == false) {
-            System.out.println("Please make your selection");
-            Scanner inputScanner = new Scanner(System.in);
-            input[0] = inputScanner.nextLine();
-            input[0] = input[0].trim();
-
-            if (input[0].length() < 1) {     //We check for invalid input, trimmed the value, and now check to see if there's a value. 
-                System.out.println("Please enter a valid selection.");
-                continue;
-            }
-            valid = true;
-        }
-
-        return input;
+class GamePlayMenu extends View {
+    public GamePlayMenu(){
+        super ("\n Game Play Menu"
+                + "\n T - View Team Status"
+                + "\n S - View Team Supplies"
+                + "\n P - Set Team Pace"
+                + "\n M - Scene Menu"
+                + "\n V - View Map"
+                + "\n H - Get Help"
+                + "\n E - Exit");
     }
+ 
+    @Override
+    public boolean doAction(String value) {
 
-    /**
-     * perform the actions of the menu
-     *
-     * @param input
-     * @return true if the menu should exit, otherwise false
-     */
-    private boolean doAction(String[] input) {
+        value = value.toUpperCase(); //convert to all upper case
 
-        String menuItem = input[0];
-        menuItem = menuItem.toUpperCase();
-
-        switch (menuItem) {
+        switch (value) {
             case "T":
                 viewTeamStatus();
                 break;
@@ -74,25 +54,6 @@ class GamePlayMenu {
         return false;
     }
 
-    public void displayGamePlayMenu() {
-        boolean exitMenu;
-        do {
-            System.out.println("\n Game Play Menu"
-                    + "\n T - View Team Status"
-                    + "\n S - View Team Supplies"
-                    + "\n P - Set Team Pace"
-                    + "\n M - Scene Menu"
-                    + "\n V - View Map"
-                    + "\n H - Get Help"
-                    + "\n E - Exit");
-
-            String[] input = getInput();
-
-            exitMenu = doAction(input);
-        } while (exitMenu == false);
-
-    }
-
     private void viewTeamStatus() {
         System.out.println("Team Status");
     }
@@ -103,7 +64,7 @@ class GamePlayMenu {
 
     private void teamPace() {
         TeamPace teamPace = new TeamPace();
-        teamPace.displayTeamPace();
+        teamPace.display();
     }
 
     private void sceneMenu() {
