@@ -29,6 +29,7 @@ public class MainMenu extends View {
 
     }
 
+
     /**
      * perform the actions of the menu
      *
@@ -51,16 +52,10 @@ public class MainMenu extends View {
             case "H":
                 getHelp();
                 break;
-            case "T":
-                enterTownScene();
+            case "S":
+                saveGame();
                 break;
-            case "D":
-                dailyTrailStop();
-                break;
-            case "G":
-                gamePlayMenu();
-                break;
-            case "E":
+            case "Q":
                 return true;
             default:
                 System.out.println("Invalid menu item.");
@@ -88,19 +83,8 @@ public class MainMenu extends View {
         helpMenuView.displayHelpMenuView();
     }
 
-    private void enterTownScene() {
-        TownSceneMenu townSceneMenu = new TownSceneMenu();
-        townSceneMenu.displayTownSceneMenu();
-    }
-
-    private void dailyTrailStop() {
-        DailyTrailStopSceneMenuView view = new DailyTrailStopSceneMenuView();
-        view.displayDailyTrailStopSceneMenuView();
-    }
-
-    private void gamePlayMenu() {
-        GamePlayMenu gamePlayMenu = new GamePlayMenu();
-        gamePlayMenu.displayGamePlayMenu();
+    private void saveGame() {
+        System.out.println("saveGame initiated");
     }
 
    
