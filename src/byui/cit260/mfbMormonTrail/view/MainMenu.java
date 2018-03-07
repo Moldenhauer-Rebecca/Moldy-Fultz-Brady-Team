@@ -9,10 +9,7 @@ import byui.cit260.mfbMormonTrail.control.GameControl;
 import byui.cit260.mfbMormonTrail.model.Player;
 import java.util.Scanner;
 
-/**
- *
- * @author crmol
- */
+
 public class MainMenu extends View {
 
     public MainMenu() {
@@ -24,18 +21,14 @@ public class MainMenu extends View {
                 + "\nR - Restart existing game"
                 + "\nH - Get help on how to play the game" 
                 + "\nS - Save game"
+                + "\nD - Daily Trail Stop"
+                + "\nT - Town Scene Menu"
+                + "\nG - Game Play Menu"
                 + "\nQ - Quit"
                 +"\n----------------------------------------");
 
     }
 
-
-    /**
-     * perform the actions of the menu
-     *
-     * @param input
-     * @return true if the menu should exit, otherwise false
-     */
     @Override 
     public boolean doAction(String value) {
 
@@ -54,6 +47,15 @@ public class MainMenu extends View {
                 break;
             case "S":
                 saveGame();
+                break;
+            case "D":
+                dailyTrailStopView();
+                break;
+            case "T":
+                townSceneMenu();
+                break;
+            case "G":
+                gamePlayMenu();
                 break;
             case "Q":
                 return true;
@@ -85,6 +87,21 @@ public class MainMenu extends View {
 
     private void saveGame() {
         System.out.println("saveGame initiated");
+    }
+
+    private void dailyTrailStopView() {
+        DailyTrailStopView dailyTrailStopView = new DailyTrailStopView();
+        dailyTrailStopView.display();
+    }
+
+    private void townSceneMenu() {
+        TownSceneMenu townSceneMenu = new TownSceneMenu();
+        townSceneMenu.display();
+    }
+
+    private void gamePlayMenu() {
+        GamePlayMenu gamePlayMenu = new GamePlayMenu();
+        gamePlayMenu.display();
     }
 
    

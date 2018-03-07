@@ -37,6 +37,7 @@ public abstract class View implements ViewInterface {
             
         } while (!done); // exit the view when done == true
     }
+   
     
     @Override
      public String getInput() {
