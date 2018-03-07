@@ -11,14 +11,18 @@ package byui.cit260.mfbMormonTrail.view;
  */
 class GamePlayMenu extends View {
     public GamePlayMenu(){
-        super ("\n Game Play Menu"
+        super ("\n"
+                +"\n----------------------------------------"
+                + "\n Game Play Menu"
+                +"\n----------------------------------------"
                 + "\n T - View Team Status"
                 + "\n S - View Team Supplies"
                 + "\n P - Set Team Pace"
                 + "\n M - Scene Menu"
                 + "\n V - View Map"
                 + "\n H - Get Help"
-                + "\n E - Exit");
+                + "\n Q - Quit"
+                +"\n----------------------------------------");
     }
  
     @Override
@@ -44,7 +48,7 @@ class GamePlayMenu extends View {
                 break;
             case "H":
                 helpMenuView();
-            case "E":
+            case "Q":
                 return true;
             default:
                 System.out.println("Invalid menu item.");
