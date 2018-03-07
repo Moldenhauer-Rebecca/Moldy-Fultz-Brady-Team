@@ -34,7 +34,7 @@ public class DailyTrailStopView extends View {
 
         switch (value) {
             case "T":
-                System.out.println("Visit the town");
+                townSceneMenu();
                 break;
             case "F":
                 fortView();
@@ -62,10 +62,6 @@ public class DailyTrailStopView extends View {
     }
 
 
-    private void enterTownScene() {
-        TownSceneMenu townSceneMenu = new TownSceneMenu();
-        townSceneMenu.displayTownSceneMenu();
-    }
 
     private void fortView() {
         FortView fortView = new FortView();
@@ -86,5 +82,10 @@ public class DailyTrailStopView extends View {
 
     private void goGatherView() {
         System.out.println("goGatherView ran successfully");
+    }
+
+    private void townSceneMenu() {
+        TownSceneMenu townSceneMenu = new TownSceneMenu();
+        townSceneMenu.display();
     }
 }
