@@ -20,34 +20,29 @@ public class FortView extends View {
     public FortView() {
         super("\n*"
                 + "\n----------------------------------------"
-                + "\n Fort Menu"
+                + "\n          Welcome to the Fort           "
+                +"\n-----------------------------------------"
+                + "\n          Fort Information              "
+                + "\nVisiting the Fort will add one day to your"
+                + "\njourney. You and your team can visit the"
+                + "\nGeneral Store to either buy or sell "
+                + "\ninventory items. You can also return to"
+                + "\nthe trail. Enjoy your day at the Fort."
+                + "\n*                                                *"
                 +"\n----------------------------------------"
-                + "\nWelcome to the Fort Scene Menu."
-                + "\nPlease Make a Selection:"
-                + "\nG: Visit General Store"
-                + "\nR: Return to Trail"
-                + "\nQ: Quit");
+                + "\n          Fort Scene Menu."
+                + "\n      Please Make a Selection:"
+                + "\n      G: Visit General Store"
+                + "\n      R: Return to Trail"
+                + "\n      Q: Quit"
+                +"\n----------------------------------------");
     }
 
-    public void printDescription() {
-
-        System.out.println("\n**************************************************"
-                + "\n*                                                *"
-                + "\nWelcome to The Fort"
-                + "\nVisiting the Fort will add one day to your journey."
-                + "\nYou and your team can visit the general store to "
-                + "\neither buy or sell inventory items."
-                + "\n You can also return to the trail."
-                + "\nEnjoy your day at the Fort."
-                + "\n*                                                *"
-                + "\n**************************************************"
-        );
-    }
+  
     
     @Override
     public boolean doAction(String value) {
 
-        printDescription();
 
         value = value.toUpperCase();
 

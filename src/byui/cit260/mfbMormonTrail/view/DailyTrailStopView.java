@@ -14,7 +14,7 @@ public class DailyTrailStopView extends View {
    public DailyTrailStopView() {
     super ("\n"
         +"\n----------------------------------------"
-        + "Daily Trail Stop Menu"
+        + "\n Daily Trail Stop Menu"
         +"\n----------------------------------------"
         + "\n T - Visit the town."
         + "\n F - Visit the Fort."
@@ -40,7 +40,7 @@ public class DailyTrailStopView extends View {
                 fortView();
                 break;
             case "C":
-                System.out.println("Cross the River");
+                crossRiverMenu();
                 break;
             case "R":
                 System.out.println("Rest for the day");
@@ -87,5 +87,10 @@ public class DailyTrailStopView extends View {
     private void townSceneMenu() {
         TownSceneMenu townSceneMenu = new TownSceneMenu();
         townSceneMenu.display();
+    }
+
+    private void crossRiverMenu() {
+        CrossRiverMenu crossRiverMenu = new CrossRiverMenu();
+        crossRiverMenu.display();
     }
 }

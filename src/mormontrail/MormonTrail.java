@@ -5,7 +5,6 @@
  */
 package mormontrail;
 
-
 import byui.cit260.mfbMormonTrail.model.Actor;
 import byui.cit260.mfbMormonTrail.model.Game;
 import byui.cit260.mfbMormonTrail.model.HotelScene;
@@ -18,30 +17,44 @@ import byui.cit260.mfbMormonTrail.view.MainMenu;
 import byui.cit260.mfbMormonTrail.view.StartProgramView;
 import byui.cit260.mfbMormonTrail.view.TownSceneMenu;
 
-
-
 /**
  *
  * @author samuel
  */
 public class MormonTrail {
 
+    private static Game currentGame = null;
+    private static Player player = null;
+
+    public static Game getCurrentGame() {
+        return currentGame;
+    }
+
+    public static void setCurrentGame(Game currentGame) {
+        MormonTrail.currentGame = currentGame;
+    }
+
+    public static Player getPlayer() {
+        return player;
+    }
+
+    public static void setPlayer(Player player) {
+        MormonTrail.player = player;
+    }
+    
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {     
-       
-       
-       StartProgramView startProgramView = new StartProgramView();      
-       startProgramView.displayStartProgramView();
-       TownSceneMenu townSceneMenu = new TownSceneMenu();
-       townSceneMenu.displayTownSceneMenu();
-       
-        
+    public static void main(String[] args) {
+
+        StartProgramView startProgramView = new StartProgramView();
+        startProgramView.displayStartProgramView();
+
+        MormonTrail.setPlayer(player);
+
+        TownSceneMenu townSceneMenu = new TownSceneMenu();
+        townSceneMenu.display();
+
     }
-    
-         
- 
-    
-    
+
 }
