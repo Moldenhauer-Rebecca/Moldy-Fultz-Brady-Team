@@ -32,6 +32,10 @@ public class GameControl {
     
     }
 
+    public static void generalStoreView() {
+    
+    }
+
 
       
     }
