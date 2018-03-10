@@ -5,13 +5,60 @@
  */
 package byui.cit260.mfbMormonTrail.view;
 
+import byui.cit260.mfbMormonTrail.model.Game;
+import byui.cit260.mfbMormonTrail.model.Player;
+import java.util.Scanner;
+
 /**
  *
  * @author Mike
  */
-class GamePlayMenu extends View {
-    public GamePlayMenu(){
-        super ("\n"
+class GamePlayMenu {
+    private Game game;
+    
+    public void displayGamePlayMenu(Game game) {
+        this.game = game;
+        boolean exit = false;
+        printGamePlayMenu();
+
+        do {
+            String input = this.getInput();
+
+            if (input == null || input.toUpperCase().equals("Q")) {
+                return;
+
+            }
+            exit = this.doAction(input);
+
+        } while (exit != true);
+
+    }
+
+    private String getInput() {
+        String input = new String();
+        System.out.println("Starting getInput View");
+
+        boolean valid = false;
+
+        while (valid == false) {
+            System.out.println("Please make your selection:");
+            Scanner inputScanner = new Scanner(System.in);
+            input = inputScanner.nextLine();
+            input = input.trim();
+
+            if (input.length() < 1) {     //We check for invalid input, trimmed the value, and now check to see if there's a value. 
+                System.out.println("Please make your valid selction");
+            }
+
+            valid = true;
+        }
+
+        return input;
+
+    }
+    private void printGamePlayMenu(){
+        System.out.println(""
+                +"\n"
                 +"\n----------------------------------------"
                 + "\n Game Play Menu"
                 +"\n----------------------------------------"
@@ -25,7 +72,7 @@ class GamePlayMenu extends View {
                 +"\n----------------------------------------");
     }
  
-    @Override
+
     public boolean doAction(String value) {
 
         value = value.toUpperCase(); //convert to all upper case
@@ -76,7 +123,8 @@ class GamePlayMenu extends View {
     }
 
     private void viewMap() {
-        System.out.println("Map View");
+        ViewMap viewMap = new ViewMap(this.game.getCurrentPosition());
+        viewMap.display();
     }
 
     private void helpMenuView() {

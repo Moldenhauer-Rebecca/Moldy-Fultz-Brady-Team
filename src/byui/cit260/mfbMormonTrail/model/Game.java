@@ -1,6 +1,8 @@
-
 package byui.cit260.mfbMormonTrail.model;
 
+import byui.cit260.mfbMormonTrail.model.InventoryItem;
+import byui.cit260.mfbMormonTrail.model.Map;
+import byui.cit260.mfbMormonTrail.model.Player;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Objects;
@@ -10,7 +12,7 @@ import java.util.Objects;
  * @author crmol
  */
 public class Game implements Serializable {
-    
+
     //class instance variables
     private int numPeople;
     private String dayOfWeek;
@@ -21,8 +23,20 @@ public class Game implements Serializable {
     private double currentMoneyBalance;
     private String pace;
     private Player player;
+    private String currentPosition;
     public Map map;
-    public ArrayList<InventoryItem> inventoryItem = new ArrayList<>();
+    public ArrayList<InventoryItem> inventoryItemList = new ArrayList<>();
+    
+    public Game() {
+    }
+
+    public String getCurrentPosition() {
+        return currentPosition;
+    }
+
+    public void setCurrentPosition(String currentPosition) {
+        this.currentPosition = currentPosition;
+    }
 
     public Map getMap() {
         return map;
@@ -33,14 +47,12 @@ public class Game implements Serializable {
     }
 
     public ArrayList<InventoryItem> getInventoryItem() {
-        return inventoryItem;
+        return inventoryItemList;
     }
 
     public void setInventoryItem(ArrayList<InventoryItem> inventoryItem) {
-        this.inventoryItem = inventoryItem;
+        this.inventoryItemList = inventoryItem;
     }
-    
-    
 
     /**
      *
@@ -53,13 +65,8 @@ public class Game implements Serializable {
     public void setPlayer(Player player) {
         this.player = player;
     }
-    
-    
 
-    public Game() {
-    }
-    
-    
+ 
 
     public int getNumPeople() {
         return numPeople;
@@ -117,14 +124,13 @@ public class Game implements Serializable {
         this.currentMoneyBalance = currentMoneyBalance;
     }
 
-     public String getPace() {
+    public String getPace() {
         return pace;
     }
 
     public void setPace(String Pace) {
         this.pace = Pace;
     }
-
 
     @Override
     public int hashCode() {
@@ -143,8 +149,6 @@ public class Game implements Serializable {
     public String toString() {
         return "Game{" + "numPeople=" + numPeople + ", dayOfWeek=" + dayOfWeek + ", distanceTraveled=" + distanceTraveled + ", distanceRemaining=" + distanceRemaining + ", dailyMilesTraveled=" + dailyMilesTraveled + ", totalTime=" + totalTime + ", currentMoneyBalance=" + currentMoneyBalance + ", Pace=" + '}';
     }
-    
-    
 
     @Override
     public boolean equals(Object obj) {
@@ -176,8 +180,8 @@ public class Game implements Serializable {
         if (!Objects.equals(this.dayOfWeek, other.dayOfWeek)) {
             return false;
         }
-       // return Objects.equals(this.Pace, other.Pace);
+        // return Objects.equals(this.Pace, other.Pace);
         return false;
     }
-    
+
 }

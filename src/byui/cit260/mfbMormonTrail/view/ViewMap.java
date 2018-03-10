@@ -7,16 +7,18 @@ package byui.cit260.mfbMormonTrail.view;
 
 import byui.cit260.mfbMormonTrail.control.GameControl;
 import byui.cit260.mfbMormonTrail.model.Game;
-import byui.cit260.mfbMormonTrail.model.Player;
 import java.util.Scanner;
 
+/**
+ *
+ * @author Mike
+ */
 
-public class MainMenu extends View {
-
-    public MainMenu() {
-        super("\n"
+public class ViewMap extends View {
+    public ViewMap(String currentPosition){
+    super("\n"
                 +"\n----------------------------------------"
-                + "\n Main Menu"
+                + "\n View Map"
                 +"\n----------------------------------------"
                 + "\nN - Start new game"
                 + "\nR - Restart existing game"
@@ -63,37 +65,5 @@ public class MainMenu extends View {
         return false;
     }
 
-   
-    private void startNewGame() {
-        Game game = GameControl.createNewGame();
 
-        GamePlayMenu gamePlayMenu = new GamePlayMenu();
-        gamePlayMenu.displayGamePlayMenu(game);
-    }
-
-    private void restartGame() {
-        StartExistingGameView startExistingGameView = new StartExistingGameView();
-        startExistingGameView.displayStartExistingGameView();
-    }
-
-    private void getHelp() {
-        HelpMenuView helpMenuView = new HelpMenuView();
-        helpMenuView.display();
-    }
-
-    private void saveGame() {
-        System.out.println("saveGame initiated");
-    }
-
-    private void dailyTrailStopView() {
-        DailyTrailStopView dailyTrailStopView = new DailyTrailStopView();
-        dailyTrailStopView.display();
-    }
-
-    private void townSceneMenu() {
-        TownSceneMenu townSceneMenu = new TownSceneMenu();
-        townSceneMenu.display();
-    }
-
-   
 }
