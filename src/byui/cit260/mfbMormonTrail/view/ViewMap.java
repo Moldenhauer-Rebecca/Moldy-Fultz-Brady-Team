@@ -13,57 +13,53 @@ import java.util.Scanner;
  *
  * @author Mike
  */
-
 public class ViewMap extends View {
-    public ViewMap(String currentPosition){
-    super("\n"
-                +"\n----------------------------------------"
-                + "\n View Map"
-                +"\n----------------------------------------"
-                + "\nN - Start new game"
-                + "\nR - Restart existing game"
-                + "\nH - Get help on how to play the game" 
-                + "\nS - Save game"
-                + "\nD - Daily Trail Stop"
-                + "\nT - Town Scene Menu"
-                + "\nQ - Quit"
-                +"\n----------------------------------------");
+
+    public ViewMap(String currentPosition) {
+        super("\n"
+                + "\n----------------------------------------"
+                + "\n Game Map"
+                + "\n----------------------------------------"
+                + "\nHere is a map of the game"
+                + "\n"
+                + "\nThe space marked with V is Nauvoo- where the player begins the journey"
+                + "\nThe space marked with L is the Salt Lake Valley- the end of the journey"
+                + "\nSpaces marked with * are the trail"
+                + "\nSpaces marked with X are forts"
+                + "\nSpace marked with T are towns"
+                + "\nSpaces marked with R are rivers"
+                + "\nSpaces marked with M, N, or O are landmarks with neither a fort or a town"
+                + "\n----------------------------------------"
+                + "\n   A B C D E F G H I"
+                + "\n 1 V * * - T - - - -"
+                + "\n 2 - T * - * * * * X"
+                + "\n 3 * * * - * - - * -"
+                + "\n 4 * - R R R R R R R"
+                + "\n 5 * R * * * T - * M"
+                + "\n 6 R T - - - N - * -"
+                + "\n 7 O - - * * * * * X"
+                + "\n 8 * * * * - X - - -"
+                + "\n 9 * * * * * * * * L"
+                + "\n----------------------------------------"
+                + "Press Q to return to the previous screen"
+                + "\n----------------------------------------");
 
     }
 
-    @Override 
+    @Override
     public boolean doAction(String value) {
 
-       value = value.toUpperCase();  // convert to all upper case 
-        
-        switch (value) {
-            case "N":
-                startNewGame();
-                break;
-            case "R":
-                restartGame();
-                break;
-            case "H":
-                getHelp();
-                break;
-            case "S":
-                saveGame();
-                break;
-            case "D":
-                dailyTrailStopView();
-                break;
-            case "T":
-                townSceneMenu();
-                break;
-            case "Q":
-                return true;
-            default:
-                System.out.println("Invalid menu item.");
-                break;
+
+        value = value.toUpperCase();
+
+        if (value.equals("Q")) {
+
+            GeneralStoreView storeView = new GeneralStoreView();
+            storeView.displayGeneralStoreView();
+        } else {
+            return false;
+
         }
-
-        return false;
+        return true;
     }
-
-
 }
