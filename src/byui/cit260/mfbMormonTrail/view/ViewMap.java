@@ -7,6 +7,7 @@ package byui.cit260.mfbMormonTrail.view;
 
 import byui.cit260.mfbMormonTrail.control.GameControl;
 import byui.cit260.mfbMormonTrail.model.Game;
+import byui.cit260.mfbMormonTrail.model.HotelScene;
 import java.util.Scanner;
 
 /**
@@ -41,7 +42,7 @@ public class ViewMap extends View {
                 + "\n 8 * * * * - X - - -"
                 + "\n 9 * * * * * * * * L"
                 + "\n----------------------------------------"
-                + "Press Q to return to the previous screen"
+                + "\nPress Q to return to the previous screen"
                 + "\n----------------------------------------");
 
     }
@@ -54,12 +55,9 @@ public class ViewMap extends View {
 
         if (value.equals("Q")) {
 
-            GeneralStoreView storeView = new GeneralStoreView();
-            storeView.displayGeneralStoreView();
-        } else {
-            return false;
-
+            return true;
         }
-        return true;
+        return false;
     }
+
 }
