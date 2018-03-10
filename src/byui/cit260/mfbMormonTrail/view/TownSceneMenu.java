@@ -3,6 +3,7 @@
 package byui.cit260.mfbMormonTrail.view;
 
 import byui.cit260.mfbMormonTrail.control.GameControl;
+import byui.cit260.mfbMormonTrail.model.GeneralStoreScene;
 import byui.cit260.mfbMormonTrail.model.RegularSceneType;
 import java.util.Scanner;
 
@@ -35,8 +36,8 @@ public class TownSceneMenu extends View {
             case "H":
                 visitHotelView();
                 break;
-            case "G":
-                visitGeneralStore();
+            case "R":
+                generalStoreView();
                 break;
             case "Q":
                 return true;
@@ -65,6 +66,12 @@ public class TownSceneMenu extends View {
     }
 
     //To change body of generated methods, choose Tools | Templates.
+
+    private void generalStoreView() {
+        GameControl.generalStoreView();
+        GeneralStoreView generalStoreView = new GeneralStoreView(); 
+        generalStoreView.displayGeneralStoreView();
+    }
     
     
     
