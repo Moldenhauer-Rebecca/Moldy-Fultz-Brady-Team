@@ -16,11 +16,11 @@ import java.util.Objects;
 public class GeneralStoreScene implements Serializable {
     
     private ArrayList<InventoryItem> inventoryItems;
-    public ArrayList <InventoryItem> getInventoryItem(){
+    public ArrayList <InventoryItem> getInventoryItems(){
        return inventoryItems;
     }
     
-    public void setInventoryItem(ArrayList<InventoryItem> inventoryItem) {
+    public void setInventoryItems(ArrayList<InventoryItem> inventoryItems) {
         this.inventoryItems = inventoryItems;
     }
     
@@ -28,14 +28,14 @@ public class GeneralStoreScene implements Serializable {
     private String addInventoryItem;
     
     public GeneralStoreScene() { 
-        ArrayList<InventoryItem> inventoryItems = new ArrayList <InventoryItem> ();
+        this.inventoryItems = new ArrayList <InventoryItem> ();
         InventoryItem inventoryItem = new InventoryItem ();
         inventoryItem.setInventoryType("Oxen");
-        inventoryItems.add(inventoryItem);
+        this.inventoryItems.add(inventoryItem);
         
-        inventoryItem = new InventoryItem ();
-        inventoryItem.setInventoryType("Wagon");
-        inventoryItems.add(inventoryItem);
+        InventoryItem inventoryItem2 = new InventoryItem ();
+        inventoryItem2.setInventoryType("Wagon");
+       this.inventoryItems.add(inventoryItem2);
         
     }
     
