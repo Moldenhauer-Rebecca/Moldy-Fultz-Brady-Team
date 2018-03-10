@@ -57,9 +57,9 @@ public class FortView extends View {
         return false;
     }
 
-    private void generalStoreView() {
+    public void printGeneralStoreMenu() {
         GeneralStoreView generalStore = new GeneralStoreView();
-        generalStore.displayGeneralStore();
+        generalStore.displayGeneralStoreView();
     }
 
 }
