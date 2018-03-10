@@ -39,8 +39,8 @@ import java.util.Scanner;
     private void printGeneralStoreMenu() {
         int i = 0;
 
-        while (i < generalStoreScene.getInventoryItem().size()) {
-            InventoryItem inventoryItem = generalStoreScene.getInventoryItem().get(i);
+        while (i < generalStoreScene.getInventoryItems().size()) {
+            InventoryItem inventoryItem = generalStoreScene.getInventoryItems().get(i);
             System.out.println((i + 1) + " " + inventoryItem.getInventoryType());
             i = i + 1;
 
@@ -91,7 +91,7 @@ import java.util.Scanner;
         // Get the player object from hotelScene.getPlayers() that 
         // corresponds to the the playerIndex selected 
         // Don't forget about -1 because arrays start at 0.
-        InventoryItem inventoryItem = generalStoreScene.getInventoryItem().get(inventoryIndex - 1);
+        InventoryItem inventoryItem = generalStoreScene.getInventoryItems().get(inventoryIndex - 1);
         // Print the message "You selected [player name]"
         System.out.println(inventoryItem);
         return false; // keep the menu going
