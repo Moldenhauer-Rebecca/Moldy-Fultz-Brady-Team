@@ -5,6 +5,7 @@
  */
 package byui.cit260.mfbMormonTrail.control;
 
+import byui.cit260.mfbMormonTrail.model.Game;
 import byui.cit260.mfbMormonTrail.model.Player;
 
 /**
@@ -24,8 +25,10 @@ public class GameControl {
         return player;
     }
 
-    public static void createNewGame() {
+    public static Game createNewGame() {
          System.out.println("createNewGame function called");
+         Game game = new Game();
+         return game;
     }
 
     public static void visitTheHotel() {
@@ -36,6 +39,9 @@ public class GameControl {
     
     }
 
+    public static void generalStoreScene() {
+        
+    }
 
       
     }
