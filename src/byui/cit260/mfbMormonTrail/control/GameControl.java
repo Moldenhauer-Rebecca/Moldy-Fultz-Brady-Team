@@ -34,4 +34,11 @@ public class GameControl {
     public static void visitTheHotel() {
     
     }
+
+    public static void generalStoreView() {
+         
+    }
+    
+    
+    
 }
