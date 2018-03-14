@@ -11,54 +11,33 @@ package byui.cit260.mfbMormonTrail.model;
  */
 public enum InventoryItemType {
     
-    Ox("Ox", 2000),
-    Wagon("Wagon", 1500),
-    Food("Food", 300),
-    SpareWheel("SpareWheel", 150),
-    Ammunition("Ammunition", 100);
+    Ox("Ox", 10, 45),
+    Wagon("Wagon", 1, 200),
+    Food("Food", 200, 15),
+    SpareWheel("SpareWheel", 6, 10),
+    Ammunition("Ammunition", 200, 2);
     
-    private final String item;
-    private final int maxWeight;
+    public String item;
+    public int maxQuantity;
+    public double cost;
+    
     
 
-InventoryItemType(String item, int maxWeight) {
+InventoryItemType(String item, int maxQuantity, double cost) {
     this.item = item;
-    this.maxWeight = maxWeight;
+    this.maxQuantity = maxQuantity;
+    this.cost = cost;
 }
 
-    public static InventoryItemType getOx() {
-        return Ox;
-    }
-
-    public static InventoryItemType getWagon() {
-        return Wagon;
-    }
-
-    public static InventoryItemType getFood() {
-        return Food;
-    }
-
-    public static InventoryItemType getSpareWheel() {
-        return SpareWheel;
-    }
-
-    public static InventoryItemType getAmmunition() {
-        return Ammunition;
-    }
-
-    public String getItem() {
+     public String getItem() {
         return item;
     }
 
     public int getMaxWeight() {
-        return maxWeight;
+        return maxQuantity;
     }
-
-    @Override
-    public String toString() {
-        return "InventoryItemType{" + "item=" + item + ", maxWeight=" + maxWeight + '}';
-    }
-
-
-    
+   
+   public double cost() {
+       return cost;
+   }
 }

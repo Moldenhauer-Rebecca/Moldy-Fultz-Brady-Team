@@ -63,14 +63,15 @@ public class MainMenu extends View {
         return false;
     }
 
-   
-    private void startNewGame() {
+  
+    public static void startNewGame() {
         Game game = GameControl.createNewGame();
 
         GamePlayMenu gamePlayMenu = new GamePlayMenu();
         gamePlayMenu.displayGamePlayMenu(game);
     }
-
+  
+    
     private void restartGame() {
         StartExistingGameView startExistingGameView = new StartExistingGameView();
         startExistingGameView.displayStartExistingGameView();

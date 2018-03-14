@@ -23,8 +23,14 @@ public class Game implements Serializable {
     private double currentMoneyBalance;
     private String pace;
     private Player player;
+    private ArrayList<Actor> actorList;
     private String currentPosition;
     public Map map;
+    private InventoryItem[] inventory;
+
+    public void setInventory(InventoryItem[] inventory) {
+        this.inventory = inventory;
+    }
     public ArrayList<InventoryItem> inventoryItemList = new ArrayList<>();
     
     public Game() {
@@ -132,6 +138,23 @@ public class Game implements Serializable {
         this.pace = Pace;
     }
 
+    public ArrayList<Actor> getActorList() {
+        return actorList;
+    }
+
+    public void setActorList(ArrayList<Actor> actorList) {
+        this.actorList = actorList;
+    }
+
+    public ArrayList<InventoryItem> getInventoryItemList() {
+        return inventoryItemList;
+    }
+
+    public void setInventoryItemList(ArrayList<InventoryItem> inventoryItemList) {
+        this.inventoryItemList = inventoryItemList;
+    }
+
+    
     @Override
     public int hashCode() {
         int hash = 3;
@@ -183,5 +206,7 @@ public class Game implements Serializable {
         // return Objects.equals(this.Pace, other.Pace);
         return false;
     }
+
+   
 
 }

@@ -5,7 +5,7 @@
  */
 package mormontrail;
 
-import byui.cit260.mfbMormonTrail.model.Actor;
+import byui.cit260.mfbMormonTrail.model.ActorEnum;
 import byui.cit260.mfbMormonTrail.model.Game;
 import byui.cit260.mfbMormonTrail.model.HotelScene;
 import byui.cit260.mfbMormonTrail.model.InventoryItem;

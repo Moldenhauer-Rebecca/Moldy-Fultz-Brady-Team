@@ -5,24 +5,27 @@
  */
 package byui.cit260.mfbMormonTrail.model;
 
+import java.awt.Point;
+
 /**
  *
  * @author crmol
  */
-public enum Actor {
-    
-    Benjamin("Benjamin", "He is a blacksmith from Boston"),
-    Zeke("Zeke", "He is a farmer from New York"),
-    Mary("Mary", "She is a widow from Philadelphia");
+public class Actor {
     
     private String name;
-    private String description;  
+    private String description;
+    private Point coordinates;
 
-Actor(String name, String description) {
-    this.name = name;
-    this.description = description;
-}
-
+    public Actor() {
+        
+    }
+    public Actor(String name, String description, Point coordinates) {
+        this.name = name;
+        this.description = description;
+        this.coordinates = coordinates;
+    }
+    
     public String getName() {
         return name;
     }
@@ -39,9 +42,14 @@ Actor(String name, String description) {
         this.description = description;
     }
 
-
-    @Override
-    public String toString() {
-        return '}' + "Actor{" + "name=" + name + ", description=" + description;
+    public Point getCoordinates() {
+        return coordinates;
     }
+
+    public void setCoordinates(Point coordinates) {
+        this.coordinates = coordinates;
+    }
+    
+    
+    
 }

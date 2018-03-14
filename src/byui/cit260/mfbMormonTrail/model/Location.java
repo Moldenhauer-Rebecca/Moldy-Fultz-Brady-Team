@@ -22,13 +22,13 @@ public class Location implements Serializable {
     private int currentRow;
     private String locationType;
     public RegularSceneType regularSceneType;
-    public Actor actor;
+    public ActorEnum actor;
 
-    public Actor getActor() {
+    public ActorEnum getActor() {
         return actor;
     }
 
-    public void setActor(Actor actor) {
+    public void setActor(ActorEnum actor) {
         this.actor = actor;
     }
     
