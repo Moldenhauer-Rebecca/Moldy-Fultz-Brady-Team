@@ -1,5 +1,6 @@
 package byui.cit260.mfbMormonTrail.model;
 
+import byui.cit260.mfbMormonTrail.control.GameControl;
 import byui.cit260.mfbMormonTrail.model.InventoryItem;
 import byui.cit260.mfbMormonTrail.model.Map;
 import byui.cit260.mfbMormonTrail.model.Player;
@@ -27,13 +28,13 @@ public class Game implements Serializable {
     private String currentPosition;
     public Map map;
     private InventoryItem[] inventory;
-
-    public void setInventory(InventoryItem[] inventory) {
-        this.inventory = inventory;
-    }
     public ArrayList<InventoryItem> inventoryItemList = new ArrayList<>();
     
     public Game() {
+    }
+    
+    public void setInventory(InventoryItem[] inventory) {
+        this.inventory = inventory;
     }
 
     public String getCurrentPosition() {
@@ -205,8 +206,6 @@ public class Game implements Serializable {
         }
         // return Objects.equals(this.Pace, other.Pace);
         return false;
-    }
-
-   
+    } 
 
 }

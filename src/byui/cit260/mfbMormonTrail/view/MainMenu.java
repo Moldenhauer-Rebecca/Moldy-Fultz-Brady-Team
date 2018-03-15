@@ -65,8 +65,12 @@ public class MainMenu extends View {
 
     
     private void startNewGame() {
-        Player player = MormonTrail.getPlayer();
-        GameControl.createNewGame(player);
+       int returnValue = GameControl.createNewGame(MormonTrail.getPlayer());
+       if (returnValue < 0) {
+           System.out.println("Error: Create new game failed");
+       }
+       GamePlayMenu gamePlayMenu = new GamePlayMenu();
+       gamePlayMenu.displayGamePlayMenu();
              
     }
 

@@ -131,4 +131,8 @@ class GamePlayMenu {
         HelpMenuView helpMenuView = new HelpMenuView();
         helpMenuView.display();
     }
+
+    void displayGamePlayMenu() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }

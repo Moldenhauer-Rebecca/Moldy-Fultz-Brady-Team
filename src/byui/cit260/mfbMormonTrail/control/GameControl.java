@@ -7,7 +7,10 @@ package byui.cit260.mfbMormonTrail.control;
 
 import byui.cit260.mfbMormonTrail.model.Game;
 import byui.cit260.mfbMormonTrail.model.InventoryItem;
+import byui.cit260.mfbMormonTrail.model.Location;
+import byui.cit260.mfbMormonTrail.model.Map;
 import byui.cit260.mfbMormonTrail.model.Player;
+import byui.cit260.mfbMormonTrail.model.RegularSceneType;
 import java.io.Serializable;
 import mormontrail.MormonTrail;
 
@@ -17,7 +20,7 @@ import mormontrail.MormonTrail;
  */
 public class GameControl implements Serializable {
 
-    public static Player savePlayer(String playerName) {
+    public static Player createPlayer(String playerName) {
 
         if ((playerName == null) || (playerName.length() < 1)) {
             return null;
@@ -49,16 +52,83 @@ public class GameControl implements Serializable {
     game.setPlayer(player);
     MormonTrail.setCurrentGame(game); 
     
-    Item[] items = GameControl.createItems();
-    game.setItems(items);
-        return 1;
-
+    InventoryItem[] items = createItems();
+    game.setInventory(items);
+        
+    Map map = createMap(9, 9, items);
+    if (map == null) {
+        return -1;
+    }
+    assignMapToGame();
+    
+    return 1;
     }
 
 
-    public static int createMap(int noOfRows, int noOfColumns) {
-           return -1;
+    public static Map createMap(int noOfRows, int noOfColumns, InventoryItem[] items) {
+            
+        if (noOfRows < 0 || noOfColumns < 0) {
+            return null;
+        }
+        if (items == null || items.length < 1) {
+            return null;
+        }
+        Map map = new Map();
+        map.setCurrentRow(noOfRows);
+        map.setColumnCount(noOfColumns);
+        
+        Location[] locations = createLocations(noOfRows, noOfColumns);
+        map.setLocations(locations);
+       
+        RegularSceneType[] scenes = createRegularSceneType(); //daily trail scene
+        
+        assignItemsToScenes();
+        
+        assignScenesToLocations();
+        
+        
+        return map;        
     }    
+
+    public static void generalStoreView() {
+        System.out.println("General Store View() successfully ran");
+    }
+
+    public static void visitTheHotel() {
+        System.out.println("Visit the Hotel ran successfully");
+    }
+
+    private static Item[] createInventoryItemType() {
+        Item[] items = new Item[10];
+        return items;
+    }
+
+    private static Location[] createLocations(int noOfRows, int noOfColumns) {
+        Location[] locations = new Location[5];
+        return locations;
+    }
+
+    private static RegularSceneType[] createRegularSceneType() {
+        RegularSceneType[] scenes = new RegularSceneType[3];
+        return scenes;
+    }
+
+    private static void assignItemsToScenes() {
+        System.out.println("assign Items to scenes ran successfully");
+    }
+
+    private static void assignScenesToLocations() {
+        System.out.println("assign scenes to locations ran successfully");
+    }
+
+    private static InventoryItem[] createItems() {
+        InventoryItem[] items = new InventoryItem[5];
+        return items;
+    }
+
+    private static void assignMapToGame() {
+        System.out.println("assign Map to game ran successfully");
+    }
 
     private static class Item {
 
@@ -83,14 +153,7 @@ public static InventoryItem[] createItems() {
         return null;
         
     }
-    
-    public static void visitTheHotel() {
-
-    }
-
-    public static void generalStoreView() {
-
-    }
+   
 
   */
        
