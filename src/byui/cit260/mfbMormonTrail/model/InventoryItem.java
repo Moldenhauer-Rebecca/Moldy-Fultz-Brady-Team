@@ -96,4 +96,5 @@ public class InventoryItem implements Serializable {
         return Objects.equals(this.inventoryType, other.inventoryType);
     }
 
+  
 }

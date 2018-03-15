@@ -15,29 +15,30 @@ import java.util.Objects;
  */
 public class GeneralStoreScene implements Serializable {
     
-    private ArrayList<InventoryItem> inventoryItems;
+    private ArrayList<InventoryItem> inventoryItemType;
     public ArrayList <InventoryItem> getInventoryItems(){
-       return inventoryItems;
+       return inventoryItemType;
     }
     
     public void setInventoryItems(ArrayList<InventoryItem> inventoryItems) {
-        this.inventoryItems = inventoryItems;
+        this.inventoryItemType = inventoryItems;
     }
     
     //class instant variables
     private String addInventoryItem;
-    
+    /*
     public GeneralStoreScene() { 
-        this.inventoryItems = new ArrayList <InventoryItem> ();
+        this.inventoryItemType = new ArrayList <> ();
         InventoryItem inventoryItem = new InventoryItem ();
-        inventoryItem.setInventoryType("Oxen");
-        this.inventoryItems.add(inventoryItem);
+        inventoryItem.getInventoryItemType("Oxen");
+        this.inventoryItemType.add(inventoryItem);
         
         InventoryItem inventoryItem2 = new InventoryItem ();
-        inventoryItem2.setInventoryType("Wagon");
-       this.inventoryItems.add(inventoryItem2);
+        inventoryItem.getInventoryItemType("Wagon");
+       this.inventoryItemType.add(inventoryItem);
         
     }
+*/
     
      public String addInventoryItem() {
         return addInventoryItem;

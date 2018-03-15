@@ -9,31 +9,31 @@ import byui.cit260.mfbMormonTrail.control.GameControl;
 import byui.cit260.mfbMormonTrail.model.Game;
 import byui.cit260.mfbMormonTrail.model.Player;
 import java.util.Scanner;
-
+import mormontrail.MormonTrail;
 
 public class MainMenu extends View {
 
     public MainMenu() {
         super("\n"
-                +"\n----------------------------------------"
+                + "\n----------------------------------------"
                 + "\n Main Menu"
-                +"\n----------------------------------------"
+                + "\n----------------------------------------"
                 + "\nN - Start new game"
                 + "\nR - Restart existing game"
-                + "\nH - Get help on how to play the game" 
+                + "\nH - Get help on how to play the game"
                 + "\nS - Save game"
                 + "\nD - Daily Trail Stop"
                 + "\nT - Town Scene Menu"
                 + "\nQ - Quit"
-                +"\n----------------------------------------");
+                + "\n----------------------------------------");
 
     }
 
-    @Override 
+    @Override
     public boolean doAction(String value) {
 
-       value = value.toUpperCase();  // convert to all upper case 
-        
+        value = value.toUpperCase();  // convert to all upper case 
+
         switch (value) {
             case "N":
                 startNewGame();
@@ -63,15 +63,13 @@ public class MainMenu extends View {
         return false;
     }
 
-  
-    public static void startNewGame() {
-        Game game = GameControl.createNewGame();
-
-        GamePlayMenu gamePlayMenu = new GamePlayMenu();
-        gamePlayMenu.displayGamePlayMenu(game);
-    }
-  
     
+    private void startNewGame() {
+        Player player = MormonTrail.getPlayer();
+        GameControl.createNewGame(player);
+             
+    }
+
     private void restartGame() {
         StartExistingGameView startExistingGameView = new StartExistingGameView();
         startExistingGameView.displayStartExistingGameView();
@@ -96,5 +94,4 @@ public class MainMenu extends View {
         townSceneMenu.display();
     }
 
-   
 }

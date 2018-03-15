@@ -5,15 +5,10 @@
  */
 package byui.cit260.mfbMormonTrail.control;
 
-import byui.cit260.mfbMormonTrail.model.Actor;
-import byui.cit260.mfbMormonTrail.model.ActorEnum;
+import static byui.cit260.mfbMormonTrail.control.GameControl.game;
 import byui.cit260.mfbMormonTrail.model.Game;
 import byui.cit260.mfbMormonTrail.model.InventoryItem;
-import byui.cit260.mfbMormonTrail.model.InventoryItemType;
-import byui.cit260.mfbMormonTrail.model.Map;
 import byui.cit260.mfbMormonTrail.model.Player;
-import java.awt.Point;
-import java.util.ArrayList;
 import mormontrail.MormonTrail;
 
 /**
@@ -21,76 +16,73 @@ import mormontrail.MormonTrail;
  * @author crmol
  */
 public class GameControl {
-    
+
     public static Player savePlayer(String playerName) {
-        
+
         if ((playerName == null) || (playerName.length() < 1)) {
             return null;
         }
-        
+
         Player player = new Player();
         player.setName(playerName);
-        
+
         return player;
     }
+    
+    public static void saveGame(Game game){
+        if (game == null){
+            System.out.println("game cannot be null");
+        }
+    }
+    
+    public static Game getGame() {
+        Game game = null;
+        return game;
+    }
 
-    /**
-     *
-     * @param player
-     * @return
-     */
     public static int createNewGame(Player player) {
-        //check to see if no player was passed to the method
-        //return -1 to indicate error
         if (player == null) {
             return -1;
         }
-
-        //creates new game
-        Game game = new Game();
-        game.setPlayer(player); //save player in game
-        MormonTrail.setCurrentGame(game); //save ref to the game in main class
-
-        Actor actor1 = new Actor();
-        actor1.setName(ActorEnum.Benjamin.getName());
-        actor1.setDescription(ActorEnum.Benjamin.getDescription());
-        actor1.setCoordinates(new Point(1, 2));
-        ArrayList<Actor> actorList = new ArrayList<>();
-        actorList.add(actor1);
-        actorList.add(new Actor(ActorEnum.Zeke.getName(), ActorEnum.Zeke.getDescription(), new Point(2, 3)));
-        actorList.add(new Actor(ActorEnum.Mary.getName(), ActorEnum.Mary.getDescription(), new Point(3, 4)));
-        
-        game.setActorList(actorList);
-        
-        ArrayList<InventoryItem> inventoryItemList = new ArrayList<>();
-        inventoryItemList.add(new InventoryItem(InventoryItemType.Ammunition, 25, 5));
-        inventoryItemList.add(new InventoryItem(InventoryItemType.Food, 200, 25));
-        
-        game.setInventoryItemList(inventoryItemList);
-        
-        
-        Map map = GameControl.createMap(5, 5);
-        if (map == null) {
-            System.out.println("map cannot be null");
-        }
-        game.setMap(map);
+    Game game = new Game();
+    game.setPlayer(player);
+    MormonTrail.setCurrentGame(game); 
         return 1;
+
+    }
+
+
+    public static int createMap(int noOfRows, int noOfColumns) {
+           return -1;
+    }    
+    
+}
+
+public static InventoryItem[] createItems() {
+        System.out.println("Inventory Item called");
+        /*
+        InventoryItem[] inventory = new InventoryItem[5];
+        
+        inventory[0] = new InventoryItem("Ammunition", 25, 5);
+        inventoryItemList.add(new InventoryItem(InventoryItemType.Food, 200, 25));
+        inventoryItemList.add(new InventoryItem(InventoryItemType.Ox, 10, 45));
+        inventoryItemList.add(new InventoryItem(InventoryItemType.SpareWheel, 6, 10));
+        inventoryItemList.add(new InventoryItem(InventoryItemType.Wagon, 1, 200));
+
+        return inventoryItem;*/
+        return null;
+        
     }
     
     public static void visitTheHotel() {
-        
+
     }
-    
+
     public static void generalStoreView() {
-        
+
     }
-    
-    private static ArrayList<InventoryItem> createItem() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-    
-    private static void createMap() {
-        System.out.println("create Map");
-    }
-    
+
+   
+       
+
 }

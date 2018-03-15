@@ -17,25 +17,13 @@ import mormontrail.MormonTrail;
  */
 public class MapControl {
 
-    public static Map createMap(int noOfRows, int noOfColumns, InventoryItem[] items) {
+    public static Map createMap(int noOfRows, int noOfColumns) {
         int numOfCoumns = 0;
 
         if (noOfRows < 0 || numOfCoumns < 0) {
             return null;
-        } else if (items == null || items.length < 1) {
-            return null;
         }
-
-        Map map = MormonTrail.getCurrentGame().getMap();
-        //save noOfRows in the map
-        //save noOfColumns in the map
-        
-        //locations[] = createLocations(int noOfRows, int noOfColumns)
-        //assign locations array to the map
-        
-        
-        
-        
+        Map map = MormonTrail.getCurrentGame().getMap(); 
         return map;
     }
 
