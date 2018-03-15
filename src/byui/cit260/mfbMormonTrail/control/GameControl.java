@@ -5,17 +5,17 @@
  */
 package byui.cit260.mfbMormonTrail.control;
 
-import static byui.cit260.mfbMormonTrail.control.GameControl.game;
 import byui.cit260.mfbMormonTrail.model.Game;
 import byui.cit260.mfbMormonTrail.model.InventoryItem;
 import byui.cit260.mfbMormonTrail.model.Player;
+import java.io.Serializable;
 import mormontrail.MormonTrail;
 
 /**
  *
  * @author crmol
  */
-public class GameControl {
+public class GameControl implements Serializable {
 
     public static Player savePlayer(String playerName) {
 
@@ -25,6 +25,7 @@ public class GameControl {
 
         Player player = new Player();
         player.setName(playerName);
+        MormonTrail.setPlayer(player);
 
         return player;
     }
@@ -47,6 +48,9 @@ public class GameControl {
     Game game = new Game();
     game.setPlayer(player);
     MormonTrail.setCurrentGame(game); 
+    
+    Item[] items = GameControl.createItems();
+    game.setItems(items);
         return 1;
 
     }
@@ -55,12 +59,18 @@ public class GameControl {
     public static int createMap(int noOfRows, int noOfColumns) {
            return -1;
     }    
+
+    private static class Item {
+
+        public Item() {
+        }
+    }
     
 }
-
+/*
 public static InventoryItem[] createItems() {
         System.out.println("Inventory Item called");
-        /*
+        
         InventoryItem[] inventory = new InventoryItem[5];
         
         inventory[0] = new InventoryItem("Ammunition", 25, 5);
@@ -69,7 +79,7 @@ public static InventoryItem[] createItems() {
         inventoryItemList.add(new InventoryItem(InventoryItemType.SpareWheel, 6, 10));
         inventoryItemList.add(new InventoryItem(InventoryItemType.Wagon, 1, 200));
 
-        return inventoryItem;*/
+        return inventoryItem;
         return null;
         
     }
@@ -82,7 +92,5 @@ public static InventoryItem[] createItems() {
 
     }
 
-   
+  */
        
-
-}
