@@ -14,7 +14,7 @@ import byui.cit260.mfbMormonTrail.model.Player;
 import byui.cit260.mfbMormonTrail.model.SceneTypeEnum;
 import byui.cit260.mfbMormonTrail.model.Scenes;
 import java.io.Serializable;
-import javafx.scene.Scene;
+import java.util.ArrayList;
 import static jdk.nashorn.internal.objects.NativeArray.map;
 import static jdk.nashorn.internal.objects.NativeDebug.map;
 import mormontrail.MormonTrail;
@@ -25,7 +25,7 @@ import mormontrail.MormonTrail;
  */
 public class GameControl implements Serializable {
 
-    private static Location[][][][] Locations;
+    private static Location[][] Locations;
     
     public static Player createPlayer(String playerName) {
 
@@ -66,7 +66,8 @@ public class GameControl implements Serializable {
     if (map == null) {
         return -1;
     }
-    assignMapToGame();
+    game.setMap(map);
+    //assignMapToGame();
     
     return 1;
     }
@@ -81,17 +82,16 @@ public class GameControl implements Serializable {
             return null;
         }
         Map map = new Map();
-        map.setCurrentRow(noOfRows);
+        map.setRowCount(noOfRows);
         map.setColumnCount(noOfColumns);
         
         Location[][] locations = createLocations(noOfRows, noOfColumns);
         map.setLocations(locations);
        
-        Scene[] scenes = createScenes(); //daily trail scene
+        ArrayList<Scenes> sceneList = GameControl.createScenes();
         
-        assignScenesToLocations();
-        
-        
+        map = GameControl.assignScenesToLocations(map, sceneList);
+
         return map;        
     }    
 
@@ -109,37 +109,44 @@ public class GameControl implements Serializable {
             return null;
         }
         
-        Location[][] locations = new Location[5][5];
-        for (int i = 0; locations.length; i++){
-            for (int j = 0; locations.length; j++) {
+        Location[][] locationPlace = new Location[noOfRows][noOfColumns];
+        for (int i = 0; i < locationPlace.length; i++){
+            for (int j = 0; j < locationPlace[i].length; j++) {
                 Location location = new Location();
                 location.setRow(i);
                 location.setColumn(j);
                 location.setVisited(false);
-                Locations[i][j] = locations;   
-        }
+                locationPlace[i][j] = location;   
+            }
+        } 
         
-    }return locations;
+        return locationPlace;
     }
     
-    private static Scene[] createScenes() {
-        Scene[] scenes = new Scene[6];
+    private static ArrayList<Scenes> createScenes() {
         
-        Scene scene1 = scenes[SceneTypeEnum.Regular.ordinal()];
-        Scene scene2 = scenes[SceneTypeEnum.Event.ordinal()];
-        Scene scene3 = scenes[SceneTypeEnum.Hotel.ordinal()];
-        Scene scene4 = scenes[SceneTypeEnum.Resource.ordinal()];
-        Scene scene5 = scenes[SceneTypeEnum.Start.ordinal()];
-        Scene scene6 = scenes[SceneTypeEnum.End.ordinal()];
+        ArrayList<Scenes> scenesList = new ArrayList();
         
-        return scenes;
+        scenesList.add(new Scenes("Start", SceneTypeEnum.Start, 0, 0));
+        scenesList.add(new Scenes("First Regular Scene", SceneTypeEnum.Regular, 2, 5));
+        scenesList.add(new Scenes("First Event Scene", SceneTypeEnum.Event, 3, 8));
+        scenesList.add(new Scenes("First Hotel Scene", SceneTypeEnum.Hotel, 7, 5));
+        scenesList.add(new Scenes("Second Regular Scene", SceneTypeEnum.Resource, 6, 6));
+        scenesList.add(new Scenes("End", SceneTypeEnum.End, 8, 8));
+        
+        return scenesList;
     }
 
 
-    private static void assignScenesToLocations() {
-        location[][] locations = location.getLocations();
-        locations [1][1].setScene(scenes[SceneTypeEnum.Start.ordinal()]);
+    private static Map assignScenesToLocations(Map map, ArrayList<Scenes> sceneList) {
+        System.out.println("Scenes to Locations");
+        Location[][] locations = map.getLocations();
         
+        for (Scenes scene : sceneList) {
+            locations[scene.getLocationRow()][scene.getLocationColumn()].setScene(scene);
+        }
+        
+        return map;
     }
 
     private static InventoryItem[] createItems() {

@@ -23,7 +23,7 @@ public class Map implements Serializable{
     private int currentColumn;
     private int currentRow;
     public Game game;
-    public Location[] locations;
+    public Location[][] locations;
 
     public Map() {
     }
@@ -77,12 +77,12 @@ public class Map implements Serializable{
         this.currentRow = currentRow;
     }
 
-    public Location[] getLocations() {
+    public Location[][] getLocations() {
         return locations;
     }
     
     public void setLocations(Location[][] locations) {
-        Location[] locations1 = this.locations;
+        this.locations = locations;
     }
 
     @Override

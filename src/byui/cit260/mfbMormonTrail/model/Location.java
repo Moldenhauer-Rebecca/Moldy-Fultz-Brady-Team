@@ -23,7 +23,7 @@ public class Location implements Serializable {
     private int currentRow;
     private String locationType;
     private boolean visited;
-    public Scenes regularSceneType;
+    public Scenes scene;
     public ActorEnum actor;
 
     public ActorEnum getActor() {
@@ -36,12 +36,12 @@ public class Location implements Serializable {
     
     
 
-    public Scenes getRegularSceneType() {
-        return regularSceneType;
+    public Scenes getScene() {
+        return scene;
     }
 
-    public void setRegularSceneType(Scenes regularSceneType) {
-        this.regularSceneType = regularSceneType;
+    public void setScene(Scenes scene) {
+        this.scene = scene;
     }
 
     public int getColumn() {

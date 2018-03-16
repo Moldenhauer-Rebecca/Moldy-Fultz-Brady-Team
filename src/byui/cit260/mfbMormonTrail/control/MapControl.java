@@ -26,21 +26,9 @@ public class MapControl {
         Map map = MormonTrail.getCurrentGame().getMap(); 
         return map;
     }
+    
+    
 
-    private MapControl(int rows, int columns) {
-        System.out.println("createLocations called successfully");
-    }
-
-    private static void createScenes() {
-        System.out.println("Scene() called successfully");
-    }
-
-    private static void assignItemsToScenes(InventoryItem[] items, Scene[] scenes) {
-        System.out.println("AssignItemsToScenes() ran successfully");
-    }
-
-    private static void assignScenesToLocations(Scene[] scenes, Location[] locations) {
-        System.out.println("assignScenesToLocations ran successfully");
-    }
+  
 
 }

@@ -6,8 +6,6 @@
 package byui.cit260.mfbMormonTrail.model;
 
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.Objects;
 
 /**
  *
@@ -17,60 +15,22 @@ public class Scenes implements Serializable {
     
     //class instance variables
     private String sceneName;
-    private String symbol;
-    public EventsScene eventsScene;
-    public ResourceScene resourceScene;
-    private HotelScene hotelscene;
-
-    /**
-     *
-     */
-    public ArrayList<Location> location;
-
-    public ArrayList<Location> getLocation() {
-        return location;
-    }
-
-    public void setLocation(ArrayList<Location> location) {
-        this.location = location;
-    }
-
-      
-
-    public ResourceScene getResourceScene() {
-        return resourceScene;
-    }
-
-    public void setResourceScene(ResourceScene resourceScene) {
-        this.resourceScene = resourceScene;
-    }
-
-    private HotelScene getHotelscene() {
-        return hotelscene;
-    }
-
-    private void setHotelscene(HotelScene hotelscene) {
-        this.hotelscene = hotelscene;
-    }
-    
-    
-
-    public EventsScene getEventsScene() {
-        return eventsScene;
-    }
-
-    public void setEventsScene(EventsScene eventsScene) {
-        this.eventsScene = eventsScene;
-    }
-    
-    
+    private SceneTypeEnum sceneType;
+    private int locationRow;
+    private int locationColumn;
+    private String visitedSymbol;
 
     public Scenes() {
-        this.location = new ArrayList<>();
+        
     }
     
+    public Scenes(String sceneName, SceneTypeEnum sceneType, int locationRow, int locationColumn) {
+        this.sceneName = sceneName;
+        this.sceneType = sceneType;
+        this.locationRow = locationRow;
+        this.locationColumn = locationColumn;
+    }
     
-
     public String getSceneName() {
         return sceneName;
     }
@@ -78,49 +38,37 @@ public class Scenes implements Serializable {
     public void setSceneName(String sceneName) {
         this.sceneName = sceneName;
     }
-
-    public String getSymbol() {
-        return symbol;
+    
+    public SceneTypeEnum getSceneType() {
+        return sceneType;
     }
 
-    public void setSymbol(String symbol) {
-        this.symbol = symbol;
+    public void setSceneType(SceneTypeEnum sceneType) {
+        this.sceneType = sceneType;
     }
 
-    @Override
-    public int hashCode() {
-        int hash = 7;
-        hash = 37 * hash + Objects.hashCode(this.sceneName);
-        hash = 37 * hash + Objects.hashCode(this.symbol);
-        return hash;
+    public int getLocationRow() {
+        return locationRow;
     }
 
-    @Override
-    public String toString() {
-        return "RegularSceneType{" + "sceneName=" + sceneName + ", symbol=" + symbol + '}';
+    public void setLocationRow(int locationRow) {
+        this.locationRow = locationRow;
     }
     
-    
+    public int getLocationColumn() {
+        return locationColumn;
+    }
 
-    @Override
-    public boolean equals(Object obj) {
-        if (this == obj) {
-            return true;
-        }
-        if (obj == null) {
-            return false;
-        }
-        if (getClass() != obj.getClass()) {
-            return false;
-        }
-        final Scenes other = (Scenes) obj;
-        if (!Objects.equals(this.sceneName, other.sceneName)) {
-            return false;
-        }
-        if (!Objects.equals(this.symbol, other.symbol)) {
-            return false;
-        }
-        return true;
+    public void setLocationColumn(int locationColumn) {
+        this.locationColumn = locationColumn;
+    }
+
+    public String getVisitedSymbol() {
+        return visitedSymbol;
+    }
+
+    public void setVisitedSymbol(String visitedSymbol) {
+        this.visitedSymbol = visitedSymbol;
     }
     
     

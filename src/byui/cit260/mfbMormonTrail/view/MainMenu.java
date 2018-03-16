@@ -24,6 +24,7 @@ public class MainMenu extends View {
                 + "\nS - Save game"
                 + "\nD - Daily Trail Stop"
                 + "\nT - Town Scene Menu"
+                + "\nG - Game Play Menu"
                 + "\nQ - Quit"
                 + "\n----------------------------------------");
 
@@ -52,6 +53,9 @@ public class MainMenu extends View {
                 break;
             case "T":
                 townSceneMenu();
+                break;
+            case "G":
+                gamePlayMenu();
                 break;
             case "Q":
                 return true;
@@ -96,6 +100,11 @@ public class MainMenu extends View {
     private void townSceneMenu() {
         TownSceneMenu townSceneMenu = new TownSceneMenu();
         townSceneMenu.display();
+    }
+
+    private void gamePlayMenu() {
+       GamePlayMenu gamePlayMenu = new GamePlayMenu();
+       gamePlayMenu.displayGamePlayMenu();
     }
 
 }
