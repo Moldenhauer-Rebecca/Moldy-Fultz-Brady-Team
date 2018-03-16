@@ -75,7 +75,7 @@ import java.util.Scanner;
         return input;
 
     }
-
+    
     private boolean doAction(String[] input) {
         // Comment: Input is the number of the player selected by the user.
         // Or Q to quit.
