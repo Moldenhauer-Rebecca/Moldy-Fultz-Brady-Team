@@ -80,11 +80,10 @@ public class Map implements Serializable{
     public Location[] getLocations() {
         return locations;
     }
-
-    public void setLocations(Location[] locations) {
-        this.locations = locations;
-    }
     
+    public void setLocations(Location[][] locations) {
+        Location[] locations1 = this.locations;
+    }
 
     @Override
     public int hashCode() {

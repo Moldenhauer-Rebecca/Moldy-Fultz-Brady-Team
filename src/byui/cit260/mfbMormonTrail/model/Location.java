@@ -18,10 +18,12 @@ public class Location implements Serializable {
     private int row;
     private int rowCount;
     private int columnCount;
+    private int column;
     private int currentColumn;
     private int currentRow;
     private String locationType;
-    public RegularSceneType regularSceneType;
+    private boolean visited;
+    public Scenes regularSceneType;
     public ActorEnum actor;
 
     public ActorEnum getActor() {
@@ -34,12 +36,28 @@ public class Location implements Serializable {
     
     
 
-    public RegularSceneType getRegularSceneType() {
+    public Scenes getRegularSceneType() {
         return regularSceneType;
     }
 
-    public void setRegularSceneType(RegularSceneType regularSceneType) {
+    public void setRegularSceneType(Scenes regularSceneType) {
         this.regularSceneType = regularSceneType;
+    }
+
+    public int getColumn() {
+        return column;
+    }
+
+    public void setColumn(int column) {
+        this.column = column;
+    }
+
+    public boolean isVisited() {
+        return visited;
+    }
+
+    public void setVisited(boolean visited) {
+        this.visited = visited;
     }
     
     

@@ -6,7 +6,7 @@
 package byui.cit260.mfbMormonTrail.view;
 
 import byui.cit260.mfbMormonTrail.control.GameControl;
-import byui.cit260.mfbMormonTrail.model.RegularSceneType;
+import byui.cit260.mfbMormonTrail.model.Scenes;
 import java.util.Scanner;
 import byui.cit260.mfbMormonTrail.model.HotelScene;
 import byui.cit260.mfbMormonTrail.model.Player;

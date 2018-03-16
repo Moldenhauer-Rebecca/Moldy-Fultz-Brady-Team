@@ -7,19 +7,26 @@ package byui.cit260.mfbMormonTrail.control;
 
 import byui.cit260.mfbMormonTrail.model.Game;
 import byui.cit260.mfbMormonTrail.model.InventoryItem;
+import byui.cit260.mfbMormonTrail.model.InventoryItemType;
 import byui.cit260.mfbMormonTrail.model.Location;
 import byui.cit260.mfbMormonTrail.model.Map;
 import byui.cit260.mfbMormonTrail.model.Player;
-import byui.cit260.mfbMormonTrail.model.RegularSceneType;
+import byui.cit260.mfbMormonTrail.model.SceneTypeEnum;
+import byui.cit260.mfbMormonTrail.model.Scenes;
 import java.io.Serializable;
+import javafx.scene.Scene;
+import static jdk.nashorn.internal.objects.NativeArray.map;
+import static jdk.nashorn.internal.objects.NativeDebug.map;
 import mormontrail.MormonTrail;
 
 /**
  *
- * @author crmol
+ * @authors Rebecca, Sam, Chelsie
  */
 public class GameControl implements Serializable {
 
+    private static Location[][][][] Locations;
+    
     public static Player createPlayer(String playerName) {
 
         if ((playerName == null) || (playerName.length() < 1)) {
@@ -77,12 +84,10 @@ public class GameControl implements Serializable {
         map.setCurrentRow(noOfRows);
         map.setColumnCount(noOfColumns);
         
-        Location[] locations = createLocations(noOfRows, noOfColumns);
+        Location[][] locations = createLocations(noOfRows, noOfColumns);
         map.setLocations(locations);
        
-        RegularSceneType[] scenes = createRegularSceneType(); //daily trail scene
-        
-        assignItemsToScenes();
+        Scene[] scenes = createScenes(); //daily trail scene
         
         assignScenesToLocations();
         
@@ -98,62 +103,61 @@ public class GameControl implements Serializable {
         System.out.println("Visit the Hotel ran successfully");
     }
 
-    private static Item[] createInventoryItemType() {
-        Item[] items = new Item[10];
-        return items;
+    private static Location[][] createLocations(int noOfRows, int noOfColumns) {
+        
+        if (noOfRows < 1 || noOfColumns < 1) {
+            return null;
+        }
+        
+        Location[][] locations = new Location[5][5];
+        for (int i = 0; locations.length; i++){
+            for (int j = 0; locations.length; j++) {
+                Location location = new Location();
+                location.setRow(i);
+                location.setColumn(j);
+                location.setVisited(false);
+                Locations[i][j] = locations;   
+        }
+        
+    }return locations;
     }
-
-    private static Location[] createLocations(int noOfRows, int noOfColumns) {
-        Location[] locations = new Location[5];
-        return locations;
-    }
-
-    private static RegularSceneType[] createRegularSceneType() {
-        RegularSceneType[] scenes = new RegularSceneType[3];
+    
+    private static Scene[] createScenes() {
+        Scene[] scenes = new Scene[6];
+        
+        Scene scene1 = scenes[SceneTypeEnum.Regular.ordinal()];
+        Scene scene2 = scenes[SceneTypeEnum.Event.ordinal()];
+        Scene scene3 = scenes[SceneTypeEnum.Hotel.ordinal()];
+        Scene scene4 = scenes[SceneTypeEnum.Resource.ordinal()];
+        Scene scene5 = scenes[SceneTypeEnum.Start.ordinal()];
+        Scene scene6 = scenes[SceneTypeEnum.End.ordinal()];
+        
         return scenes;
     }
 
-    private static void assignItemsToScenes() {
-        System.out.println("assign Items to scenes ran successfully");
-    }
 
     private static void assignScenesToLocations() {
-        System.out.println("assign scenes to locations ran successfully");
+        location[][] locations = location.getLocations();
+        locations [1][1].setScene(scenes[SceneTypeEnum.Start.ordinal()]);
+        
     }
 
     private static InventoryItem[] createItems() {
         InventoryItem[] items = new InventoryItem[5];
+        
+        InventoryItem item1 = items[InventoryItemType.Ammunition.ordinal()];
+        InventoryItem item2 = items[InventoryItemType.Food.ordinal()];
+        InventoryItem item3 = items[InventoryItemType.Ox.ordinal()];
+        InventoryItem item4 = items[InventoryItemType.SpareWheel.ordinal()];
+        InventoryItem item5 = items[InventoryItemType.Wagon.ordinal()];
+        
         return items;
     }
 
     private static void assignMapToGame() {
         System.out.println("assign Map to game ran successfully");
     }
-
-    private static class Item {
-
-        public Item() {
-        }
-    }
-    
-}
-/*
-public static InventoryItem[] createItems() {
-        System.out.println("Inventory Item called");
-        
-        InventoryItem[] inventory = new InventoryItem[5];
-        
-        inventory[0] = new InventoryItem("Ammunition", 25, 5);
-        inventoryItemList.add(new InventoryItem(InventoryItemType.Food, 200, 25));
-        inventoryItemList.add(new InventoryItem(InventoryItemType.Ox, 10, 45));
-        inventoryItemList.add(new InventoryItem(InventoryItemType.SpareWheel, 6, 10));
-        inventoryItemList.add(new InventoryItem(InventoryItemType.Wagon, 1, 200));
-
-        return inventoryItem;
-        return null;
-        
-    }
    
+}
 
-  */
        

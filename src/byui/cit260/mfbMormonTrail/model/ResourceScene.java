@@ -19,7 +19,7 @@ public class ResourceScene implements Serializable{
     private String buy;
     private String sell;
     public InventoryItem inventoryItem;
-    public RegularSceneType regularSceneType;
+    public Scenes regularSceneType;
 
     public InventoryItem getInventoryItem() {
         return inventoryItem;
@@ -29,11 +29,11 @@ public class ResourceScene implements Serializable{
         this.inventoryItem = inventoryItem;
     }
 
-    public RegularSceneType getRegularSceneType() {
+    public Scenes getRegularSceneType() {
         return regularSceneType;
     }
 
-    public void setRegularSceneType(RegularSceneType regularSceneType) {
+    public void setRegularSceneType(Scenes regularSceneType) {
         this.regularSceneType = regularSceneType;
     }
     
