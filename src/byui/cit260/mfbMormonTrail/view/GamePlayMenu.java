@@ -10,6 +10,7 @@ import byui.cit260.mfbMormonTrail.model.Location;
 import byui.cit260.mfbMormonTrail.model.Player;
 import java.util.Scanner;
 import mormontrail.MormonTrail;
+import byui.cit260.mfbMormonTrail.model.LocationSymbols;
 
 /**
  *
@@ -72,6 +73,7 @@ class GamePlayMenu {
                 + "\n M - Scene Menu"
                 + "\n V - View Map"
                 + "\n H - Get Help"
+                + "\n L - Location Symbols"
                 + "\n Q - Quit"
                 + "\n----------------------------------------");
     }
@@ -98,6 +100,10 @@ class GamePlayMenu {
                 break;
             case "H":
                 helpMenuView();
+                break;
+            case "L":
+                locationSymbols();
+                break;
             case "Q":
                 return true;
             default:
@@ -165,5 +171,36 @@ class GamePlayMenu {
     private void helpMenuView() {
         HelpMenuView helpMenuView = new HelpMenuView();
         helpMenuView.display();
+    }
+
+    private void locationSymbols() {
+       byui.cit260.mfbMormonTrail.model.LocationSymbols[] symbols = new byui.cit260.mfbMormonTrail.model.LocationSymbols[12];
+        
+        symbols[0] = new LocationSymbols("Nauvoo", "Start", "NI");
+        symbols[1] = new LocationSymbols("GardenGrove", "Town", "GG");
+        symbols[2] = new LocationSymbols("MountPisgah", "Town", "MP");
+        symbols[3] = new LocationSymbols("Kanesville", "Town", "KT");
+        symbols[4] = new LocationSymbols("WinterQuarters", "Town", "WQ");
+        symbols[5] = new LocationSymbols("FortKearny", "Fort", "FK");
+        symbols[6] = new LocationSymbols("ChimneyRock", "Null", "CR");
+        symbols[7] = new LocationSymbols("FortLaramie", "Fort", "FL");
+        symbols[8] = new LocationSymbols("IndependenceRock", "Null", "IR");
+        symbols[9] = new LocationSymbols("MartinsCove", "Null", "MC");
+        symbols[10] = new LocationSymbols("FortBridger", "Fort", "FB");
+        symbols[11] = new LocationSymbols("SaltLakeValley", "END", "SL");
+        
+        for (int i=0; i<symbols.length-1; i++){
+            for (int j=i+1; j<symbols.length; j++){
+                if (symbols[i].getSymbol().compareTo(symbols[j].getSymbol())>0){
+                    byui.cit260.mfbMormonTrail.model.LocationSymbols symbols1 = symbols[i];
+                    symbols[i] = symbols[j];
+                    symbols[j] = symbols1;
+                }
+            }
+        }
+        for (byui.cit260.mfbMormonTrail.model.LocationSymbols locationSymbolsControl: symbols){
+            System.out.print(locationSymbolsControl.getSymbol());
+            System.out.print(", ");
+        }
     }
 }
