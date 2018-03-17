@@ -12,7 +12,8 @@ import java.util.Scanner;
 
 /**
  *
- * @author crmol
+ * @author Samuel
+ * 
  */
     public class GeneralStoreView {
     
@@ -75,7 +76,7 @@ import java.util.Scanner;
         return input;
 
     }
-
+    
     private boolean doAction(String[] input) {
         // Comment: Input is the number of the player selected by the user.
         // Or Q to quit.
