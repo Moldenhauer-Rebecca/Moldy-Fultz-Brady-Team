@@ -12,7 +12,8 @@ import java.util.Scanner;
 
 /**
  *
- * @author crmol
+ * @author Samuel
+ * 
  */
     public class GeneralStoreView {
     
