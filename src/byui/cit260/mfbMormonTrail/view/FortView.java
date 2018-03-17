@@ -11,7 +11,7 @@ import byui.cit260.mfbMormonTrail.model.GeneralStoreScene;
 
 /**
  *
- * @author crmol
+ * @author Samuel 
  */
 public class FortView extends View {
 
