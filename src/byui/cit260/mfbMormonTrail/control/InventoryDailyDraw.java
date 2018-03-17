@@ -16,7 +16,7 @@ public class InventoryDailyDraw {
 //End
     public static double calcInventoryDailyDraw(int numPeople, double inventoryAmount) {
         
-        if (numPeople < 1 || numPeople > 5) { //numPeople must be greater than or equal to 1 and less than or equal to 5
+        if (numPeople > 1 || numPeople < 5) { //numPeople must be greater than or equal to 1 and less than or equal to 5
             return -1;
         }
         if (inventoryAmount < 12.5) {  //inventoryAmount must be greater than 12.5
