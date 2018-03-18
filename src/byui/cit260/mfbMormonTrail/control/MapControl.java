@@ -5,10 +5,7 @@
  */
 package byui.cit260.mfbMormonTrail.control;
 
-import byui.cit260.mfbMormonTrail.model.InventoryItem;
-import byui.cit260.mfbMormonTrail.model.Location;
 import byui.cit260.mfbMormonTrail.model.Map;
-import javafx.scene.Scene;
 import mormontrail.MormonTrail;
 
 /**
@@ -17,18 +14,7 @@ import mormontrail.MormonTrail;
  */
 public class MapControl {
 
-    public static Map createMap(int noOfRows, int noOfColumns) {
-        int numOfCoumns = 0;
-
-        if (noOfRows < 0 || numOfCoumns < 0) {
-            return null;
-        }
-        Map map = MormonTrail.getCurrentGame().getMap(); 
-        return map;
-    }
-    
-    
-
+  
   
 
 }
