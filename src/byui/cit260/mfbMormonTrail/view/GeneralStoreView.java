@@ -5,6 +5,7 @@
  */
 package byui.cit260.mfbMormonTrail.view;
 
+import byui.cit260.mfbMormonTrail.control.InventoryItems;
 import byui.cit260.mfbMormonTrail.model.GeneralStoreScene;
 import byui.cit260.mfbMormonTrail.model.InventoryItem;
 import byui.cit260.mfbMormonTrail.model.Player;
@@ -53,6 +54,7 @@ import java.util.Scanner;
     }
 
     
+    
 
     private String[] getInput() {
         String[] input = new String[1];
@@ -77,6 +79,8 @@ import java.util.Scanner;
 
     }
     
+    
+    
     private boolean doAction(String[] input) {
         // Comment: Input is the number of the player selected by the user.
         // Or Q to quit.
@@ -99,6 +103,8 @@ import java.util.Scanner;
     }
 
 }
+
+
     
     
     
