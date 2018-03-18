@@ -174,7 +174,7 @@ class GamePlayMenu {
     }
 
     private void locationSymbols() {
-       LocationSymbols[] symbols = new byui.cit260.mfbMormonTrail.control.LocationSymbols[12];
+       LocationSymbols[] symbols = new LocationSymbols[12];
         
         symbols[0] = new LocationSymbols("Nauvoo", "Start", "NI");
         symbols[1] = new LocationSymbols("GardenGrove", "Town", "GG");
