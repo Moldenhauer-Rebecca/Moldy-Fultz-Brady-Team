@@ -5,8 +5,8 @@
  */
 package byui.cit260.mfbMormonTrail.view;
 
+import byui.cit260.mfbMormonTrail.control.ItemControl;
 import byui.cit260.mfbMormonTrail.model.FortScene;
-import byui.cit260.mfbMormonTrail.model.GeneralStoreScene;
 
 
 /**
@@ -33,6 +33,7 @@ public class FortView extends View {
                 + "\n          Fort Scene Menu."
                 + "\n      Please Make a Selection:"
                 + "\n      G: Visit General Store"
+                + "\n      I: Get current Inventory Weight"
                 + "\n      R: Return to Trail"
                 + "\n      Q: Quit"
                 +"\n----------------------------------------");
@@ -50,7 +51,13 @@ public class FortView extends View {
 
             GeneralStoreView storeView = new GeneralStoreView();
             storeView.displayGeneralStoreView();
-        } else {
+        } else if (value.equals("I")){
+            
+           ItemControl();
+            
+        }
+        
+        else {
             return true;
 
         }
@@ -61,5 +68,23 @@ public class FortView extends View {
         GeneralStoreView generalStore = new GeneralStoreView();
         generalStore.displayGeneralStoreView();
     }
+    
+    
+     public void ItemControl() {
+        int itemWeight[] = {150, 50, 300, 250, 10};
+
+
+        int totalWeight = 0;
+       
+              
+        for (int i = 0; i < itemWeight.length; i++) {
+            totalWeight += itemWeight[i];
+            
+        }
+        System.out.println("Total Inventory weight before purchases: 250 lbs");
+        System.out.println("Total inventory weight after purchases: " + totalWeight + " lbs");
+        
+    }
+    
 
 }
