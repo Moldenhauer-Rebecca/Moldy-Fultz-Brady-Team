@@ -5,29 +5,30 @@
  */
 package byui.cit260.mfbMormonTrail.control;
 
+import Exceptions.CalcDailyMilesTraveledException;
+
 /**
  *
  * @author crmol
  */
 public class CalcDailyMilesTraveled {
-    
-    public static int calcDailyMilesTraveled(int oxenHealth, int teamHealth, int wagonWeight) {
-        
+
+    public static int calcDailyMilesTraveled(int oxenHealth, int teamHealth, int wagonWeight) throws CalcDailyMilesTraveledException {
+
         if (oxenHealth < 2 || oxenHealth > 6) {
-            return -1;
+            throw new CalcDailyMilesTraveledException("Oxen health must be between 2 and 6.");
         }
         if (teamHealth < 2 || teamHealth > 6) {  //teamHealth must be between 2-6
-            return -2;
+            throw new CalcDailyMilesTraveledException("Team health must be between 2 and 6.");
         }
         if (wagonWeight < 1 || wagonWeight > 3) {
-            return -3;
+            throw new CalcDailyMilesTraveledException("Wagon weight must be between 1 and 3.");
         }
-        
-     int dailyMilesTraveled = (oxenHealth + teamHealth) / wagonWeight;
-        
-       
+
+        int dailyMilesTraveled = (oxenHealth + teamHealth) / wagonWeight;
+
         return dailyMilesTraveled;
-        
+
     }
-    
+
 }

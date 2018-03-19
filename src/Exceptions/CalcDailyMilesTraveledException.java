@@ -9,6 +9,25 @@ package Exceptions;
  *
  * @author Mike
  */
-public class CalcDailyMilesTraveledException {
-    
+public class CalcDailyMilesTraveledException extends Exception {
+
+    public CalcDailyMilesTraveledException() {
+    }
+
+    public CalcDailyMilesTraveledException(String message) {
+        super(message);
+    }
+
+    public CalcDailyMilesTraveledException(String message, Throwable cause) {
+        super(message, cause);
+    }
+
+    public CalcDailyMilesTraveledException(Throwable cause) {
+        super(cause);
+    }
+
+    public CalcDailyMilesTraveledException(String message, Throwable cause, boolean enableSuppression, boolean writableStackTrace) {
+        super(message, cause, enableSuppression, writableStackTrace);
+    }
+
 }
