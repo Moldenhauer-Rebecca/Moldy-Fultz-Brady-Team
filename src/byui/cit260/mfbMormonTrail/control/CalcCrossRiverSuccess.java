@@ -1,34 +1,35 @@
-
 package byui.cit260.mfbMormonTrail.control;
 
+import Exceptions.CalcCrossRiverSuccessException;
 
 /**
  *
- * @author crmol
+ * @author Rebecca and Chelsie
  */
 public class CalcCrossRiverSuccess {
-    
-    public static boolean calcCrossRiverSuccess(int currentSpeed, int riverWidth, int wagonWeight, int riverDepth) {
+public static boolean calcCrossRiverSuccess(int currentSpeed, int riverWidth, int wagonWeight, int riverDepth) throws CalcCrossRiverSuccessException {
         
         if (currentSpeed < 2 || currentSpeed > 4) {
-            return false;
+            throw new CalcCrossRiverSuccessException("Current speed value must be between 2 and 4.");
         }
         
+
         if (riverWidth < 2 || riverWidth > 4) {
-            return false;
+            throw new CalcCrossRiverSuccessException("River width value must be between 2 and 4.");
         }
-        
+
         if (wagonWeight < 2 || wagonWeight > 4) {
-            return false;
+            throw new CalcCrossRiverSuccessException("Wagon weight value must be between 2 and 4.");
         }
-        
-        if (riverDepth <=0 || riverDepth >=6) {
-            return false;
+
+        if (riverDepth <= 0 || riverDepth >= 6) {
+            throw new CalcCrossRiverSuccessException("River depth value must be between 1 and 5.");
         }
         int successRate = ((currentSpeed + riverWidth + wagonWeight) - riverDepth) * 10;
-            
-        return successRate >= 50;   
-       
+
+        return successRate >= 50;
+
     }
     
+
 }
