@@ -5,15 +5,8 @@
  */
 package mormontrail;
 
-import byui.cit260.mfbMormonTrail.model.ActorEnum;
 import byui.cit260.mfbMormonTrail.model.Game;
-import byui.cit260.mfbMormonTrail.model.HotelScene;
-import byui.cit260.mfbMormonTrail.model.InventoryItem;
-import byui.cit260.mfbMormonTrail.model.InventoryItemType;
-import byui.cit260.mfbMormonTrail.model.LocationType;
 import byui.cit260.mfbMormonTrail.model.Player;
-import byui.cit260.mfbMormonTrail.model.ResourceScene;
-import byui.cit260.mfbMormonTrail.view.MainMenu;
 import byui.cit260.mfbMormonTrail.view.StartProgramView;
 import byui.cit260.mfbMormonTrail.view.TownSceneMenu;
 
@@ -54,9 +47,6 @@ public class MormonTrail {
 
         TownSceneMenu townSceneMenu = new TownSceneMenu();
         townSceneMenu.display();
-
+       
+        }
     }
-
-   
-
-}
