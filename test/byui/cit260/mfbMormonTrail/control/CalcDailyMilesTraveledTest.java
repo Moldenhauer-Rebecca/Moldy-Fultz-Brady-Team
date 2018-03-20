@@ -2,6 +2,7 @@
 package byui.cit260.mfbMormonTrail.control;
 
 
+import Exceptions.CalcDailyMilesTraveledException;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -19,7 +20,7 @@ public class CalcDailyMilesTraveledTest {
      * Test of calcDailyMilesTraveled method, of class CalcDailyMilesTraveled.
      */
     @Test
-    public void testCalcDailyMilesTraveled() {
+    public void testCalcDailyMilesTraveled() throws CalcDailyMilesTraveledException {
         System.out.println("calcDailyMilesTraveled");
         
         //----Test case 1
@@ -42,37 +43,37 @@ public class CalcDailyMilesTraveledTest {
    
     }
     @Test 
-    public void testCase1() {
+    public void testCase1() throws CalcDailyMilesTraveledException {
         int result = CalcDailyMilesTraveled.calcDailyMilesTraveled(6, 6, 1);
         assertEquals(12, result, 0.001);
     }
     
     @Test 
-    public void testCase2() {
+    public void testCase2() throws CalcDailyMilesTraveledException {
         int result = CalcDailyMilesTraveled.calcDailyMilesTraveled(-1, 4, 3);
         assertEquals(-1, result, 0.0);
     }
     
     @Test 
-    public void testCase3() {
+    public void testCase3() throws CalcDailyMilesTraveledException {
         int result = CalcDailyMilesTraveled.calcDailyMilesTraveled(2, 7, 1);
         assertEquals(-2, result, 0.0);
     }
     
     @Test 
-    public void testCase4() {
+    public void testCase4() throws CalcDailyMilesTraveledException {
         int result = CalcDailyMilesTraveled.calcDailyMilesTraveled(2, 2, -1);
         assertEquals(-3, result, 0.0);
     }
     
     @Test 
-    public void testCase5() {
+    public void testCase5() throws CalcDailyMilesTraveledException {
         int result = CalcDailyMilesTraveled.calcDailyMilesTraveled(2, 2, 3);
         assertEquals(1, result, 0.001);
     }
     
     @Test 
-    public void testCase6() {
+    public void testCase6() throws CalcDailyMilesTraveledException {
         int result = CalcDailyMilesTraveled.calcDailyMilesTraveled(6, 6, 2);
         assertEquals(6, result, 0.001);
     }

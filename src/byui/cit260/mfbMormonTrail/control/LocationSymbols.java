@@ -2,9 +2,9 @@ package byui.cit260.mfbMormonTrail.control;
 
 public class LocationSymbols {
 
-    private String locationName;
-    private String description;
-    private String locationSymbol;
+    private final String locationName;
+    private final String description;
+    private final String locationSymbol;
 
     public LocationSymbols(String locationName, String description, String locationSymbol) {
         this.locationName = locationName;

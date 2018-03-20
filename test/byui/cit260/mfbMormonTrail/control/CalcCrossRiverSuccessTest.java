@@ -1,6 +1,7 @@
 
 package byui.cit260.mfbMormonTrail.control;
 
+import Exceptions.CalcCrossRiverSuccessException;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -17,7 +18,7 @@ public class CalcCrossRiverSuccessTest {
      * Test of calcCrossRiverSuccess method, of class CalcCrossRiverSuccess.
      */
     @Test
-    public void testCalcCrossRiverSuccess() {
+    public void testCalcCrossRiverSuccess() throws CalcCrossRiverSuccessException {
         System.out.println("calcCrossRiverSuccess");
         
         System.out.println("Case1");

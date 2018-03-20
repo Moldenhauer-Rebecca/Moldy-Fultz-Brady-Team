@@ -1,6 +1,7 @@
 
 package byui.cit260.mfbMormonTrail.control;
 
+import Exceptions.CalcHuntingSuccessRateException;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -17,7 +18,7 @@ public class CalcHuntingSuccessRateTest {
      * Test of calculateHuntingSuccessRate method, of class CalculateHuntingSuccessRate.
      */
     @Test
-    public void testCalcHuntingSuccessRate() {
+    public void testCalcHuntingSuccessRate() throws CalcHuntingSuccessRateException {
         System.out.println("calcHuntingSuccessRate");
         
         System.out.println("Test Case 1");

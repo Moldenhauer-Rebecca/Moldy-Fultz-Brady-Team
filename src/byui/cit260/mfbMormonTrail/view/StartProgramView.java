@@ -5,6 +5,7 @@
  */
 package byui.cit260.mfbMormonTrail.view;
 
+import Exceptions.GameControlException;
 import byui.cit260.mfbMormonTrail.control.GameControl;
 import byui.cit260.mfbMormonTrail.model.Player;
 import java.util.Scanner;
@@ -17,7 +18,7 @@ public class StartProgramView {
 
     Scanner inputScanner = new Scanner(System.in);
 
-    public void displayStartProgramView() {
+    public void displayStartProgramView() throws GameControlException {
         boolean exit = false;
         printDescription();
 
@@ -106,11 +107,12 @@ public class StartProgramView {
         return input;
     }
 
-    private boolean doAction(String[] input) {
+    private boolean doAction(String[] input) throws GameControlException {
 
         String playerName = input[0];
         Player player = GameControl.createPlayer(playerName);
 
+        try{
         if (player == null) {
             System.out.println("Could not create the player. Enter a different name.");
             return false;
@@ -123,7 +125,11 @@ public class StartProgramView {
 
         MainMenu mainMenu = new MainMenu();
         mainMenu.display();
-
+        }
+        catch (Exception e){
+            System.out.println("Error reading input");
+        }
+        
         return true;
     }
 

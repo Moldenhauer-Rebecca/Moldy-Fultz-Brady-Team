@@ -5,6 +5,7 @@
  */
 package mormontrail;
 
+import Exceptions.GameControlException;
 import byui.cit260.mfbMormonTrail.model.Game;
 import byui.cit260.mfbMormonTrail.model.Player;
 import byui.cit260.mfbMormonTrail.view.StartProgramView;
@@ -38,7 +39,7 @@ public class MormonTrail {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
+    public static void main(String[] args) throws GameControlException {
 
         StartProgramView startProgramView = new StartProgramView();
         startProgramView.displayStartProgramView();

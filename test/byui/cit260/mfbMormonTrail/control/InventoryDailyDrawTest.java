@@ -5,6 +5,7 @@
  */
 package byui.cit260.mfbMormonTrail.control;
 
+import Exceptions.InventoryDailyDrawException;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -21,7 +22,7 @@ public class InventoryDailyDrawTest {
      * Test of calcInventoryDailyDraw method, of class InventoryDailyDraw.
      */
     @Test
-    public void testInventoryDailyDraw() {
+    public void testInventoryDailyDraw() throws InventoryDailyDrawException {
         System.out.println("inventoryDailyDraw");
         
         System.out.println("\tTest case 1");
@@ -41,37 +42,37 @@ public class InventoryDailyDrawTest {
         
     }
     @Test 
-    public void testCase1() {
+    public void testCase1() throws InventoryDailyDrawException {
         double result = InventoryDailyDraw.calcInventoryDailyDraw(4, 1200.0);
         assertEquals(1190.0, result, 0.001);
     }
     
     @Test 
-    public void testCase2() {
+    public void testCase2() throws InventoryDailyDrawException {
         double result = InventoryDailyDraw.calcInventoryDailyDraw(0, 900.0);
         assertEquals(-1, result, 0.0);
     }
     
     @Test 
-    public void testCase3() {
+    public void testCase3() throws InventoryDailyDrawException {
         double result = InventoryDailyDraw.calcInventoryDailyDraw(2, 0);
         assertEquals(-2, result, 0.0);
     }
     
     @Test 
-    public void testCase4() {
+    public void testCase4() throws InventoryDailyDrawException {
         double result = InventoryDailyDraw.calcInventoryDailyDraw(8, 500.00);
         assertEquals(-1, result, 0.0);
     }
     
     @Test 
-    public void testCase5() {
+    public void testCase5() throws InventoryDailyDrawException {
         double result = InventoryDailyDraw.calcInventoryDailyDraw(1, 12.5);
         assertEquals(10.0, result, 0.001);
     }
     
     @Test 
-    public void testCase6() {
+    public void testCase6() throws InventoryDailyDrawException {
         double result = InventoryDailyDraw.calcInventoryDailyDraw(5, 2000.0);
         assertEquals(1987.5, result, 0.001);
     }
@@ -80,7 +81,7 @@ public class InventoryDailyDrawTest {
      * Test of calcInventoryDailyDraw method, of class InventoryDailyDraw.
      */
     @Test
-    public void testCalcInventoryDailyDraw() {
+    public void testCalcInventoryDailyDraw() throws InventoryDailyDrawException {
         System.out.println("calcInventoryDailyDraw");
         int numPeople = 0;
         double inventoryAmount = 0.0;

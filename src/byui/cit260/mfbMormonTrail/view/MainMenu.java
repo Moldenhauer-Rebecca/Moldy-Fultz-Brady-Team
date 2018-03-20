@@ -5,7 +5,9 @@
  */
 package byui.cit260.mfbMormonTrail.view;
 
+import Exceptions.GameControlException;
 import byui.cit260.mfbMormonTrail.control.GameControl;
+import byui.cit260.mfbMormonTrail.model.Player;
 import mormontrail.MormonTrail;
 
 public class MainMenu extends View {
@@ -66,10 +68,17 @@ public class MainMenu extends View {
 
     
     private void startNewGame() {
-       int returnValue = GameControl.createNewGame(MormonTrail.getPlayer());
-       if (returnValue < 0) {
-           System.out.println("Error: Create new game failed");
+       Player player = MormonTrail.getPlayer();
+       try {
+            GameControl.createNewGame(player);
+       }catch (GameControlException ex) {
+            System.out.println("Error starting new game.");
+            return;
        }
+
+//if (returnValue < 0) {
+         //  System.out.println("Error: Create new game failed");
+       //}
        MainMenu mainMenu = new MainMenu();
        mainMenu.display();
              
