@@ -6,6 +6,7 @@
 package byui.cit260.mfbMormonTrail.model;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Objects;
 
 /**
@@ -19,6 +20,20 @@ public class InventoryItem implements Serializable {
     private int quantityInStock;
     private int requiredAmount;
     private ResourceScene resourceScene;
+    private ArrayList<Game> games = new ArrayList<>();
+    
+    
+    public InventoryItem() {
+        this.games = new ArrayList<>();
+    }
+    
+    public ArrayList<Game> getGames() {
+        return games;
+    }
+
+    public void setGames(ArrayList<Game> games) {
+        this.games = games;
+    }
 
     public ResourceScene getResourceScene() {
         return resourceScene;
@@ -28,8 +43,6 @@ public class InventoryItem implements Serializable {
         this.resourceScene = resourceScene;
     }
 
-    public InventoryItem() {
-    }
 
     public InventoryItem(InventoryItemType inventoryType, int quantityInStock, int requiredAmount) {
         this.inventoryType = inventoryType;

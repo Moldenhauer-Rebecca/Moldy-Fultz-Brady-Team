@@ -5,7 +5,6 @@
  */
 package byui.cit260.mfbMormonTrail.view;
 
-import byui.cit260.mfbMormonTrail.control.InventoryItems;
 import byui.cit260.mfbMormonTrail.model.GeneralStoreScene;
 import byui.cit260.mfbMormonTrail.model.InventoryItem;
 import byui.cit260.mfbMormonTrail.model.Player;
@@ -14,12 +13,12 @@ import java.util.Scanner;
 /**
  *
  * @author Samuel
- * 
+ *
  */
-    public class GeneralStoreView {
-    
+public class GeneralStoreView {
+
     private final GeneralStoreScene generalStoreScene = new GeneralStoreScene();
-    
+
     public void displayGeneralStoreView() {
 
         boolean exit = false;
@@ -50,11 +49,7 @@ import java.util.Scanner;
 
         System.out.println("Q Quit");
 
-    
     }
-
-    
-    
 
     private String[] getInput() {
         String[] input = new String[1];
@@ -78,40 +73,33 @@ import java.util.Scanner;
         return input;
 
     }
-    
-    
-    
+
     private boolean doAction(String[] input) {
-        
+
         // Comment: Input is the number of the player selected by the user.
         // Or Q to quit.
         // Check to see if input[0].equals("Q")
         // If true, then return true (exit menu)
-        if (input[0].toUpperCase().equals("Q")) {
-            return true;
+        try {
+            if (input[0].toUpperCase().equals("Q")) {
+                return true;
+            }
+
+            // Convert input[0] to an integer
+            int inventoryIndex = Integer.parseInt(input[0]);
+
+            // Get the player object from hotelScene.getPlayers() that 
+            // corresponds to the the playerIndex selected 
+            // Don't forget about -1 because arrays start at 0.
+            InventoryItem inventoryItem = generalStoreScene.getInventoryItems().get(inventoryIndex - 1);
+            // Print the message "You selected [player name]"
+            System.out.println(inventoryItem);
+
+        } catch (NumberFormatException e) {
+            System.out.println("Entered value: " + e.getMessage() + "Please enter a valid number.");
         }
-
-        // Convert input[0] to an integer
-        int inventoryIndex = Integer.parseInt(input[0]);
-
-        // Get the player object from hotelScene.getPlayers() that 
-        // corresponds to the the playerIndex selected 
-        // Don't forget about -1 because arrays start at 0.
-        InventoryItem inventoryItem = generalStoreScene.getInventoryItems().get(inventoryIndex - 1);
-        // Print the message "You selected [player name]"
-        System.out.println(inventoryItem);
         return false; // keep the menu going
     }
-
+    
+  
 }
-
-
-    
-    
-    
-    
-
-
- 
-   
-    

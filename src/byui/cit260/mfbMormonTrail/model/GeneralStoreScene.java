@@ -6,61 +6,82 @@
 package byui.cit260.mfbMormonTrail.model;
 
 import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.Objects;
+import java.util.ArrayList;
 
 /**
  *
  * @author crmol
  */
 public class GeneralStoreScene implements Serializable {
-    
-    private ArrayList<InventoryItem> inventoryItemType;
-    public ArrayList <InventoryItem> getInventoryItems(){
-       return inventoryItemType;
-    }
-    
-    public void setInventoryItems(ArrayList<InventoryItem> inventoryItems) {
-        this.inventoryItemType = inventoryItems;
-    }
-    
-    //class instant variables
-    private String addInventoryItem;
-    /*
-    public GeneralStoreScene() { 
-        this.inventoryItemType = new ArrayList <> ();
-        InventoryItem inventoryItem = new InventoryItem ();
-        inventoryItem.getInventoryItemType("Oxen");
-        this.inventoryItemType.add(inventoryItem);
-        
-        InventoryItem inventoryItem2 = new InventoryItem ();
-        inventoryItem.getInventoryItemType("Wagon");
-       this.inventoryItemType.add(inventoryItem);
-        
-    }
-*/
-    
-     public String addInventoryItem() {
-        return addInventoryItem;
+
+    private ArrayList<InventoryItem> inventoryItems;
+
+    public ArrayList<InventoryItem> getInventoryItems() {
+        return inventoryItems;
     }
 
-    public void setAddInventoryItem (String addInventoryItem) {
-        this.addInventoryItem = addInventoryItem;
+    public void setInventoryItems(ArrayList<InventoryItem> inventoryItems) {
+        this.inventoryItems = inventoryItems;
+    }
+
+    //class instance variables
+    private String addInventoryItems;
+    private String addInventoryType;
+    public Scenes resourceScene;
+
+    public Scenes getResourceScene() {
+        return resourceScene;
+    }
+
+    public void setResourceScene(Scenes resourceScene) {
+        this.resourceScene = resourceScene;
+    }
+
+    public GeneralStoreScene() {
+        inventoryItems = new ArrayList<InventoryItem>();
+        InventoryItem inventoryItem = new InventoryItem();
+        inventoryItem.setInventoryType(InventoryItemType.Ox);
+        inventoryItems.add(inventoryItem);
+
+        inventoryItems = new ArrayList<InventoryItem>();
+        inventoryItem.setInventoryType(InventoryItemType.Ammunition);
+        inventoryItems.add(inventoryItem);
+
+        inventoryItems = new ArrayList<InventoryItem>();
+        inventoryItem.setInventoryType(InventoryItemType.Food);
+        inventoryItems.add(inventoryItem);
+
+        inventoryItems = new ArrayList<InventoryItem>();
+        inventoryItem.setInventoryType(InventoryItemType.SpareWheel);
+        inventoryItems.add(inventoryItem);
+
+        inventoryItems = new ArrayList<InventoryItem>();
+        inventoryItem.setInventoryType(InventoryItemType.Wagon);
+        inventoryItems.add(inventoryItem);
+
+    }
+
+    public String getAddInventoryType() {
+        return addInventoryType;
+
+    }
+
+    public void setAddInventoryType(String addInventoryType) {
+        this.addInventoryType = addInventoryType;
     }
 
     @Override
     public int hashCode() {
         int hash = 7;
-        hash = 37 * hash + Objects.hashCode(this.addInventoryItem);
+        hash = 37 * hash + Objects.hashCode(this.addInventoryType);
         return hash;
     }
 
     @Override
     public String toString() {
-        return "GeneralStoreScene{" + "addInventoryItem=" + addInventoryItem + '}';
+        return "GeneralStoreScene" + "addInventoryItems=" + addInventoryType + '}';
     }
-    
-    
 
     @Override
     public boolean equals(Object obj) {
@@ -74,15 +95,7 @@ public class GeneralStoreScene implements Serializable {
             return false;
         }
         final GeneralStoreScene other = (GeneralStoreScene) obj;
-        return Objects.equals(this.addInventoryItem, other.addInventoryItem);
+        return Objects.equals(this.addInventoryType, other.addInventoryType);
     }
-    
 
-
-  
-   
-
-   
-    }
-    
-
+}

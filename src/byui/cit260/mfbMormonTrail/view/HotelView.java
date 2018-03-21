@@ -79,19 +79,24 @@ public class HotelView {
         // Or Q to quit.
         // Check to see if input[0].equals("Q")
         // If true, then return true (exit menu)
-        if (input[0].toUpperCase().equals("Q")) {
-            return true;
+        try {
+            if (input[0].toUpperCase().equals("Q")) {
+                return true;
+            }
+
+            // Convert input[0] to an integer
+            int playerIndex = Integer.parseInt(input[0]);
+
+            // Get the player object from hotelScene.getPlayers() that 
+            // corresponds to the the playerIndex selected 
+            // Don't forget about -1 because arrays start at 0.
+            Player player = hotelScene.getPlayers().get(playerIndex - 1);
+            // Print the message "You selected [player name]"
+            System.out.println(player);
+
+        } catch (NumberFormatException e) {
+            System.out.println("Entered value: " + e.getMessage() + "Please enter a valid number.");
         }
-
-        // Convert input[0] to an integer
-        int playerIndex = Integer.parseInt(input[0]);
-
-        // Get the player object from hotelScene.getPlayers() that 
-        // corresponds to the the playerIndex selected 
-        // Don't forget about -1 because arrays start at 0.
-        Player player = hotelScene.getPlayers().get(playerIndex - 1);
-        // Print the message "You selected [player name]"
-        System.out.println(player);
         return false; // keep the menu going
     }
 

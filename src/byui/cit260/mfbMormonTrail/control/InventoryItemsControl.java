@@ -10,30 +10,30 @@ package byui.cit260.mfbMormonTrail.control;
  * @author samue
  */
 public class InventoryItemsControl {
-    
-      private String inventoryName;
+
+    private String inventoryName;
     private String description;
     private String inventoryItem;
-    
-public static int[]  inventoryItem(int[] inventoryItems) {  
-    for (int i=0; i<inventoryItems.length - 1; i++) {
-        int index = i;
-        for (int j = i + 1; j < inventoryItems.length; j++)
-            if (inventoryItems[j] < inventoryItems [index])
-                index = j;
-        
-        int firstInventoryItem = inventoryItems[index];
-        inventoryItems[index] = inventoryItems[i];
-        inventoryItems[i] = firstInventoryItem;
+
+    public static int[] inventoryItem(int[] inventoryItems) {
+        for (int i = 0; i < inventoryItems.length - 1; i++) {
+            int index = i;
+            for (int j = i + 1; j < inventoryItems.length; j++) {
+                if (inventoryItems[j] < inventoryItems[index]) {
+                    index = j;
+                }
+            }
+
+            int firstInventoryItem = inventoryItems[index];
+            inventoryItems[index] = inventoryItems[i];
+            inventoryItems[i] = firstInventoryItem;
+        }
+        return inventoryItems;
+
     }
-    return inventoryItems;
-    
-}
 
-public String getInventoryItem() {
-    return inventoryItem;
-        
-}
-} 
-    
+    public String getInventoryItem() {
+        return inventoryItem;
 
+    }
+}

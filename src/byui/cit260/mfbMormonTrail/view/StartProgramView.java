@@ -127,7 +127,7 @@ public class StartProgramView {
         mainMenu.display();
         }
         catch (Exception e){
-            System.out.println("Error reading input");
+            System.out.println("Error reading input: " + e.getMessage());
         }
         
         return true;

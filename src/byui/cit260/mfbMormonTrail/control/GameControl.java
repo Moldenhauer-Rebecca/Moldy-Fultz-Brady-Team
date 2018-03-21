@@ -94,11 +94,9 @@ public class GameControl implements Serializable {
     }
 
     public static void generalStoreView() {
-        System.out.println("General Store View() successfully ran");
     }
 
     public static void visitTheHotel() {
-        System.out.println("Visit the Hotel ran successfully");
     }
 
     private static Location[][] createLocations(int noOfRows, int noOfColumns) throws GameControlException {

@@ -21,15 +21,11 @@ public class ItemControl {
         this.itemWeight = itemWeight;
     }
 
-    public static int[] itemControl (int[] weight) {
+    public static int[] itemControl(int[] weight) {
         for (int i = 0; i < weight.length - 1; i++) {
             int index = i;
         }
         return weight;
     }
 
-  
 }
-
-
-
