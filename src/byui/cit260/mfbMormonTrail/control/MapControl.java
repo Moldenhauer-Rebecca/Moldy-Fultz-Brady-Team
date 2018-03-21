@@ -14,7 +14,4 @@ import mormontrail.MormonTrail;
  */
 public class MapControl {
 
-  
-  
-
 }

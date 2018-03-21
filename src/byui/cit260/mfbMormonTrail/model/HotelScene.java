@@ -8,12 +8,14 @@ package byui.cit260.mfbMormonTrail.model;
 import java.io.Serializable;
 import java.util.Objects;
 import java.util.ArrayList;
+
 /**
  *
  * @author crmol
  */
-public class HotelScene implements Serializable{
-    private ArrayList <Player> players; 
+public class HotelScene implements Serializable {
+
+    private ArrayList<Player> players;
 
     public ArrayList<Player> getPlayers() {
         return players;
@@ -22,8 +24,7 @@ public class HotelScene implements Serializable{
     public void setPlayers(ArrayList<Player> players) {
         this.players = players;
     }
-         
-         
+
     //class instance variables
     private String addPlayer;
     public Scenes regularSceneType;
@@ -35,26 +36,22 @@ public class HotelScene implements Serializable{
     public void setRegularSceneType(Scenes regularSceneType) {
         this.regularSceneType = regularSceneType;
     }
-    
-    
+
     public HotelScene() {
-        players = new ArrayList <Player> ();
-        Player player = new Player ();
+        players = new ArrayList<Player>();
+        Player player = new Player();
         player.setName("Samuel");
         players.add(player);
-        
-        player = new Player ();
+
+        player = new Player();
         player.setName("Rebecca");
         players.add(player);
-        
-        player = new Player ();
+
+        player = new Player();
         player.setName("Chelsie");
         players.add(player);
-        
-        
+
     }
-    
-    
 
     public String getAddPlayer() {
         return addPlayer;
@@ -75,8 +72,6 @@ public class HotelScene implements Serializable{
     public String toString() {
         return "HotelScene{" + "addPlayer=" + addPlayer + '}';
     }
-    
-    
 
     @Override
     public boolean equals(Object obj) {
@@ -92,9 +87,5 @@ public class HotelScene implements Serializable{
         final HotelScene other = (HotelScene) obj;
         return Objects.equals(this.addPlayer, other.addPlayer);
     }
-    
-    
-    
-    
-    
+
 }

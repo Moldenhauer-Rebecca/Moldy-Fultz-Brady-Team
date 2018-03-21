@@ -29,10 +29,10 @@ public class Game implements Serializable {
     public Map map;
     private InventoryItem[] inventory;
     public ArrayList<InventoryItem> inventoryItemList = new ArrayList<>();
-    
+
     public Game() {
     }
-    
+
     public void setInventory(InventoryItem[] inventory) {
         this.inventory = inventory;
     }
@@ -72,8 +72,6 @@ public class Game implements Serializable {
     public void setPlayer(Player player) {
         this.player = player;
     }
-
- 
 
     public int getNumPeople() {
         return numPeople;
@@ -155,7 +153,6 @@ public class Game implements Serializable {
         this.inventoryItemList = inventoryItemList;
     }
 
-    
     @Override
     public int hashCode() {
         int hash = 3;
@@ -206,6 +203,6 @@ public class Game implements Serializable {
         }
         // return Objects.equals(this.Pace, other.Pace);
         return false;
-    } 
+    }
 
 }

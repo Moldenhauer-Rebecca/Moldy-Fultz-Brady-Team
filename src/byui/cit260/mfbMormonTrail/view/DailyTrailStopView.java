@@ -11,25 +11,24 @@ package byui.cit260.mfbMormonTrail.view;
  */
 public class DailyTrailStopView extends View {
 
-   public DailyTrailStopView() {
-    super ("\n"
-        +"\n----------------------------------------"
-        + "\n Daily Trail Stop Menu"
-        +"\n----------------------------------------"
-        + "\n T - Visit the town."
-        + "\n F - Visit the Fort."
-        + "\n C - Cross the river."
-        + "\n R - Rest for a day."
-        + "\n H - Go hunting."
-        + "\n L - Look for edible plants."
-        + "\n Q - Quit"
-        +"\n----------------------------------------");
-}
-   
-   @Override
+    public DailyTrailStopView() {
+        super("\n"
+                + "\n----------------------------------------"
+                + "\n Daily Trail Stop Menu"
+                + "\n----------------------------------------"
+                + "\n T - Visit the town."
+                + "\n F - Visit the Fort."
+                + "\n C - Cross the river."
+                + "\n R - Rest for a day."
+                + "\n H - Go hunting."
+                + "\n L - Look for edible plants."
+                + "\n Q - Quit"
+                + "\n----------------------------------------");
+    }
+
+    @Override
     public boolean doAction(String value) {
 
-        
         value = value.toUpperCase();
 
         switch (value) {
@@ -60,8 +59,6 @@ public class DailyTrailStopView extends View {
 
         return false;
     }
-
-
 
     private void fortView() {
         FortView fortView = new FortView();

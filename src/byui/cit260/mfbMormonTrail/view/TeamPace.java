@@ -12,21 +12,21 @@ import java.util.Scanner;
  * @author Mike
  */
 public class TeamPace extends View {
-    
+
     public TeamPace() {
-        super ("\n"
-                +"\n----------------------------------------"
+        super("\n"
+                + "\n----------------------------------------"
                 + "\n Set Team Pace"
-                +"\n----------------------------------------"
+                + "\n----------------------------------------"
                 + "\nPlease Make a Selection:"
                 + "\n***********************"
                 + "\nS: Slow Pace"
                 + "\nA: Average Pace"
                 + "\nF: Fast Pace"
                 + "\nQ: Quit"
-                +"\n----------------------------------------");
+                + "\n----------------------------------------");
     }
-    
+
     public void printDescription() {
 
         System.out.println("\n**************************************************"

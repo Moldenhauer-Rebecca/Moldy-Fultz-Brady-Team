@@ -12,20 +12,21 @@ import java.awt.Point;
  * @author crmol
  */
 public class Actor {
-    
+
     private String name;
     private String description;
     private Point coordinates;
 
     public Actor() {
-        
+
     }
+
     public Actor(String name, String description, Point coordinates) {
         this.name = name;
         this.description = description;
         this.coordinates = coordinates;
     }
-    
+
     public String getName() {
         return name;
     }
@@ -49,7 +50,5 @@ public class Actor {
     public void setCoordinates(Point coordinates) {
         this.coordinates = coordinates;
     }
-    
-    
-    
+
 }

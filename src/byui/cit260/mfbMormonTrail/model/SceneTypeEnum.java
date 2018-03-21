@@ -16,5 +16,5 @@ public enum SceneTypeEnum {
     Hotel,
     Start,
     End;
-   
+
 }

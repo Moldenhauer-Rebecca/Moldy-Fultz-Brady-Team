@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package byui.cit260.mfbMormonTrail.view;
+
 import byui.cit260.mfbMormonTrail.control.LocationSymbols;
 
 /**
@@ -11,9 +12,9 @@ import byui.cit260.mfbMormonTrail.control.LocationSymbols;
  * @author Mike
  */
 public class StartExistingGameView {
-    
-    public void displayStartExistingGameView(){
+
+    public void displayStartExistingGameView() {
         System.out.println("displayStartExistingGameView function called");
     }
-        
-    }
+
+}

@@ -13,21 +13,23 @@ public class LocationSymbols {
     }
 
     public static int[] symbol(int[] symbols) {
-          for (int i=0; i<symbols.length - 1; i++) {
+        for (int i = 0; i < symbols.length - 1; i++) {
             int index = i;
-            for (int j = i + 1; j < symbols.length; j++)
-                if (symbols[j] < symbols[index])
+            for (int j = i + 1; j < symbols.length; j++) {
+                if (symbols[j] < symbols[index]) {
                     index = j;
-            
+                }
+            }
+
             int firstSymbol = symbols[index];
             symbols[index] = symbols[i];
             symbols[i] = firstSymbol;
         }
-        return symbols; 
-        
+        return symbols;
+
     }
-       
+
     public String getSymbol() {
-       return locationSymbol;
+        return locationSymbol;
     }
-    }
+}

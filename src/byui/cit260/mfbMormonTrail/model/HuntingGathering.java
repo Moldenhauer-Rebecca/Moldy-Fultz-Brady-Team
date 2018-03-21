@@ -14,9 +14,10 @@ import java.util.Objects;
  */
 public class HuntingGathering implements Serializable {
 //class instant variable
-private int teamSkillLevel;
-private String resourceAvailablity;
-public EventsScene eventScene;
+
+    private int teamSkillLevel;
+    private String resourceAvailablity;
+    public EventsScene eventScene;
 
     public EventsScene getEventScene() {
         return eventScene;
@@ -25,8 +26,6 @@ public EventsScene eventScene;
     public void setEventScene(EventsScene eventScene) {
         this.eventScene = eventScene;
     }
-
-
 
     public int getTeamSkillLevel() {
         return teamSkillLevel;
@@ -58,9 +57,9 @@ public EventsScene eventScene;
     @Override
     public String toString() {
         return "HuntingGathering{" + "teamSkillLevel=" + teamSkillLevel + ", resourceAvailablity=" + resourceAvailablity + '}';
-        
+
     }
-    
+
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {
@@ -80,18 +79,11 @@ public EventsScene eventScene;
     }
 
     public void getTeamSkillLevel(int i) {
-       
+
     }
 
     public void getResourceAvailability(int i) {
-        
+
     }
 
-    
-    }
-
-
-        
-        
-    
-
+}

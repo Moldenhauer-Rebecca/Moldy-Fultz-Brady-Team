@@ -12,8 +12,8 @@ import java.util.Objects;
  *
  * @author Mike
  */
-public class HealthStats implements Serializable{
-    
+public class HealthStats implements Serializable {
+
     // class instance variables
     private int currentHealth;
     private int restDay;
@@ -31,13 +31,9 @@ public class HealthStats implements Serializable{
     public void setTeam(Team team) {
         this.team = team;
     }
-    
-    
 
     public HealthStats() {
     }
-    
-    
 
     public int getCurrentHealth() {
         return currentHealth;
@@ -112,8 +108,6 @@ public class HealthStats implements Serializable{
     public String toString() {
         return "HealthStats{" + "currentHealth=" + currentHealth + ", restDay=" + restDay + ", dailyHealthDraw=" + dailyHealthDraw + ", rations=" + rations + ", weather=" + weather + ", hazards=" + hazards + ", teamPace=" + teamPace + '}';
     }
-    
-    
 
     @Override
     public boolean equals(Object obj) {
@@ -147,8 +141,5 @@ public class HealthStats implements Serializable{
         }
         return Objects.equals(this.hazards, other.hazards);
     }
-    
-    
-    
-    
+
 }

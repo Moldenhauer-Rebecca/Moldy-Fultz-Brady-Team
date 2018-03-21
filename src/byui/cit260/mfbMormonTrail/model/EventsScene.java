@@ -8,13 +8,13 @@ package byui.cit260.mfbMormonTrail.model;
 import java.io.Serializable;
 import java.util.Objects;
 
-
 public class EventsScene implements Serializable {
 //class instant variable
-private String noToAnswer;
-private String successRate;
-private HuntingGathering huntingGathering;
-private RiverScene riverScene;
+
+    private String noToAnswer;
+    private String successRate;
+    private HuntingGathering huntingGathering;
+    private RiverScene riverScene;
     public boolean toString;
 
     private HuntingGathering getHuntingGathering() {
@@ -33,14 +33,12 @@ private RiverScene riverScene;
         this.riverScene = riverScene;
     }
 
-
-
     public String getNoToAnswer() {
         return noToAnswer;
     }
 
     public void setNoToAnswer(String noToAnswer) {
-         this.noToAnswer = noToAnswer; 
+        this.noToAnswer = noToAnswer;
     }
 
     public String getSuccessRate() {
@@ -57,7 +55,7 @@ private RiverScene riverScene;
     @Override
     public int hashCode() {
         int hash = 3;
-         hash = 83 * hash + Objects.hashCode(this.successRate);
+        hash = 83 * hash + Objects.hashCode(this.successRate);
         return hash;
     }
 
@@ -85,14 +83,11 @@ private RiverScene riverScene;
     }
 
     public void getsuccessRate() {
-        
+
     }
 
     public void noToAnswer() {
-      
+
     }
 
-
-
-    
 }

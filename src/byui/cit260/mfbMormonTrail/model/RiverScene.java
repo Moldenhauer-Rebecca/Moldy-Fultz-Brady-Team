@@ -8,15 +8,14 @@ package byui.cit260.mfbMormonTrail.model;
 import java.io.Serializable;
 import java.util.Objects;
 
-
- 
 public class RiverScene implements Serializable {
 //class instant variable
-private int riverDepth;
-private String successRate;
-private int wagonWeight;
-private int oxyenStrength;
-public EventsScene eventsScene;
+
+    private int riverDepth;
+    private String successRate;
+    private int wagonWeight;
+    private int oxyenStrength;
+    public EventsScene eventsScene;
 
     public EventsScene getEventsScene() {
         return eventsScene;
@@ -25,8 +24,6 @@ public EventsScene eventsScene;
     public void setEventsScene(EventsScene eventsScene) {
         this.eventsScene = eventsScene;
     }
-
-
 
     public int getRiverDepth() {
         return riverDepth;
@@ -103,31 +100,26 @@ public EventsScene eventsScene;
     }
 
     public void setRiverDepth(String string) {
-    
+
     }
 
     public void getOxyenStrength(String string) {
-}
+    }
 
     public void getOxyenStrength(int i) {
-        
+
     }
 
     public void getRiverDepth(int i) {
-       
+
     }
 
     public void getSuccessRate(int i) {
-        
+
     }
 
     public void getWagonWeight(int i) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-    
-    
-    
 
-
-    
 }

@@ -10,5 +10,5 @@ package byui.cit260.mfbMormonTrail.model;
  * @author crmol
  */
 public class FortScene {
-    
+
 }

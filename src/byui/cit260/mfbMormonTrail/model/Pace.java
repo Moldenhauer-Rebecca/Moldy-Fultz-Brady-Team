@@ -5,21 +5,20 @@
  */
 package byui.cit260.mfbMormonTrail.model;
 
- 
 public enum Pace {
-    
+
     Pace1("LevelOne", "slow pace"),
     Pace2("LevelTwo", "average pace"),
     Pace3("LevelThree", "fast pace");
-   
+
     private String level;
-    private String description; 
+    private String description;
 
-Pace(String level, String description){
-    this.level = level;
-    this.description = description;
+    Pace(String level, String description) {
+        this.level = level;
+        this.description = description;
 
-}
+    }
 
     public static Pace getPace1() {
         return Pace1;
@@ -46,6 +45,4 @@ Pace(String level, String description){
         return "Pace{" + "level=" + level + ", description=" + description + '}';
     }
 
-
-    
 }

@@ -12,7 +12,7 @@ import java.io.Serializable;
  * @author Mike
  */
 public class Scenes implements Serializable {
-    
+
     //class instance variables
     private String sceneName;
     private SceneTypeEnum sceneType;
@@ -21,16 +21,16 @@ public class Scenes implements Serializable {
     private String visitedSymbol;
 
     public Scenes() {
-        
+
     }
-    
+
     public Scenes(String sceneName, SceneTypeEnum sceneType, int locationRow, int locationColumn) {
         this.sceneName = sceneName;
         this.sceneType = sceneType;
         this.locationRow = locationRow;
         this.locationColumn = locationColumn;
     }
-    
+
     public String getSceneName() {
         return sceneName;
     }
@@ -38,7 +38,7 @@ public class Scenes implements Serializable {
     public void setSceneName(String sceneName) {
         this.sceneName = sceneName;
     }
-    
+
     public SceneTypeEnum getSceneType() {
         return sceneType;
     }
@@ -54,7 +54,7 @@ public class Scenes implements Serializable {
     public void setLocationRow(int locationRow) {
         this.locationRow = locationRow;
     }
-    
+
     public int getLocationColumn() {
         return locationColumn;
     }
@@ -70,7 +70,5 @@ public class Scenes implements Serializable {
     public void setVisitedSymbol(String visitedSymbol) {
         this.visitedSymbol = visitedSymbol;
     }
-    
-    
-    
+
 }

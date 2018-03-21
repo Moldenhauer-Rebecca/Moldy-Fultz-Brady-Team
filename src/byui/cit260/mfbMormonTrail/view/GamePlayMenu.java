@@ -174,8 +174,8 @@ class GamePlayMenu {
     }
 
     private void locationSymbols() {
-       LocationSymbols[] symbols = new LocationSymbols[12];
-        
+        LocationSymbols[] symbols = new LocationSymbols[12];
+
         symbols[0] = new LocationSymbols("Nauvoo", "Start", "NI");
         symbols[1] = new LocationSymbols("GardenGrove", "Town", "GG");
         symbols[2] = new LocationSymbols("MountPisgah", "Town", "MP");
@@ -188,17 +188,17 @@ class GamePlayMenu {
         symbols[9] = new LocationSymbols("MartinsCove", "Null", "MC");
         symbols[10] = new LocationSymbols("FortBridger", "Fort", "FB");
         symbols[11] = new LocationSymbols("SaltLakeValley", "END", "SL");
-        
-        for (int i=0; i<symbols.length-1; i++){
-            for (int j=i+1; j<symbols.length; j++){
-                if (symbols[i].getSymbol().compareTo(symbols[j].getSymbol())>0){
+
+        for (int i = 0; i < symbols.length - 1; i++) {
+            for (int j = i + 1; j < symbols.length; j++) {
+                if (symbols[i].getSymbol().compareTo(symbols[j].getSymbol()) > 0) {
                     LocationSymbols symbols1 = symbols[i];
                     symbols[i] = symbols[j];
                     symbols[j] = symbols1;
                 }
             }
         }
-        for (LocationSymbols locationSymbolsControl: symbols){
+        for (LocationSymbols locationSymbolsControl : symbols) {
             System.out.print(locationSymbolsControl.getSymbol());
             System.out.print("\n");
         }

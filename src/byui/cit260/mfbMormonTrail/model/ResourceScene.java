@@ -12,8 +12,8 @@ import java.util.Objects;
  *
  * @author crmol
  */
-public class ResourceScene implements Serializable{
-    
+public class ResourceScene implements Serializable {
+
     //class instance variables
     private int amount;
     private String buy;
@@ -36,13 +36,9 @@ public class ResourceScene implements Serializable{
     public void setRegularSceneType(Scenes regularSceneType) {
         this.regularSceneType = regularSceneType;
     }
-    
-    
 
     public ResourceScene() {
     }
-    
-    
 
     public int getAmount() {
         return amount;
@@ -81,8 +77,6 @@ public class ResourceScene implements Serializable{
     public String toString() {
         return "ResourceScene{" + "amount=" + amount + ", buy=" + buy + ", sell=" + sell + '}';
     }
-    
-    
 
     @Override
     public boolean equals(Object obj) {
@@ -105,8 +99,4 @@ public class ResourceScene implements Serializable{
         return Objects.equals(this.sell, other.sell);
     }
 
-  
-    
-    
-    
 }

@@ -112,24 +112,23 @@ public class StartProgramView {
         String playerName = input[0];
         Player player = GameControl.createPlayer(playerName);
 
-        try{
-        if (player == null) {
-            System.out.println("Could not create the player. Enter a different name.");
-            return false;
-        }
+        try {
+            if (player == null) {
+                System.out.println("Could not create the player. Enter a different name.");
+                return false;
+            }
 
-        System.out.println("\n************************************************** "
-                + "\nWelcome to the game " + playerName + "!"
-                + "\nWe hope you have a lot of fun!"
-                + "\n**************************************************");
+            System.out.println("\n************************************************** "
+                    + "\nWelcome to the game " + playerName + "!"
+                    + "\nWe hope you have a lot of fun!"
+                    + "\n**************************************************");
 
-        MainMenu mainMenu = new MainMenu();
-        mainMenu.display();
-        }
-        catch (Exception e){
+            MainMenu mainMenu = new MainMenu();
+            mainMenu.display();
+        } catch (Exception e) {
             System.out.println("Error reading input: " + e.getMessage());
         }
-        
+
         return true;
     }
 

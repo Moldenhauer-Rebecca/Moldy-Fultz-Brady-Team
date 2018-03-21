@@ -12,9 +12,8 @@ import java.util.ArrayList;
  *
  * @author Mike
  */
+public class Team implements Serializable {
 
-public class Team implements Serializable{
-    
     //class instance variables
     private int teamPace;
     private int teamSkill;
@@ -31,8 +30,6 @@ public class Team implements Serializable{
     public void setGames(ArrayList<Game> games) {
         this.games = games;
     }
-    
-    
 
     public HealthStats getHealthStats() {
         return healthStats;
@@ -50,11 +47,8 @@ public class Team implements Serializable{
         this.player = player;
     }
 
-    
     public Team() {
     }
-    
-    
 
     public int getTeamPace() {
         return teamPace;
@@ -102,8 +96,6 @@ public class Team implements Serializable{
     public String toString() {
         return "Team{" + "teamPace=" + teamPace + ", teamSkill=" + teamSkill + ", teamSupplies=" + teamSupplies + ", teamStamina=" + teamStamina + '}';
     }
-    
-    
 
     @Override
     public boolean equals(Object obj) {
@@ -128,9 +120,5 @@ public class Team implements Serializable{
         }
         return this.teamStamina == other.teamStamina;
     }
-    
-    
-    
-    
-    }
-    
+
+}

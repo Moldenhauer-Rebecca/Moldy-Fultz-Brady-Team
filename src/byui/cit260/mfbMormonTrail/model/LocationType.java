@@ -14,18 +14,17 @@ public enum LocationType {
     Fort("Fort", "Fort is where you can buy and sell resources, or return to the trail"),
     River("River", "Your team has reached a river crossing"),
     HuntGather("HuntGather", "You are given the opportunity to either hunt or gather here");
-    
+
     private final String name;
     private final String description;
-    
+
     LocationType(String name, String description) {
         this.name = name;
         this.description = description;
     }
 
     public static LocationType getTown() {
-        
-        
+
         return Town;
     }
 
@@ -53,6 +52,5 @@ public enum LocationType {
     public String toString() {
         return "LocationType{" + "name=" + name + ", description=" + description + '}';
     }
-     
-    
+
 }

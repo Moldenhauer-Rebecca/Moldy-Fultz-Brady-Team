@@ -10,5 +10,5 @@ package byui.cit260.mfbMormonTrail.view;
  * @author crmol
  */
 public class GettingHelp {
-    
+
 }

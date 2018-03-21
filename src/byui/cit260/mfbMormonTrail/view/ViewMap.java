@@ -50,7 +50,6 @@ public class ViewMap extends View {
     @Override
     public boolean doAction(String value) {
 
-
         value = value.toUpperCase();
 
         if (value.equals("Q")) {

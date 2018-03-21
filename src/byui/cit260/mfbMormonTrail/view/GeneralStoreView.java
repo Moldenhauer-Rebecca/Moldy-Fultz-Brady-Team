@@ -100,6 +100,5 @@ public class GeneralStoreView {
         }
         return false; // keep the menu going
     }
-    
-  
+
 }

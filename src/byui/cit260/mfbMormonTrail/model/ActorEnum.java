@@ -14,17 +14,16 @@ public enum ActorEnum {
     Benjamin("Benjamin", "He is a blacksmith from Boston"),
     Zeke("Zeke", "He is a farmer from New York"),
     Mary("Mary", "She is a widow from Philadelphia");
-    
-    
+
     String name;
-    String description;  
-     
+    String description;
+
     ActorEnum(String name, String description) {
-    this.name = name;
-    this.description = description;
-}
-    
-      public String getName() {
+        this.name = name;
+        this.description = description;
+    }
+
+    public String getName() {
         return this.name;
     }
 

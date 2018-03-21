@@ -1,6 +1,5 @@
 package byui.cit260.mfbMormonTrail.model;
 
-
 import java.io.Serializable;
 import java.util.Objects;
 
@@ -9,13 +8,12 @@ import java.util.Objects;
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 /**
  *
  * @author Mike
  */
-public class Map implements Serializable{
-    
+public class Map implements Serializable {
+
     //class instance variables
     private String description;
     private int rowCount;
@@ -34,8 +32,7 @@ public class Map implements Serializable{
 
     public void setGame(Game game) {
         this.game = game;
-    }   
-    
+    }
 
     public String getDescription() {
         return description;
@@ -80,7 +77,7 @@ public class Map implements Serializable{
     public Location[][] getLocations() {
         return locations;
     }
-    
+
     public void setLocations(Location[][] locations) {
         this.locations = locations;
     }
@@ -100,8 +97,6 @@ public class Map implements Serializable{
     public String toString() {
         return "Map{" + "description=" + description + ", rowCount=" + rowCount + ", columnCount=" + columnCount + ", currentColumn=" + currentColumn + ", currentRow=" + currentRow + '}';
     }
-    
-    
 
     @Override
     public boolean equals(Object obj) {
@@ -129,7 +124,5 @@ public class Map implements Serializable{
         }
         return Objects.equals(this.description, other.description);
     }
-    
-    
-    
+
 }

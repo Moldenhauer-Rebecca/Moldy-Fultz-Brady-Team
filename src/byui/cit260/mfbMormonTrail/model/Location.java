@@ -13,7 +13,7 @@ import java.util.Objects;
  * @author Mike
  */
 public class Location implements Serializable {
-    
+
     //class instance variables
     private int row;
     private int rowCount;
@@ -33,8 +33,6 @@ public class Location implements Serializable {
     public void setActor(ActorEnum actor) {
         this.actor = actor;
     }
-    
-    
 
     public Scenes getScene() {
         return scene;
@@ -59,19 +57,15 @@ public class Location implements Serializable {
     public void setVisited(boolean visited) {
         this.visited = visited;
     }
-    
-    
 
     @Override
     public String toString() {
         return "Location{" + "row=" + row + ", rowCount=" + rowCount + ", columnCount=" + columnCount + ", currentColumn=" + currentColumn + ", currentRow=" + currentRow + ", locationType=" + locationType + '}';
     }
-    
-    
 
     public Location() {
     }
-    
+
     public int getRow() {
         return row;
     }
@@ -161,9 +155,5 @@ public class Location implements Serializable {
         }
         return Objects.equals(this.locationType, other.locationType);
     }
-    
-    
 
-    
-    
 }

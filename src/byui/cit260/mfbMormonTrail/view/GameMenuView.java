@@ -10,8 +10,9 @@ package byui.cit260.mfbMormonTrail.view;
  * @author Mike
  */
 public class GameMenuView {
+
     public void displayGameMenuView() {
-    
-}
-    
+
+    }
+
 }

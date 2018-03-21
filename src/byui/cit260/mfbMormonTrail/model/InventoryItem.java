@@ -21,12 +21,11 @@ public class InventoryItem implements Serializable {
     private int requiredAmount;
     private ResourceScene resourceScene;
     private ArrayList<Game> games = new ArrayList<>();
-    
-    
+
     public InventoryItem() {
         this.games = new ArrayList<>();
     }
-    
+
     public ArrayList<Game> getGames() {
         return games;
     }
@@ -42,7 +41,6 @@ public class InventoryItem implements Serializable {
     public void setResourceScene(ResourceScene resourceScene) {
         this.resourceScene = resourceScene;
     }
-
 
     public InventoryItem(InventoryItemType inventoryType, int quantityInStock, int requiredAmount) {
         this.inventoryType = inventoryType;
@@ -109,5 +107,4 @@ public class InventoryItem implements Serializable {
         return Objects.equals(this.inventoryType, other.inventoryType);
     }
 
-  
 }

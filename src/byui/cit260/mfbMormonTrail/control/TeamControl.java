@@ -5,12 +5,10 @@
  */
 package byui.cit260.mfbMormonTrail.control;
 
-
-
 /**
  *
  * @author crmol
  */
 public class TeamControl {
-    
+
 }

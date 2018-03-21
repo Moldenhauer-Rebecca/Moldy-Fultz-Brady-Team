@@ -66,22 +66,21 @@ public class MainMenu extends View {
         return false;
     }
 
-    
     private void startNewGame() {
-       Player player = MormonTrail.getPlayer();
-       try {
+        Player player = MormonTrail.getPlayer();
+        try {
             GameControl.createNewGame(player);
-       }catch (GameControlException ex) {
+        } catch (GameControlException ex) {
             System.out.println("Error starting new game.");
             return;
-       }
+        }
 
 //if (returnValue < 0) {
-         //  System.out.println("Error: Create new game failed");
-       //}
-       MainMenu mainMenu = new MainMenu();
-       mainMenu.display();
-             
+        //  System.out.println("Error: Create new game failed");
+        //}
+        MainMenu mainMenu = new MainMenu();
+        mainMenu.display();
+
     }
 
     private void restartGame() {
@@ -109,7 +108,7 @@ public class MainMenu extends View {
     }
 
     private void gamePlayMenu() {
-       GamePlayMenu gamePlayMenu = new GamePlayMenu();
-       gamePlayMenu.displayGamePlayMenu();
+        GamePlayMenu gamePlayMenu = new GamePlayMenu();
+        gamePlayMenu.displayGamePlayMenu();
     }
 }
