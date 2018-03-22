@@ -74,6 +74,7 @@ class GamePlayMenu {
                 + "\n V - View Map"
                 + "\n H - Get Help"
                 + "\n L - Location Symbols"
+                + "\n A - Move Actor"
                 + "\n Q - Quit"
                 + "\n----------------------------------------");
     }
@@ -103,6 +104,9 @@ class GamePlayMenu {
                 break;
             case "L":
                 locationSymbols();
+                break;
+            case "A":
+                moveActorView();
                 break;
             case "Q":
                 return true;
@@ -202,5 +206,10 @@ class GamePlayMenu {
             System.out.print(locationSymbolsControl.getSymbol());
             System.out.print("\n");
         }
+    }
+
+    private void moveActorView() {
+        MoveActorView moveActorView = new MoveActorView() {};
+        moveActorView.display();
     }
 }

@@ -5,6 +5,7 @@
  */
 package byui.cit260.mfbMormonTrail.view;
 
+import Exceptions.GameControlException;
 import byui.cit260.mfbMormonTrail.control.ItemControl;
 import byui.cit260.mfbMormonTrail.model.FortScene;
 
@@ -39,10 +40,11 @@ public class FortView extends View {
     }
 
     @Override
-    public boolean doAction(String value) {
+    public boolean doAction(String value){
 
         value = value.toUpperCase();
-
+        try {
+            
         if (value.equals("G")) {
 
             GeneralStoreView storeView = new GeneralStoreView();
@@ -56,6 +58,11 @@ public class FortView extends View {
 
         }
         return false;
+        }
+        catch (Exception e) {
+            System.out.println("Invalid input. Please enter a valid menu item.");
+        }
+        return true;
     }
 
     public void printGeneralStoreMenu() {

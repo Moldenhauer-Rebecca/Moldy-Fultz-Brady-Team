@@ -27,17 +27,17 @@ public class GameControl implements Serializable {
     private static Location[][] Locations;
 
     public static Player createPlayer(String playerName) throws GameControlException {
-
-        if ((playerName == null) || (playerName.length() < 1)) {
-            throw new GameControlException("Invalid name. Please try again.");
-        }
-
+        
+        if (playerName == null || playerName.length() < 1){
+            return null;
+        }  
+        
         Player player = new Player();
         player.setName(playerName);
         MormonTrail.setPlayer(player);
-
+        
         return player;
-    }
+        }
 
     public static void saveGame(Game game) throws GameControlException {
         if (game == null) {

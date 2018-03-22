@@ -24,12 +24,12 @@ public abstract class View implements ViewInterface {
 
     @Override
     public void display() {
-
+        String value;
         boolean done = false;
         do {
             // prompt for and get players name
-            String value = this.getInput();
-            if (value.toUpperCase().equals("Q")) // user wants to quit
+            value = this.getInput();
+            if (value == null || value.toUpperCase().equals("Q") || value.length() < 1) // user wants to quit
             {
                 return; // exit the view
             }
@@ -47,6 +47,7 @@ public abstract class View implements ViewInterface {
         String value = null;
 
         // while a valid name has not been retrieved
+        try{
         while (!valid) {
 
             // prompt for the player's name
@@ -62,6 +63,9 @@ public abstract class View implements ViewInterface {
             }
 
             break;
+        }
+        }catch (Exception e){
+            System.out.println(e.getMessage() + " Invalid input. Please try again.");
         }
 
         return value; // return the name 

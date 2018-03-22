@@ -10,7 +10,7 @@ import byui.cit260.mfbMormonTrail.model.Game;
 import byui.cit260.mfbMormonTrail.model.Player;
 import byui.cit260.mfbMormonTrail.view.StartProgramView;
 import byui.cit260.mfbMormonTrail.view.TownSceneMenu;
-
+import java.util.*;
 /**
  *
  * @author samuel
@@ -35,19 +35,22 @@ public class MormonTrail {
     public static void setPlayer(Player player) {
         MormonTrail.player = player;
     }
-    
+
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) throws GameControlException {
+        try {
+            
+            StartProgramView startProgramView = new StartProgramView();
+            startProgramView.displayStartProgramView();
 
-        StartProgramView startProgramView = new StartProgramView();
-        startProgramView.displayStartProgramView();
+            MormonTrail.setPlayer(player);
 
-        MormonTrail.setPlayer(player);
-
-        TownSceneMenu townSceneMenu = new TownSceneMenu();
-        townSceneMenu.display();
-       
+        } catch (Exception e) {
+            System.out.println("Exception: " + e.toString());
+            e.printStackTrace();
         }
+
     }
+}
