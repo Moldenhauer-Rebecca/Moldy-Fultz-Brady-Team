@@ -8,7 +8,7 @@ import Exceptions.CalcCrossRiverSuccessException;
  */
 public class CalcCrossRiverSuccess {
 
-    public static boolean calcCrossRiverSuccess(int currentSpeed, int riverWidth, int wagonWeight, int riverDepth) throws CalcCrossRiverSuccessException {
+    public static int calcCrossRiverSuccess(int currentSpeed, int riverWidth, int wagonWeight, int riverDepth) throws CalcCrossRiverSuccessException {
 
         if (currentSpeed < 2 || currentSpeed > 4) {
             throw new CalcCrossRiverSuccessException("Current speed value must be between 2 and 4.");

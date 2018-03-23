@@ -12,9 +12,9 @@ public class RiverScene implements Serializable {
 //class instant variable
 
     private int riverDepth;
-    private String successRate;
+    private int successRate;
     private int wagonWeight;
-    private int oxyenStrength;
+    private int currentSpeed;
     public EventsScene eventsScene;
 
     public EventsScene getEventsScene() {
@@ -33,11 +33,11 @@ public class RiverScene implements Serializable {
         this.riverDepth = riverDepth;
     }
 
-    public String getSuccessRate() {
+    public int getSuccessRate() {
         return successRate;
     }
 
-    public void setSuccessRate(String successRate) {
+    public void setSuccessRate(int successRate) {
         this.successRate = successRate;
     }
 
@@ -49,13 +49,15 @@ public class RiverScene implements Serializable {
         this.wagonWeight = wagonWeight;
     }
 
-    public int getOxyenStrength() {
-        return oxyenStrength;
+    public int getCurrentSpeed() {
+        return currentSpeed;
     }
 
-    public void setOxyenStrength(int oxyenStrength) {
-        this.oxyenStrength = oxyenStrength;
+    public void setCurrentSpeed(int currentSpeed) {
+        this.currentSpeed = currentSpeed;
     }
+
+   
 
     public RiverScene() {
     }
@@ -66,7 +68,7 @@ public class RiverScene implements Serializable {
         hash = 89 * hash + this.riverDepth;
         hash = 89 * hash + Objects.hashCode(this.successRate);
         hash = 89 * hash + this.wagonWeight;
-        hash = 89 * hash + this.oxyenStrength;
+        hash = 89 * hash + this.currentSpeed;
         return hash;
     }
 
@@ -88,7 +90,7 @@ public class RiverScene implements Serializable {
         if (this.wagonWeight != other.wagonWeight) {
             return false;
         }
-        if (this.oxyenStrength != other.oxyenStrength) {
+        if (this.currentSpeed != other.currentSpeed) {
             return false;
         }
         return Objects.equals(this.successRate, other.successRate);
@@ -96,30 +98,8 @@ public class RiverScene implements Serializable {
 
     @Override
     public String toString() {
-        return "RiverScene{" + "riverDepth=" + riverDepth + ", successRate=" + successRate + ", wagonWeight=" + wagonWeight + ", oxyenStrength=" + oxyenStrength + '}';
+        return "RiverScene{" + "riverDepth=" + riverDepth + ", successRate=" + successRate + ", wagonWeight=" + wagonWeight + ", currentSpeed=" + currentSpeed + '}';
     }
 
-    public void setRiverDepth(String string) {
-
-    }
-
-    public void getOxyenStrength(String string) {
-    }
-
-    public void getOxyenStrength(int i) {
-
-    }
-
-    public void getRiverDepth(int i) {
-
-    }
-
-    public void getSuccessRate(int i) {
-
-    }
-
-    public void getWagonWeight(int i) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
+ 
 }
