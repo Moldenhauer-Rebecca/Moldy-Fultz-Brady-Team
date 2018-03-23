@@ -4,7 +4,7 @@ import Exceptions.CalcCrossRiverSuccessException;
 
 /**
  *
- * @author Rebecca and Chelsie
+ * @author Rebecca
  */
 public class CalcCrossRiverSuccess {
 
@@ -27,7 +27,7 @@ public class CalcCrossRiverSuccess {
         }
         int successRate = ((currentSpeed + riverWidth + wagonWeight) - riverDepth) * 10;
 
-        return successRate >= 50;
+        return successRate;
 
     }
 

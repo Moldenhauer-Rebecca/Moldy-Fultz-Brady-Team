@@ -8,6 +8,10 @@ package byui.cit260.mfbMormonTrail.model;
 import java.io.Serializable;
 import java.util.Objects;
 
+/**
+ *
+ * @author crmol
+ */
 public class RiverScene implements Serializable {
 //class instant variable
 
@@ -15,6 +19,7 @@ public class RiverScene implements Serializable {
     private int successRate;
     private int wagonWeight;
     private int currentSpeed;
+    private int riverWidth;
     public EventsScene eventsScene;
 
     public EventsScene getEventsScene() {
@@ -57,7 +62,13 @@ public class RiverScene implements Serializable {
         this.currentSpeed = currentSpeed;
     }
 
-   
+    public int getRiverWidth() {
+        return riverWidth;
+    }
+
+    public void setRiverWidth(int riverWidth) {
+        this.riverWidth = riverWidth;
+    }
 
     public RiverScene() {
     }
@@ -101,5 +112,4 @@ public class RiverScene implements Serializable {
         return "RiverScene{" + "riverDepth=" + riverDepth + ", successRate=" + successRate + ", wagonWeight=" + wagonWeight + ", currentSpeed=" + currentSpeed + '}';
     }
 
- 
 }

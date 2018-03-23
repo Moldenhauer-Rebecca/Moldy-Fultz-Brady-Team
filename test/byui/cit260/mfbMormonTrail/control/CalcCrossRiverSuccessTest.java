@@ -16,6 +16,7 @@ public class CalcCrossRiverSuccessTest {
 
     /**
      * Test of calcCrossRiverSuccess method, of class CalcCrossRiverSuccess.
+     * @throws Exceptions.CalcCrossRiverSuccessException
      */
     @Test
     public void testCalcCrossRiverSuccess() throws CalcCrossRiverSuccessException {
@@ -28,9 +29,9 @@ public class CalcCrossRiverSuccessTest {
         int wagonWeight = 2;
         int riverDepth = 4;
         
-        boolean expResult = false;
+        int expResult = 20;
         
-        boolean result = CalcCrossRiverSuccess.calcCrossRiverSuccess(currentSpeed, riverWidth, wagonWeight, riverDepth);
+        int result = CalcCrossRiverSuccess.calcCrossRiverSuccess(currentSpeed, riverWidth, wagonWeight, riverDepth);
         assertEquals(expResult, result);
         
         System.out.println("Case2");
@@ -39,18 +40,18 @@ public class CalcCrossRiverSuccessTest {
         wagonWeight = 3;
         riverDepth = 3;
         
-        expResult = true;
+        expResult = 60;
         
         result = CalcCrossRiverSuccess.calcCrossRiverSuccess(currentSpeed, riverWidth, wagonWeight, riverDepth);
         assertEquals(expResult, result);
         
         System.out.println("Case3");
-        currentSpeed = 5;
+        currentSpeed = 4;
         riverWidth = 3;
         wagonWeight = 2;
         riverDepth = 3;
         
-        expResult = false;
+        expResult = 60;
         
         result = CalcCrossRiverSuccess.calcCrossRiverSuccess(currentSpeed, riverWidth, wagonWeight, riverDepth);
         assertEquals(expResult, result);
@@ -61,7 +62,7 @@ public class CalcCrossRiverSuccessTest {
         wagonWeight = 1;
         riverDepth = 1;
         
-        expResult = false;
+        expResult = -1;
         
         result = CalcCrossRiverSuccess.calcCrossRiverSuccess(currentSpeed, riverWidth, wagonWeight, riverDepth);
         assertEquals(expResult, result);
@@ -72,7 +73,7 @@ public class CalcCrossRiverSuccessTest {
         wagonWeight = 0;
         riverDepth = 4;
         
-        expResult = false;
+        expResult = -1;
         
         result = CalcCrossRiverSuccess.calcCrossRiverSuccess(currentSpeed, riverWidth, wagonWeight, riverDepth);
         assertEquals(expResult, result);
@@ -83,7 +84,7 @@ public class CalcCrossRiverSuccessTest {
         wagonWeight = 2;
         riverDepth = 6;
         
-        expResult = false;
+        expResult = -1;
         
         result = CalcCrossRiverSuccess.calcCrossRiverSuccess(currentSpeed, riverWidth, wagonWeight, riverDepth);
         assertEquals(expResult, result);
@@ -94,7 +95,7 @@ public class CalcCrossRiverSuccessTest {
         wagonWeight = 1;
         riverDepth = 3;
         
-        expResult = false; 
+        expResult = 20; 
                 
         result = CalcCrossRiverSuccess.calcCrossRiverSuccess(currentSpeed, riverWidth, wagonWeight, riverDepth);
         assertEquals(expResult, result);
@@ -105,7 +106,7 @@ public class CalcCrossRiverSuccessTest {
         wagonWeight = 3;
         riverDepth = 1;
         
-        expResult = true;
+        expResult = 100;
         
         result = CalcCrossRiverSuccess.calcCrossRiverSuccess(currentSpeed, riverWidth, wagonWeight, riverDepth);
         assertEquals(expResult, result);

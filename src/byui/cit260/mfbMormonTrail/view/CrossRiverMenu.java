@@ -9,30 +9,24 @@ import Exceptions.CalcCrossRiverSuccessException;
 import byui.cit260.mfbMormonTrail.control.CalcCrossRiverSuccess;
 import java.util.Random;
 
-
-
 /**
  *
  * @author crmol
  */
 public class CrossRiverMenu extends View {
-    
+
     Random random = new Random();
     private String riverStats;
-    private int riverDepth = random.nextInt(5)+1;
+    private int riverDepth = random.nextInt(5) + 1;
     private int currentSpeed;
     private int riverWidth;
     private int wagonWeight;
     private int successRate;
-    
-    
-    
+
     CalcCrossRiverSuccess calcCrossRiverSuccess = new CalcCrossRiverSuccess();
-    
-    
 
     public CrossRiverMenu() {
-          super("\n"
+        super("\n"
                 + "\n----------------------------------------"
                 + "\n          Welcome to the River          "
                 + "\n----------------------------------------"
@@ -51,22 +45,21 @@ public class CrossRiverMenu extends View {
                 + "\n      Q: Quit"
                 + "\n----------------------------------------");
     }
-    
-    @Override 
+
+    @Override
     public void display() {
         boolean done = false;
-        
+
         try {
             this.successRate = CalcCrossRiverSuccess.calcCrossRiverSuccess(currentSpeed, riverWidth, wagonWeight, riverDepth);
         } catch (CalcCrossRiverSuccessException ccrs) {
             System.out.println("Error reading input: " + ccrs.getMessage());
         }
-        
-       this.riverStats = "\n"
-                        + "\n The river is currently " + riverDepth + " feet. Your current Success rate for your wagon load is "
-                        + this.successRate + "%.";
-        
-        
+
+        this.riverStats = "\n"
+                + "\n The river is currently " + riverDepth + " feet. Your current Success rate for your wagon load is "
+                + this.successRate + "%.";
+
     }
 
     @Override
@@ -110,6 +103,5 @@ public class CrossRiverMenu extends View {
         DailyTrailStopView dailyTrailStopView = new DailyTrailStopView();
         dailyTrailStopView.display();
     }
-    
 
 }

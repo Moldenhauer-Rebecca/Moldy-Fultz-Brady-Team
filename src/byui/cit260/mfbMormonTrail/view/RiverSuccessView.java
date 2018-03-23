@@ -5,6 +5,7 @@
  */
 package byui.cit260.mfbMormonTrail.view;
 
+import byui.cit260.mfbMormonTrail.control.CalcCrossRiverSuccess;
 import java.util.Random;
 
 /**
@@ -14,9 +15,15 @@ import java.util.Random;
 class RiverSuccessView extends View {
 
     public RiverSuccessView() {
-
+        
     }
-
+        Random random = new Random();
+    String riverStats;
+    int riverDepth = 3;
+    int currentSpeed = 4;
+    int riverWidth = 4;
+    int wagonWeight = 1;
+   
     boolean displayRiverSuccess(int riverDepth, int successRate) {
         System.out.println("\n The river is currently " + riverDepth + " feet. Your success rate with your current load are "
                 + successRate + "%. Do you want to cross the river?  (y/n)");
@@ -45,18 +52,19 @@ class RiverSuccessView extends View {
         }
         return false;
     }
-    
+
     private void crossRiver(int successRate) {
-        Random rand = new Random();
-        if(rand.nextInt(100) <= successRate) {
+        if (successRate >= 50) {
             System.out.println("\n You have successfully crossed the river. ");
         } else {
             System.out.println("\n The river is not cannot be crossed here today.");
         }
     }
+
     @Override
     public boolean doAction(String value) {
         return true;
     }
 
 }
+
