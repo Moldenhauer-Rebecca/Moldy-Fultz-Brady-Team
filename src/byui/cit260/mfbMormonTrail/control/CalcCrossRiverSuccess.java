@@ -4,11 +4,11 @@ import Exceptions.CalcCrossRiverSuccessException;
 
 /**
  *
- * @author Rebecca and Chelsie
+ * @author Rebecca
  */
 public class CalcCrossRiverSuccess {
 
-    public static boolean calcCrossRiverSuccess(int currentSpeed, int riverWidth, int wagonWeight, int riverDepth) throws CalcCrossRiverSuccessException {
+    public static int calcCrossRiverSuccess(int currentSpeed, int riverWidth, int wagonWeight, int riverDepth) throws CalcCrossRiverSuccessException {
 
         if (currentSpeed < 2 || currentSpeed > 4) {
             throw new CalcCrossRiverSuccessException("Current speed value must be between 2 and 4.");
@@ -27,7 +27,7 @@ public class CalcCrossRiverSuccess {
         }
         int successRate = ((currentSpeed + riverWidth + wagonWeight) - riverDepth) * 10;
 
-        return successRate >= 50;
+        return successRate;
 
     }
 

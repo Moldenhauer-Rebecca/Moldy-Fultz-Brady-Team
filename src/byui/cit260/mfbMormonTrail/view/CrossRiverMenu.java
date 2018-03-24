@@ -5,11 +5,25 @@
  */
 package byui.cit260.mfbMormonTrail.view;
 
+import Exceptions.CalcCrossRiverSuccessException;
+import byui.cit260.mfbMormonTrail.control.CalcCrossRiverSuccess;
+import java.util.Random;
+
 /**
  *
  * @author crmol
  */
 public class CrossRiverMenu extends View {
+
+    Random random = new Random();
+    private String riverStats;
+    private int riverDepth = random.nextInt(5) + 1;
+    private int currentSpeed;
+    private int riverWidth;
+    private int wagonWeight;
+    private int successRate;
+
+    CalcCrossRiverSuccess calcCrossRiverSuccess = new CalcCrossRiverSuccess();
 
     public CrossRiverMenu() {
         super("\n"
@@ -23,12 +37,8 @@ public class CrossRiverMenu extends View {
                 + "\n wagon lighter or go back to think about"
                 + "\n your decsion.                          "
                 + "\n----------------------------------------"
-                + "\n         Current River Stats            "
-                + "\n     Current River Depth: 2 feet        "
-                + "\n     Current River Width: Narrow        "
-                + "\n     Current Success Rate: 85%          "
-                + "\n----------------------------------------"
                 + "\n         Cross River Menu               "
+                + "\n      S: Calculate Cross River Succes Rate"
                 + "\n      D: Drop Supplies                   "
                 + "\n      C: Cross the river"
                 + "\n      R: Go Back and think about it"
@@ -37,11 +47,30 @@ public class CrossRiverMenu extends View {
     }
 
     @Override
+    public void display() {
+        boolean done = false;
+
+        try {
+            this.successRate = CalcCrossRiverSuccess.calcCrossRiverSuccess(currentSpeed, riverWidth, wagonWeight, riverDepth);
+        } catch (CalcCrossRiverSuccessException ccrs) {
+            System.out.println("Error reading input: " + ccrs.getMessage());
+        }
+
+        this.riverStats = "\n"
+                + "\n The river is currently " + riverDepth + " feet. Your current Success rate for your wagon load is "
+                + this.successRate + "%.";
+
+    }
+
+    @Override
     public boolean doAction(String value) {
 
         value = value.toUpperCase();
 
         switch (value) {
+            case "S":
+                crossRiver();
+                break;
             case "D":
                 dropSupplies();
                 break;
@@ -66,7 +95,8 @@ public class CrossRiverMenu extends View {
     }
 
     private void crossRiver() {
-        System.out.println("Cross River ran successfully.");
+        RiverSuccessView riverSuccessView = new RiverSuccessView();
+        riverSuccessView.display();
     }
 
     private void dailyTrailStopView() {

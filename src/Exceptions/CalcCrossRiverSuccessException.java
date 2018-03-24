@@ -7,7 +7,7 @@ package Exceptions;
 
 /**
  *
- * @author Rebecca and Chelsie
+ * @author Rebecca
  */
 public class CalcCrossRiverSuccessException extends Exception {
 

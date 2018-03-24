@@ -38,6 +38,7 @@ public class MormonTrail {
 
     /**
      * @param args the command line arguments
+     * @throws Exceptions.GameControlException
      */
     public static void main(String[] args) throws GameControlException {
         try {
@@ -47,9 +48,8 @@ public class MormonTrail {
 
             MormonTrail.setPlayer(player);
 
-        } catch (Exception e) {
+        } catch (GameControlException e) {
             System.out.println("Exception: " + e.toString());
-            e.printStackTrace();
         }
 
     }
