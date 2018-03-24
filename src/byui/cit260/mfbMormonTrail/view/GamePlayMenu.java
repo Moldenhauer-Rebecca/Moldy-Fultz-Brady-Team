@@ -5,12 +5,17 @@
  */
 package byui.cit260.mfbMormonTrail.view;
 
+import Exceptions.InventoryDailyDrawException;
+import byui.cit260.mfbMormonTrail.control.InventoryDailyDraw;
 import byui.cit260.mfbMormonTrail.model.Game;
 import byui.cit260.mfbMormonTrail.model.Location;
 import byui.cit260.mfbMormonTrail.model.Player;
 import java.util.Scanner;
 import mormontrail.MormonTrail;
 import byui.cit260.mfbMormonTrail.control.LocationSymbols;
+import java.util.InputMismatchException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -20,7 +25,7 @@ class GamePlayMenu {
 
     private Game game;
 
-    public void displayGamePlayMenu() {
+    public void displayGamePlayMenu() throws InventoryDailyDrawException {
         this.game = game;
         boolean exit = false;
         printGamePlayMenu();
@@ -75,11 +80,12 @@ class GamePlayMenu {
                 + "\n H - Get Help"
                 + "\n L - Location Symbols"
                 + "\n A - Move Actor"
+                + "\n D - Calculate Inventory Daily Draw"
                 + "\n Q - Quit"
                 + "\n----------------------------------------");
     }
 
-    public boolean doAction(String value) {
+    public boolean doAction(String value) throws InventoryDailyDrawException {
 
         value = value.toUpperCase(); //convert to all upper case
 
@@ -107,6 +113,9 @@ class GamePlayMenu {
                 break;
             case "A":
                 moveActorView();
+                break;
+            case "D":
+                calcDailyDraw();
                 break;
             case "Q":
                 return true;
@@ -209,7 +218,20 @@ class GamePlayMenu {
     }
 
     private void moveActorView() {
-        MoveActorView moveActorView = new MoveActorView() {};
+        MoveActorView moveActorView = new MoveActorView();
         moveActorView.display();
     }
+
+    private double calcDailyDraw() {
+        double dailyDraw = 0;
+        try {
+            dailyDraw = new InventoryDailyDraw().calcInventoryDailyDraw();
+        } catch (InventoryDailyDrawException ex) {
+            System.out.print(ex.getMessage());
+            //infinite recursion not possible.
+            calcDailyDraw();
+        }
+        return dailyDraw;
+    }
+    
 }
