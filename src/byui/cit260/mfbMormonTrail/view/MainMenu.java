@@ -6,8 +6,11 @@
 package byui.cit260.mfbMormonTrail.view;
 
 import Exceptions.GameControlException;
+import Exceptions.InventoryDailyDrawException;
 import byui.cit260.mfbMormonTrail.control.GameControl;
 import byui.cit260.mfbMormonTrail.model.Player;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import mormontrail.MormonTrail;
 
 public class MainMenu extends View {
@@ -54,7 +57,13 @@ public class MainMenu extends View {
                 townSceneMenu();
                 break;
             case "G":
+        {
+            try {
                 gamePlayMenu();
+            } catch (InventoryDailyDrawException ex) {
+                Logger.getLogger(MainMenu.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
                 break;
             case "Q":
                 return true;
@@ -107,7 +116,7 @@ public class MainMenu extends View {
         townSceneMenu.display();
     }
 
-    private void gamePlayMenu() {
+    private void gamePlayMenu() throws InventoryDailyDrawException {
         GamePlayMenu gamePlayMenu = new GamePlayMenu();
         gamePlayMenu.displayGamePlayMenu();
     }
