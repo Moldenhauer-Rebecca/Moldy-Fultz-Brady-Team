@@ -65,8 +65,7 @@ public class HotelView {
 
         while (valid == false) {
             try {
-                ErrorView.display(this.getClass().getName(),
-                        "Please make your selection:");
+                this.console.println("Please make your selection:");
                 input[0] = this.keyboard.readLine();
                 input[0] = input[0].trim();
 

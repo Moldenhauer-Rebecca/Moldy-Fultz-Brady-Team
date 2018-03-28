@@ -40,27 +40,26 @@ public class FortView extends View {
     }
 
     @Override
-    public boolean doAction(String value){
+    public boolean doAction(String value) {
 
         value = value.toUpperCase();
         try {
-            
-        if (value.equals("G")) {
 
-            GeneralStoreView storeView = new GeneralStoreView();
-            storeView.displayGeneralStoreView();
-        } else if (value.equals("I")) {
+            if (value.equals("G")) {
 
-            ItemControl();
+                GeneralStoreView storeView = new GeneralStoreView();
+                storeView.displayGeneralStoreView();
+            } else if (value.equals("I")) {
 
-        } else {
-            return true;
+                ItemControl();
 
-        }
-        return false;
-        }
-        catch (Exception e) {
-            ErrorView.display(this.getClass().getName(), 
+            } else {
+                return true;
+
+            }
+            return false;
+        } catch (Exception e) {
+            ErrorView.display(this.getClass().getName(),
                     "Invalid input: " + e.getMessage());
         }
         return true;
@@ -80,8 +79,8 @@ public class FortView extends View {
             totalWeight += itemWeight[i];
 
         }
-        System.out.println("Total Inventory weight before purchases: 250 lbs");
-        System.out.println("Total inventory weight after purchases: " + totalWeight + " lbs");
+        this.console.println("Total Inventory weight before purchases: 250 lbs");
+        this.console.println("Total inventory weight after purchases: " + totalWeight + " lbs");
 
     }
 

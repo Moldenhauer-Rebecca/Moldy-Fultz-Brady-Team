@@ -46,8 +46,7 @@ class GamePlayMenu extends View {
         boolean valid = false;
 
         while (valid == false) {
-            ErrorView.display(this.getClass().getName(),
-                    "Please make your selection:");
+            this.console.println("Please make your selection:");
             try {
                 input = this.keyboard.readLine();
             } catch (IOException e) {

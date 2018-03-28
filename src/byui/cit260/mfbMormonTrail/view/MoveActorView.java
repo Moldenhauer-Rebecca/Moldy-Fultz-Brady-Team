@@ -16,7 +16,7 @@ class MoveActorView extends View {
 
     public String[] getInputs() {
         String[] inputs = new String[2];
-        System.out.println("Enter the new location:");
+        this.console.println("Enter the new location:");
         inputs[0] = this.getInput();
 
         inputs[1] = this.getInput();
@@ -49,7 +49,7 @@ class MoveActorView extends View {
             return false;
         }
 
-        System.out.println(newLocation.getScene().getSceneName());
+        this.console.println(newLocation.getScene().getSceneName());
         return true;
     }
 

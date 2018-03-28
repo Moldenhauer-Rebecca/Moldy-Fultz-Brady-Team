@@ -23,7 +23,7 @@ public class InventoryDailyDraw extends View {
 
     public double calcInventoryDailyDraw() throws InventoryDailyDrawException {
 
-        this.console.print("\nPlease enter number of people on your team (Number must be between 1 and 5):");
+        this.console.println("\nPlease enter number of people on your team (Number must be between 1 and 5):");
         String p = "default value";
 
         try {

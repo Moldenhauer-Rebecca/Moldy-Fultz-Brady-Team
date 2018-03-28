@@ -11,9 +11,6 @@ import byui.cit260.mfbMormonTrail.model.Player;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.Scanner;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import mormontrail.MormonTrail;
 
 /**
@@ -51,12 +48,12 @@ public class GeneralStoreView {
 
         while (i < generalStoreScene.getInventoryItems().size()) {
             InventoryItem inventoryItem = generalStoreScene.getInventoryItems().get(i);
-            System.out.println((i + 1) + " " + inventoryItem.getInventoryType());
+            this.console.println((i + 1) + " " + inventoryItem.getInventoryType());
             i = i + 1;
 
         }
 
-        System.out.println("Q Quit");
+        this.console.println("Q Quit");
 
     }
 
@@ -67,16 +64,15 @@ public class GeneralStoreView {
 
         while (valid == false) {
             try {
-                ErrorView.display(this.getClass().getName(),
-                        "Please make your selection:");
+                this.console.println("Please make your selection:");
                 input[0] = this.keyboard.readLine();
                 input[0] = input[0].trim();
-                
+
                 if (input[0].length() < 1) {     //We check for invalid input, trimmed the value, and now check to see if there's a value.
                     ErrorView.display(this.getClass().getName(),
                             "Please make your valid selction");
                 }
-                
+
                 valid = true;
             } catch (IOException ex) {
                 ErrorView.display(this.getClass().getName(),

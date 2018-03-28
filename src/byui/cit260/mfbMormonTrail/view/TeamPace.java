@@ -29,7 +29,7 @@ public class TeamPace extends View {
 
     public void printDescription() {
 
-        System.out.println("\n**************************************************"
+        this.console.println("\n**************************************************"
                 + "\n*                                                *"
                 + "\nSet Team Pace"
                 + "\nHere, you can set the pace for your team."
