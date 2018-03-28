@@ -6,22 +6,18 @@
 package byui.cit260.mfbMormonTrail.view;
 
 import Exceptions.InventoryDailyDrawException;
-import byui.cit260.mfbMormonTrail.control.InventoryDailyDraw;
 import byui.cit260.mfbMormonTrail.model.Game;
 import byui.cit260.mfbMormonTrail.model.Location;
 import byui.cit260.mfbMormonTrail.model.Player;
-import java.util.Scanner;
 import mormontrail.MormonTrail;
 import byui.cit260.mfbMormonTrail.control.LocationSymbols;
-import java.util.InputMismatchException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import java.io.IOException;
 
 /**
  *
  * @author Mike
  */
-class GamePlayMenu {
+class GamePlayMenu extends View {
 
     private Game game;
 
@@ -43,20 +39,26 @@ class GamePlayMenu {
 
     }
 
-    private String getInput() {
+    @Override
+    public String getInput() {
         String input = new String();
-        System.out.println("Starting getInput View");
 
         boolean valid = false;
 
         while (valid == false) {
-            System.out.println("Please make your selection:");
-            Scanner inputScanner = new Scanner(System.in);
-            input = inputScanner.nextLine();
+            ErrorView.display(this.getClass().getName(),
+                    "Please make your selection:");
+            try {
+                input = this.keyboard.readLine();
+            } catch (IOException e) {
+                ErrorView.display(this.getClass().getName(),
+                        "Error reading input: " + e.getMessage());
+            }
             input = input.trim();
 
             if (input.length() < 1) {     //We check for invalid input, trimmed the value, and now check to see if there's a value. 
-                System.out.println("Please make your valid selction");
+                ErrorView.display(this.getClass().getName(),
+                        "Please make your valid selction");
             }
 
             valid = true;
@@ -85,7 +87,8 @@ class GamePlayMenu {
                 + "\n----------------------------------------");
     }
 
-    public boolean doAction(String value) throws InventoryDailyDrawException {
+    @Override
+    public boolean doAction(String value) {
 
         value = value.toUpperCase(); //convert to all upper case
 
@@ -120,7 +123,7 @@ class GamePlayMenu {
             case "Q":
                 return true;
             default:
-                System.out.println("Invalid menu item.");
+                this.console.println("Invalid menu item.");
                 break;
         }
 
@@ -128,11 +131,11 @@ class GamePlayMenu {
     }
 
     private void viewTeamStatus() {
-        System.out.println("Team Status");
+        this.console.println("Team Status");
     }
 
     private void viewTeamSupplies() {
-        System.out.println("Team Supplies");
+        this.console.println("Team Supplies");
     }
 
     private void teamPace() {
@@ -141,7 +144,7 @@ class GamePlayMenu {
     }
 
     private void sceneMenu() {
-        System.out.println("\nScene Menu");
+        this.console.println("\nScene Menu");
     }
 
     private void viewMap() {
@@ -212,8 +215,8 @@ class GamePlayMenu {
             }
         }
         for (LocationSymbols locationSymbolsControl : symbols) {
-            System.out.print(locationSymbolsControl.getSymbol());
-            System.out.print("\n");
+            this.console.print(locationSymbolsControl.getSymbol());
+            this.console.print("\n");
         }
     }
 
@@ -227,11 +230,12 @@ class GamePlayMenu {
         try {
             dailyDraw = new InventoryDailyDraw().calcInventoryDailyDraw();
         } catch (InventoryDailyDrawException ex) {
-            System.out.print(ex.getMessage());
+            ErrorView.display(this.getClass().getName(),
+                    "Error reading input: " + ex.getMessage());
             //infinite recursion not possible.
             calcDailyDraw();
         }
         return dailyDraw;
     }
-    
+
 }

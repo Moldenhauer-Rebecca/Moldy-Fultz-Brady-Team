@@ -53,7 +53,8 @@ public class CrossRiverMenu extends View {
         try {
             this.successRate = CalcCrossRiverSuccess.calcCrossRiverSuccess(currentSpeed, riverWidth, wagonWeight, riverDepth);
         } catch (CalcCrossRiverSuccessException ccrs) {
-            System.out.println("Error reading input: " + ccrs.getMessage());
+            ErrorView.display(this.getClass().getName(),
+                    "Error reading input: " + ccrs.getMessage());
         }
 
         this.riverStats = "\n"

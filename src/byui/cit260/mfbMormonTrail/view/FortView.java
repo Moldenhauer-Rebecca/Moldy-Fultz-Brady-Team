@@ -60,7 +60,8 @@ public class FortView extends View {
         return false;
         }
         catch (Exception e) {
-            System.out.println("Invalid input. Please enter a valid menu item.");
+            ErrorView.display(this.getClass().getName(), 
+                    "Invalid input: " + e.getMessage());
         }
         return true;
     }

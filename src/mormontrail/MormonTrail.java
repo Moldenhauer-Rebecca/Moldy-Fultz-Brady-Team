@@ -8,17 +8,28 @@ package mormontrail;
 import Exceptions.GameControlException;
 import byui.cit260.mfbMormonTrail.model.Game;
 import byui.cit260.mfbMormonTrail.model.Player;
+import byui.cit260.mfbMormonTrail.view.ErrorView;
 import byui.cit260.mfbMormonTrail.view.StartProgramView;
-import byui.cit260.mfbMormonTrail.view.TownSceneMenu;
-import java.util.*;
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.PrintWriter;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  *
- * @author samuel
+ * @author Chelsie, Rebecca and Sam
  */
 public class MormonTrail {
 
     private static Game currentGame = null;
     private static Player player = null;
+
+    private static PrintWriter outFile = null;
+    private static BufferedReader inFile = null;
+    private static PrintWriter logFile = null;
 
     public static Game getCurrentGame() {
         return currentGame;
@@ -36,20 +47,73 @@ public class MormonTrail {
         MormonTrail.player = player;
     }
 
+    public static PrintWriter getOutFile() {
+        return outFile;
+    }
+
+    public static void setOutFile(PrintWriter outFile) {
+        MormonTrail.outFile = outFile;
+    }
+
+    public static BufferedReader getInFile() {
+        return inFile;
+    }
+
+    public static void setInFile(BufferedReader inFile) {
+        MormonTrail.inFile = inFile;
+    }
+
+    public static PrintWriter getLogFile() {
+        return logFile;
+    }
+
+    public static void setLogFile(PrintWriter logFile) {
+        MormonTrail.logFile = logFile;
+    }
+
     /**
      * @param args the command line arguments
-     * @throws Exceptions.GameControlException
      */
-    public static void main(String[] args) throws GameControlException {
+    public void main(String[] args) {
         try {
-            
+
+            MormonTrail.inFile = new BufferedReader(new InputStreamReader(System.in));
+
+            MormonTrail.outFile = new PrintWriter(System.out, true);
+
+           
+            try {
+                MormonTrail.logFile = new PrintWriter("logFile.txt");
+            } catch (FileNotFoundException ex) {
+                ErrorView.display(this.getClass().getName(),
+                        "Error logging files: " + ex.getMessage());
+            }
+
+            // Create StartProgramaView and start the program
             StartProgramView startProgramView = new StartProgramView();
             startProgramView.displayStartProgramView();
 
-            MormonTrail.setPlayer(player);
-
         } catch (GameControlException e) {
-            System.out.println("Exception: " + e.toString());
+            ErrorView.display(this.getClass().getName(),
+                    "Error reading input: " + e.getMessage());
+
+            e.printStackTrace();
+            
+        } finally {
+            if (MormonTrail.inFile != null) {
+                try {
+                    MormonTrail.inFile.close();
+                } catch (IOException ex) {
+                    ErrorView.display(this.getClass().getName(),
+                            "Error closing files: " + ex.getMessage());
+                }
+            }
+            if (MormonTrail.outFile != null) {
+                MormonTrail.outFile.close();
+            }
+            if (MormonTrail.logFile != null) {
+                MormonTrail.logFile.close();
+            }
         }
 
     }

@@ -5,7 +5,9 @@
  */
 package byui.cit260.mfbMormonTrail.view;
 
-import java.util.Scanner;
+import java.io.BufferedReader;
+import java.io.PrintWriter;
+import mormontrail.MormonTrail;
 
 /**
  *
@@ -14,6 +16,9 @@ import java.util.Scanner;
 public abstract class View implements ViewInterface {
 
     protected String displayMessage;
+
+    protected final BufferedReader keyboard = MormonTrail.getInFile();
+    protected final PrintWriter console = MormonTrail.getOutFile();
 
     public View() {
     }
@@ -42,30 +47,30 @@ public abstract class View implements ViewInterface {
     @Override
     public String getInput() {
 
-        Scanner keyboard = new Scanner(System.in);
         boolean valid = false;
         String value = null;
 
         // while a valid name has not been retrieved
-        try{
-        while (!valid) {
+        try {
+            while (!valid) {
+                // prompt for the player's name
+                this.console.println("\n" + this.displayMessage);
 
-            // prompt for the player's name
-            System.out.println("\n" + this.displayMessage);
+                // get the value entered from the keyboard
+                value = this.keyboard.readLine();
+                value = value.trim();
 
-            // get the value entered from the keyboard
-            value = keyboard.nextLine();
-            value = value.trim();
+                if (value.length() < 1) { // blank value entered      
+                    ErrorView.display(this.getClass().getName(),
+                            "\n*** You must enter a value *** ");
+                    continue;
+                }
 
-            if (value.length() < 1) { // blank value entered      
-                System.out.println("\n*** You must enter a value *** ");
-                continue;
+                break;
             }
-
-            break;
-        }
-        }catch (Exception e){
-            System.out.println(e.getMessage() + " Invalid input. Please try again.");
+        } catch (Exception e) {
+            ErrorView.display(this.getClass().getName(),
+                    "Error reading input: " + e.getMessage());
         }
 
         return value; // return the name 

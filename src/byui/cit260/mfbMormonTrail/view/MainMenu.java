@@ -56,19 +56,20 @@ public class MainMenu extends View {
             case "T":
                 townSceneMenu();
                 break;
-            case "G":
-        {
-            try {
-                gamePlayMenu();
-            } catch (InventoryDailyDrawException ex) {
-                Logger.getLogger(MainMenu.class.getName()).log(Level.SEVERE, null, ex);
+            case "G": {
+                try {
+                    gamePlayMenu();
+                } catch (InventoryDailyDrawException e) {
+                    ErrorView.display(this.getClass().getName(),
+                            "Error reading input: " + e.getMessage());
+                }
             }
-        }
-                break;
+            break;
             case "Q":
                 return true;
             default:
-                System.out.println("Invalid menu item.");
+                ErrorView.display(this.getClass().getName(),
+                        "Invalid menu item.");
                 break;
         }
 
@@ -79,8 +80,9 @@ public class MainMenu extends View {
         Player player = MormonTrail.getPlayer();
         try {
             GameControl.createNewGame(player);
-        } catch (GameControlException ex) {
-            System.out.println("Error starting new game.");
+        } catch (GameControlException e) {
+            ErrorView.display(this.getClass().getName(),
+                    "Error reading input: " + e.getMessage());
             return;
         }
 
@@ -103,7 +105,7 @@ public class MainMenu extends View {
     }
 
     private void saveGame() {
-        System.out.println("saveGame initiated");
+        this.console.println("saveGame initiated");
     }
 
     private void dailyTrailStopView() {

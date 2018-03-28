@@ -49,14 +49,14 @@ public class TeamPace extends View {
 
         if (value.equals("S")) {
 
-            System.out.println("Your pace has been set to Slow.");
+            this.console.println("Your pace has been set to Slow.");
         } else if (value.equals("A")) {
 
-            System.out.println("Your pace has been set to Average.");
+            this.console.println("Your pace has been set to Average.");
 
         } else if (value.equals("F")) {
 
-            System.out.println("Your pace has been set to Fast.");
+            this.console.println("Your pace has been set to Fast.");
 
         } else {
             return true;

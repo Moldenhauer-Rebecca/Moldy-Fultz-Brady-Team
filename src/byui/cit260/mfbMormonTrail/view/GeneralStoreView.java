@@ -8,7 +8,13 @@ package byui.cit260.mfbMormonTrail.view;
 import byui.cit260.mfbMormonTrail.model.GeneralStoreScene;
 import byui.cit260.mfbMormonTrail.model.InventoryItem;
 import byui.cit260.mfbMormonTrail.model.Player;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import mormontrail.MormonTrail;
 
 /**
  *
@@ -16,6 +22,9 @@ import java.util.Scanner;
  *
  */
 public class GeneralStoreView {
+
+    protected final BufferedReader keyboard = MormonTrail.getInFile();
+    protected final PrintWriter console = MormonTrail.getOutFile();
 
     private final GeneralStoreScene generalStoreScene = new GeneralStoreScene();
 
@@ -51,30 +60,35 @@ public class GeneralStoreView {
 
     }
 
-    private String[] getInput() {
+    public String[] getInput() {
         String[] input = new String[1];
-        System.out.println("Starting getInput View");
 
         boolean valid = false;
 
         while (valid == false) {
-            System.out.println("Please make your selection:");
-            Scanner inputScanner = new Scanner(System.in);
-            input[0] = inputScanner.nextLine();
-            input[0] = input[0].trim();
-
-            if (input[0].length() < 1) {     //We check for invalid input, trimmed the value, and now check to see if there's a value. 
-                System.out.println("Please make your valid selction");
+            try {
+                ErrorView.display(this.getClass().getName(),
+                        "Please make your selection:");
+                input[0] = this.keyboard.readLine();
+                input[0] = input[0].trim();
+                
+                if (input[0].length() < 1) {     //We check for invalid input, trimmed the value, and now check to see if there's a value.
+                    ErrorView.display(this.getClass().getName(),
+                            "Please make your valid selction");
+                }
+                
+                valid = true;
+            } catch (IOException ex) {
+                ErrorView.display(this.getClass().getName(),
+                        "Error reading input: " + ex.getMessage());
             }
-
-            valid = true;
         }
 
         return input;
 
     }
 
-    private boolean doAction(String[] input) {
+    public boolean doAction(String[] input) {
 
         // Comment: Input is the number of the player selected by the user.
         // Or Q to quit.
@@ -93,10 +107,11 @@ public class GeneralStoreView {
             // Don't forget about -1 because arrays start at 0.
             InventoryItem inventoryItem = generalStoreScene.getInventoryItems().get(inventoryIndex - 1);
             // Print the message "You selected [player name]"
-            System.out.println(inventoryItem);
+            this.console.println(inventoryItem);
 
         } catch (NumberFormatException e) {
-            System.out.println("Entered value: " + e.getMessage() + "Please enter a valid number.");
+            ErrorView.display(this.getClass().getName(),
+                    "Error reading input: " + e.getMessage());
         }
         return false; // keep the menu going
     }

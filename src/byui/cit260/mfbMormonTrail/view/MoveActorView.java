@@ -8,12 +8,11 @@ package byui.cit260.mfbMormonTrail.view;
 import byui.cit260.mfbMormonTrail.control.MapControl;
 import byui.cit260.mfbMormonTrail.model.Location;
 
-
 /**
  *
  * @author Mike
  */
-class MoveActorView extends View{
+class MoveActorView extends View {
 
     public String[] getInputs() {
         String[] inputs = new String[2];
@@ -34,21 +33,22 @@ class MoveActorView extends View{
         try {
             row2 = Integer.parseInt(row);
             column2 = Integer.parseInt(column);
-        } catch (Exception e) {
-            System.out.println("The row and column must be a number");
+        } catch (NumberFormatException e) {
+            ErrorView.display(this.getClass().getName(),
+                    "Error reading input: " + e.getMessage());
             return false;
         }
-        
+
         Location newLocation = null;
-        
+
         try {
-            newLocation = MapControl.moveActor();  
-        }
-        catch (Exception e) {
-            System.out.println("Invalid entry. Please try again.");
+            newLocation = MapControl.moveActor();
+        } catch (Exception e) {
+            ErrorView.display(this.getClass().getName(),
+                    "Invalid entry. Please try again.");
             return false;
         }
-        
+
         System.out.println(newLocation.getScene().getSceneName());
         return true;
     }
@@ -56,8 +56,7 @@ class MoveActorView extends View{
     @Override
     public boolean doAction(String value) {
         return false;
-      
-    }
 
+    }
 
 }

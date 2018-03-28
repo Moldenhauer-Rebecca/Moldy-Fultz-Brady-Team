@@ -8,7 +8,13 @@ package byui.cit260.mfbMormonTrail.view;
 import Exceptions.GameControlException;
 import byui.cit260.mfbMormonTrail.control.GameControl;
 import byui.cit260.mfbMormonTrail.model.Player;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import mormontrail.MormonTrail;
 
 /**
  *
@@ -16,7 +22,8 @@ import java.util.Scanner;
  */
 public class StartProgramView {
 
-    Scanner inputScanner = new Scanner(System.in);
+    protected final BufferedReader keyboard = MormonTrail.getInFile();
+    protected final PrintWriter console = MormonTrail.getOutFile();
 
     public void displayStartProgramView() throws GameControlException {
         boolean exit = false;
@@ -37,7 +44,7 @@ public class StartProgramView {
 
     public void printDescription() {
 
-        System.out.println("\n**************************************************"
+        this.console.println("\n**************************************************"
                 + "\n*                                                *"
                 + "\nWelcome to The Mormon Trail"
                 + "\nYour jouney begins in Nauvoo, Illinois."
@@ -50,7 +57,7 @@ public class StartProgramView {
     }
 
     private void printMainMenu() {
-        System.out.println("\n*                            *"
+        this.console.println("\n*                            *"
                 + "Please Make a Selection:"
                 + "N: Start New Game"
                 + "R: Resume Existing Game"
@@ -59,7 +66,7 @@ public class StartProgramView {
     }
 
     private void printHelpMenu() {
-        System.out.println("\n*"
+        this.console.println("\n*"
                 + "Welcome to the Help Menu."
                 + "Please Make a Selection:"
                 + "1: Get some help"
@@ -68,40 +75,45 @@ public class StartProgramView {
     }
 
     private void printStartNewGame() {
-        System.out.println("\n*"
+        this.console.println("\n*"
                 + "Welcome to The Mormon Trail."
                 + "May the odds be in your favor.");
     }
 
     private void printResumeExistingGame() {
-        System.out.println("\n*"
+        this.console.println("\n*"
                 + "Welcome Back."
                 + "Good luck.");
     }
 
     private void requestName() {
-        System.out.println("Please enter your name");
+        this.console.println("Please enter your name");
     }
 
     private void welcomePlayer(String playerName) {
-        System.out.println("Welcome," + playerName + ". Good luck on your journey!");
+        this.console.println("Welcome," + playerName + ". Good luck on your journey!");
     }
 
     private String[] getInput() {
         String[] input = new String[1];
-        System.out.println("Starting getInput View");
+        this.console.println("Starting getInput View");
         boolean valid = false;
 
         while (valid == false) {
-            System.out.println("Please enter your name:");
-            Scanner inputScanner = new Scanner(System.in);
-            input[0] = inputScanner.nextLine();
-            input[0] = input[0].trim();
+            try {
+                this.console.println("Please enter your name:");
+                input[0] = this.keyboard.readLine();
+                input[0] = input[0].trim();
 
-            if (input[0].length() < 1) {     //We check for invalid input, trimmed the value, and now check to see if there's a value. 
-                System.out.println("You must enter a non-blank value.");
+                if (input[0].length() < 1) {     //We check for invalid input, trimmed the value, and now check to see if there's a value.
+                    ErrorView.display(this.getClass().getName(),
+                            "You must enter a non-blank value.");
+                }
+                valid = true;
+            } catch (IOException ex) {
+                ErrorView.display(this.getClass().getName(),
+                        "Error reading input: " + ex.getMessage());
             }
-            valid = true;
         }
 
         return input;
@@ -114,11 +126,12 @@ public class StartProgramView {
 
         try {
             if (player == null) {
-                System.out.println("Could not create the player. Enter a different name.");
+                ErrorView.display(this.getClass().getName(),
+                        "Could not create the player. Enter a different name.");
                 return false;
             }
 
-            System.out.println("\n************************************************** "
+            this.console.println("\n************************************************** "
                     + "\nWelcome to the game " + playerName + "!"
                     + "\nWe hope you have a lot of fun!"
                     + "\n**************************************************");
@@ -126,16 +139,15 @@ public class StartProgramView {
             MainMenu mainMenu = new MainMenu();
             mainMenu.display();
         } catch (Exception e) {
-            System.out.println("Error reading input: " + e.getMessage());
+            ErrorView.display(this.getClass().getName(),
+                    "Error reading input: " + e.getMessage());
         }
 
         return true;
     }
 
-    private String getName() {
-        Scanner nameScanner = new Scanner(System.in);
-        return nameScanner.nextLine();
-
-    }
-
+    // private String getName() {
+    //   Scanner nameScanner = new Scanner(System.in);
+    //  return nameScanner.nextLine();
+    // }
 }

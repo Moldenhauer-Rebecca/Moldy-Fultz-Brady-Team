@@ -18,9 +18,7 @@ public class InventoryDailyDrawTest {
     public InventoryDailyDrawTest() {
     }
 
-    /**
-     * Test of calcInventoryDailyDraw method, of class InventoryDailyDraw.
-     */
+    /*
     @Test
     public void testInventoryDailyDraw() throws InventoryDailyDrawException {
         System.out.println("inventoryDailyDraw");
@@ -77,9 +75,6 @@ public class InventoryDailyDrawTest {
         assertEquals(1987.5, result, 0.001);
     }
 
-    /**
-     * Test of calcInventoryDailyDraw method, of class InventoryDailyDraw.
-     */
     @Test
     public void testCalcInventoryDailyDraw() throws InventoryDailyDrawException {
         System.out.println("calcInventoryDailyDraw");
@@ -92,5 +87,5 @@ public class InventoryDailyDrawTest {
         fail("The test case is a prototype.");
     }
     
-    
+   */ 
 }

@@ -32,25 +32,26 @@ public class HelpMenuView extends View {
 
         switch (value) {
             case "G":
-                System.out.println("The goal of the game");
+                this.console.println("The goal of the game");
                 break;
             case "M":
-                System.out.println("How to move");
+                this.console.println("How to move");
                 break;
             case "E":
-                System.out.println("Estimate the number of resources");
+                this.console.println("Estimate the number of resources");
                 break;
             case "H":
-                System.out.println("Harvest resources");
+                this.console.println("Harvest resources");
                 break;
             case "D":
-                System.out.println("Delivering resources to warehouse");
+                this.console.println("Delivering resources to warehouse");
                 break;
             case "Q":
                 return true;
 
             default:
-                System.out.println("Invalid menu item.");
+                ErrorView.display(this.getClass().getName(),
+                        "Invalid menu item.");
                 break;
         }
 

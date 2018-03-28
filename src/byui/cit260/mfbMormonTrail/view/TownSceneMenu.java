@@ -3,7 +3,6 @@ package byui.cit260.mfbMormonTrail.view;
 import byui.cit260.mfbMormonTrail.control.GameControl;
 import byui.cit260.mfbMormonTrail.model.GeneralStoreScene;
 import byui.cit260.mfbMormonTrail.model.Scenes;
-import java.util.Scanner;
 
 /**
  *
@@ -38,7 +37,7 @@ public class TownSceneMenu extends View {
             case "Q":
                 return true;
             default:
-                System.out.println("Invalid menu item.");
+                this.console.println("Invalid menu item.");
                 break;
         }
 
