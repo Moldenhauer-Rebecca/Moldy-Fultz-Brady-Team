@@ -15,8 +15,6 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  *
@@ -77,13 +75,12 @@ public class MormonTrail {
     public void main(String[] args) {
         try {
 
-            MormonTrail.inFile = new BufferedReader(new InputStreamReader(System.in));
+            inFile = new BufferedReader(new InputStreamReader(System.in));
 
-            MormonTrail.outFile = new PrintWriter(System.out, true);
+            outFile = new PrintWriter(System.out, true);
 
-           
             try {
-                MormonTrail.logFile = new PrintWriter("logFile.txt");
+                logFile = new PrintWriter("logFile.txt");
             } catch (FileNotFoundException ex) {
                 ErrorView.display(this.getClass().getName(),
                         "Error logging files: " + ex.getMessage());
@@ -98,21 +95,21 @@ public class MormonTrail {
                     "Error reading input: " + e.getMessage());
 
             e.printStackTrace();
-            
+
         } finally {
-            if (MormonTrail.inFile != null) {
+            if (inFile != null) {
                 try {
-                    MormonTrail.inFile.close();
+                    inFile.close();
                 } catch (IOException ex) {
                     ErrorView.display(this.getClass().getName(),
                             "Error closing files: " + ex.getMessage());
                 }
             }
-            if (MormonTrail.outFile != null) {
-                MormonTrail.outFile.close();
+            if (outFile != null) {
+                outFile.close();
             }
-            if (MormonTrail.logFile != null) {
-                MormonTrail.logFile.close();
+            if (logFile != null) {
+                logFile.close();
             }
         }
 

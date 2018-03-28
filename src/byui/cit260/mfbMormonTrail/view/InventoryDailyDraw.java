@@ -24,7 +24,7 @@ public class InventoryDailyDraw extends View {
     public double calcInventoryDailyDraw() throws InventoryDailyDrawException {
 
         this.console.print("\nPlease enter number of people on your team (Number must be between 1 and 5):");
-        String p = null;
+        String p = "default value";
 
         try {
             p = this.keyboard.readLine();
@@ -35,7 +35,7 @@ public class InventoryDailyDraw extends View {
         int numPeople = 0;
 
         try {
-            numPeople = p.nextInt();
+            numPeople = Integer.parseInt(p);
         } catch (InputMismatchException e) {
             ErrorView.display(this.getClass().getName(),
                     "\nValue entered was not valid. Please enter an integer. " + e.getMessage());
@@ -51,12 +51,12 @@ public class InventoryDailyDraw extends View {
         double inventoryAmount = 0;
 
         try {
-            inventoryAmount = p.nextDouble();
-            
+            inventoryAmount = Double.parseDouble(p);
+
         } catch (InputMismatchException e) {
             ErrorView.display(this.getClass().getName(),
                     "Error reading input: " + e.getMessage());
-        
+
         }
 
         if (inventoryAmount < 12.5) {  //inventoryAmount must be greater than 12.5
@@ -77,7 +77,7 @@ public class InventoryDailyDraw extends View {
     @Override
     public boolean doAction(String value) {
         return false;
-           
+
     }
 
 }
