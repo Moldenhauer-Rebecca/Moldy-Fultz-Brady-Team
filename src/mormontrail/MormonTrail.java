@@ -15,6 +15,8 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -72,46 +74,50 @@ public class MormonTrail {
     /**
      * @param args the command line arguments
      */
-    public void main(String[] args) {
+    public static void main(String[] args) {
         try {
 
-            inFile = new BufferedReader(new InputStreamReader(System.in));
+            MormonTrail.inFile = new BufferedReader(new InputStreamReader(System.in));
 
-            outFile = new PrintWriter(System.out, true);
-
+            MormonTrail.outFile = new PrintWriter(System.out, true);
+            
+            
             try {
-                logFile = new PrintWriter("logFile.txt");
-            } catch (FileNotFoundException ex) {
-                ErrorView.display(this.getClass().getName(),
-                        "Error logging files: " + ex.getMessage());
+                MormonTrail.logFile = new PrintWriter("logfile.txt");
+            } catch (IOException ex) {
+               System.out.println("Error logging file");
             }
 
             // Create StartProgramaView and start the program
             StartProgramView startProgramView = new StartProgramView();
             startProgramView.displayStartProgramView();
 
-        } catch (GameControlException e) {
-            ErrorView.display(this.getClass().getName(),
-                    "Error reading input: " + e.getMessage());
-
-            e.printStackTrace();
+        } catch (GameControlException ex) {
+            System.out.println("Exception: " + ex.toString()
+                                + "\nCause: " + ex.getCause()
+                                 + "\nMessage: " + ex.getMessage());
+            
+            ex.printStackTrace();
 
         } finally {
-            if (inFile != null) {
-                try {
-                    inFile.close();
-                } catch (IOException ex) {
-                    ErrorView.display(this.getClass().getName(),
-                            "Error closing files: " + ex.getMessage());
+            try {
+                if (MormonTrail.inFile != null) {
+                    MormonTrail.inFile.close();
+                }
+
+                if (MormonTrail.outFile != null) {
+                    MormonTrail.outFile.close();
+                }
+
+                if (MormonTrail.logFile != null) {
+                    MormonTrail.logFile.close();
+                }
+
+            } catch (IOException ex)  {
+                   System.out.println("Error closing files");
+                    return;
                 }
             }
-            if (outFile != null) {
-                outFile.close();
-            }
-            if (logFile != null) {
-                logFile.close();
-            }
         }
-
     }
-}
+
