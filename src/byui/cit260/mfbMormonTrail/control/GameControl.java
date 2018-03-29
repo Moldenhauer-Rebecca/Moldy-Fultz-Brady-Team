@@ -14,8 +14,18 @@ import byui.cit260.mfbMormonTrail.model.Map;
 import byui.cit260.mfbMormonTrail.model.Player;
 import byui.cit260.mfbMormonTrail.model.SceneTypeEnum;
 import byui.cit260.mfbMormonTrail.model.Scenes;
+import byui.cit260.mfbMormonTrail.view.ErrorView;
+import java.io.BufferedInputStream;
+import java.io.BufferedOutputStream;
+import java.io.BufferedReader;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectOutputStream;
+import java.io.PrintWriter;
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import mormontrail.MormonTrail;
 
 /**
@@ -24,31 +34,79 @@ import mormontrail.MormonTrail;
  */
 public class GameControl implements Serializable {
 
+    protected final BufferedReader keyboard = MormonTrail.getInFile();
+    protected final PrintWriter console = MormonTrail.getOutFile();
+
     private static Location[][] Locations;
 
     public static Player createPlayer(String playerName) throws GameControlException {
-        
-        if (playerName == null || playerName.length() < 1){
+
+        if (playerName == null || playerName.length() < 1) {
             return null;
-        }  
-        
+        }
+
         Player player = new Player();
         player.setName(playerName);
         MormonTrail.setPlayer(player);
-        
+
         return player;
-        }
+    }
 
-    public static void saveGame(Game game) throws GameControlException {
+    public static void saveGame(Game game, String filePath) throws GameControlException, IOException {
+
+        try (ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(filePath))) {
+            if (filePath == null || filePath.length() < 1) {
+                throw new GameControlException("Invalid file path");
+            }
+            if (game == null) {
+                throw new GameControlException("Cannot save game. Game is null");
+            }
+            try {
+                out.writeObject(filePath);
+            } catch (IOException ex) {
+                ErrorView.display(this.getClass().getName(),
+                        "Error reading input " + ex.getMessage());
+            }
+        }
+    }
+
+    public static Game getGame(String inputFilePath, String outputFilePath) {
+
         if (game == null) {
-            throw new GameControlException("Game was not saved successfully. Try again.");
+            throw new GameControlException("Cannot get game. Game is null");
         }
-    }
+        if (inputFilePath == null || inputFilePath.length() < 1) {
+            try {
+                throw new GameControlException("Invalid file path");
+            } catch (GameControlException ex) {
+                ErrorView.display(this.getClass().getName(),
+                        "Error reading input " + ex.getMessage());
+            }
+        }
 
-    public static Game getGame() {
-        Game game = null;
-        return game;
-    }
+        try (BufferedInputStream in) 
+             = new BufferedInputStream(new FileInputStream(filePath));
+            BufferedOutputStream out = new BufferedOutputStream(new FileOutputStream(outputFilePath)) {
+                int binaryData;
+                while ( (binaryData  = in.read()
+
+                
+                    ) != -1) {
+                out.write(binaryData);
+                }
+                game  = (Game) input.readObject();
+                Game  = MormonTrail.setCurrentGame(currentGame);
+                Player player  = MormonTrail.getPlayer(player).setPlayer(player);
+
+                return game ;
+
+            } catch (IOException ex) {
+                    console.println("I/O Error: " + ex.getMessage());
+            }
+
+        }
+
+    
 
     public static int createNewGame(Player player) throws GameControlException {
         if (player == null) {

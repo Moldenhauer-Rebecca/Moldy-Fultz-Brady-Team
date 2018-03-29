@@ -8,13 +8,56 @@ package byui.cit260.mfbMormonTrail.view;
 import byui.cit260.mfbMormonTrail.control.GameControl;
 import byui.cit260.mfbMormonTrail.model.Game;
 import byui.cit260.mfbMormonTrail.model.HotelScene;
+import byui.cit260.mfbMormonTrail.model.Location;
 import java.util.Scanner;
+import mormontrail.MormonTrail;
 
 /**
  *
  * @author Mike
  */
 public class ViewMap extends View {
+    
+    public String[] getInputs() {
+        String[] inputs = new String[1];
+        Game game = MormonTrail.getCurrentGame();
+
+        Location[][] locations = game.getMap().getLocations();
+
+        System.out.println("\n****Mormon Trail Map****");
+        System.out.print("    1  2  3  4  5  6  7  8  9  ");
+        //for (Location[] locationRow : locations) {
+        for (int i = 0; i < locations.length; i++) {
+            System.out.print("\n-------------------------------");
+            System.out.print("\n" + (i + 1) + " ");
+            //for (Location locationColumn : locationRow) {
+            for (int j = 0; j < locations[i].length; j++) {
+                System.out.print("|");
+                Location location = locations[i][j];
+                if (location.scene != null) {
+                    if (location.isVisited() == true) {
+                        System.out.print(location.getScene().getVisitedSymbol());
+                    } else {
+                        System.out.print("^"/*Replace with symbol for scene location*/);
+                    }
+                }
+                if (location.isVisited() == true) {
+                    System.out.print(location.getScene().getVisitedSymbol());
+                } else {
+                    System.out.print("??");
+                }
+            }
+            this.console.println("|");
+        }
+        this.console.println("\n-------------------------------");
+        this.console.println("\nPress Q to return to Main Menu");
+        
+
+        //ViewMap viewMap = new ViewMap(this.game.getCurrentPosition());
+        //viewMap.display();
+        return inputs;
+    }
+
 
     public ViewMap(String currentPosition) {
         super("\n"
@@ -47,7 +90,6 @@ public class ViewMap extends View {
 
     }
 
-    @Override
     public boolean doAction(String value) {
 
         value = value.toUpperCase();
@@ -58,5 +100,8 @@ public class ViewMap extends View {
         }
         return false;
     }
+
+  
+
 
 }

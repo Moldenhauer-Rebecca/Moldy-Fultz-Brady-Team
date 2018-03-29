@@ -105,7 +105,8 @@ public class MainMenu extends View {
     }
 
     private void saveGame() {
-        this.console.println("saveGame initiated");
+        SaveGameView saveGameView = new SaveGameView();
+        saveGameView.displaySaveGameView();
     }
 
     private void dailyTrailStopView() {
@@ -114,7 +115,7 @@ public class MainMenu extends View {
     }
 
     private void townSceneMenu() {
-        TownSceneMenu townSceneMenu = new TownSceneMenu();
+        TownSceneMenu townSceneMenu = new TownSceneMenu() {};
         townSceneMenu.display();
     }
 

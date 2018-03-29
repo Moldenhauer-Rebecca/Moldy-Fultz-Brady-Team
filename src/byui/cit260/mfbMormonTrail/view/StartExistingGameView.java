@@ -5,16 +5,39 @@
  */
 package byui.cit260.mfbMormonTrail.view;
 
-import byui.cit260.mfbMormonTrail.control.LocationSymbols;
+import Exceptions.GameControlException;
+import byui.cit260.mfbMormonTrail.model.Game;
+import mormontrail.MormonTrail;
 
 /**
  *
  * @author Mike
  */
-public class StartExistingGameView {
+public class StartExistingGameView extends View {
 
     public void displayStartExistingGameView() {
-        System.out.println("displayStartExistingGameView function called");
+
     }
 
+    private String[] getInput() {
+
+        String[] input = new String[1];
+
+        this.console.println("Instructions to get saved game");
+
+        String[] input1 = this.getInput();
+        input[0] = input1;
+        return input;
+    }
+
+    private boolean doAction(String[] value) throws GameControlException {
+        String filePath = value[0];
+
+        Game game = MormonTrail.getCurrentGame();
+        
+        GamePlayMenu gamePlayMenu = new GamePlayMenu();
+        GamePlayMenu.displayGamePlayMenu();
+
+        return true;
+    }
 }
