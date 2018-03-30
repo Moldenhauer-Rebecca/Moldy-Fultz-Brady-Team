@@ -14,18 +14,15 @@ import byui.cit260.mfbMormonTrail.model.Map;
 import byui.cit260.mfbMormonTrail.model.Player;
 import byui.cit260.mfbMormonTrail.model.SceneTypeEnum;
 import byui.cit260.mfbMormonTrail.model.Scenes;
-import byui.cit260.mfbMormonTrail.view.ErrorView;
-import java.io.BufferedInputStream;
-import java.io.BufferedOutputStream;
 import java.io.BufferedReader;
+import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.PrintWriter;
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import mormontrail.MormonTrail;
 
 /**
@@ -64,49 +61,40 @@ public class GameControl implements Serializable {
             try {
                 out.writeObject(filePath);
             } catch (IOException ex) {
-                ErrorView.display(this.getClass().getName(),
-                        "Error reading input " + ex.getMessage());
+                throw ex;
+                //ErrorView.display(this.getClass().getName(), "Error reading input " + ex.getMessage());
             }
         }
     }
 
-    public static Game getGame(String inputFilePath, String outputFilePath) {
+    public static Game getGame(String filePath) throws GameControlException, IOException, ClassNotFoundException {
 
-        if (game == null) {
+        if (filePath == null) {
             throw new GameControlException("Cannot get game. Game is null");
         }
-        if (inputFilePath == null || inputFilePath.length() < 1) {
+        if (filePath == null || filePath.length() < 1) {
             try {
                 throw new GameControlException("Invalid file path");
             } catch (GameControlException ex) {
-                ErrorView.display(this.getClass().getName(),
-                        "Error reading input " + ex.getMessage());
+                throw ex;
+
             }
         }
 
-        try (BufferedInputStream in) 
-             = new BufferedInputStream(new FileInputStream(filePath));
-            BufferedOutputStream out = new BufferedOutputStream(new FileOutputStream(outputFilePath)) {
-                int binaryData;
-                while ( (binaryData  = in.read()
+        try (ObjectInputStream input = new ObjectInputStream(new FileInputStream(filePath))) {
 
-                
-                    ) != -1) {
-                out.write(binaryData);
-                }
-                game  = (Game) input.readObject();
-                Game  = MormonTrail.setCurrentGame(currentGame);
-                Player player  = MormonTrail.getPlayer(player).setPlayer(player);
+            Game game = (Game) input.readObject();
+            MormonTrail.setCurrentGame(game);
+            Player player = MormonTrail.getPlayer();
+            MormonTrail.setPlayer(player);
 
-                return game ;
+            return game;
 
-            } catch (IOException ex) {
-                    console.println("I/O Error: " + ex.getMessage());
-            }
-
+        } catch (IOException ex) {
+            throw ex;
         }
 
-    
+    }
 
     public static int createNewGame(Player player) throws GameControlException {
         if (player == null) {

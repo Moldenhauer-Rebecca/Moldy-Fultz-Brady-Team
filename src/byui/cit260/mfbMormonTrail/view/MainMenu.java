@@ -9,8 +9,6 @@ import Exceptions.GameControlException;
 import Exceptions.InventoryDailyDrawException;
 import byui.cit260.mfbMormonTrail.control.GameControl;
 import byui.cit260.mfbMormonTrail.model.Player;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import mormontrail.MormonTrail;
 
 public class MainMenu extends View {
@@ -121,6 +119,11 @@ public class MainMenu extends View {
 
     private void gamePlayMenu() throws InventoryDailyDrawException {
         GamePlayMenu gamePlayMenu = new GamePlayMenu();
-        gamePlayMenu.displayGamePlayMenu();
+        try {
+            gamePlayMenu.displayGamePlayMenu();
+        } catch (GameControlException ex) {
+            ErrorView.display(this.getClass().getName(),
+                     "Error reading input " + ex.getMessage());
+        }
     }
 }
