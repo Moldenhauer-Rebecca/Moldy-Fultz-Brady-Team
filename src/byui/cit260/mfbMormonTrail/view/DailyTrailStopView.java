@@ -82,7 +82,7 @@ public class DailyTrailStopView extends View {
     }
 
     private void townSceneMenu() {
-        TownSceneMenu townSceneMenu = new TownSceneMenu();
+        TownSceneMenu townSceneMenu = new TownSceneMenu() {};
         townSceneMenu.display();
     }
 

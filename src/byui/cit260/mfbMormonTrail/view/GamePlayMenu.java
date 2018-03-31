@@ -5,6 +5,7 @@
  */
 package byui.cit260.mfbMormonTrail.view;
 
+import Exceptions.GameControlException;
 import Exceptions.InventoryDailyDrawException;
 import byui.cit260.mfbMormonTrail.model.Game;
 import byui.cit260.mfbMormonTrail.model.Location;
@@ -21,7 +22,7 @@ class GamePlayMenu extends View {
 
     private Game game;
 
-    public void displayGamePlayMenu() throws InventoryDailyDrawException {
+    public void displayGamePlayMenu() throws GameControlException {
         this.game = game;
         boolean exit = false;
         printGamePlayMenu();

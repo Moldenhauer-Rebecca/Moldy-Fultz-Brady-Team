@@ -7,12 +7,12 @@ package byui.cit260.mfbMormonTrail.view;
 
 /**
  *
- * @author samue
+ * @author Chelsie, Rebecca and Sam
  */
 public interface ViewInterface {
 
     public void display();
-
+    
     public String getInput();
 
     public boolean doAction(String value);

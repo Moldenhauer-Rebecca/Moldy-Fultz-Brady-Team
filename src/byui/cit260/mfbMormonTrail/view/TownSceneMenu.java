@@ -8,7 +8,7 @@ import byui.cit260.mfbMormonTrail.model.Scenes;
  *
  * @author samue
  */
-public class TownSceneMenu extends View {
+public abstract class TownSceneMenu extends View {
 
     public TownSceneMenu() {
         super("\n "

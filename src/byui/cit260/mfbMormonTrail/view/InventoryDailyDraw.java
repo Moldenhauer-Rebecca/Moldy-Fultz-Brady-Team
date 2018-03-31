@@ -24,7 +24,9 @@ public class InventoryDailyDraw extends View {
     public double calcInventoryDailyDraw() throws InventoryDailyDrawException {
 
         this.console.println("\nPlease enter number of people on your team (Number must be between 1 and 5):");
-        String p = "default value";
+        
+        String p = "input 1";
+        int numPeople = 0;
 
         try {
             p = this.keyboard.readLine();
@@ -32,7 +34,6 @@ public class InventoryDailyDraw extends View {
             ErrorView.display(this.getClass().getName(),
                     "Error reading input: " + e.getMessage());
         }
-        int numPeople = 0;
 
         try {
             numPeople = Integer.parseInt(p);
@@ -45,13 +46,20 @@ public class InventoryDailyDraw extends View {
             ErrorView.display(this.getClass().getName(),
                     "\nNumber of people must be between 1 and 5");
         }
-
-        this.console.print("\nPlease enter the amount of inventory (in pounds) your team currently has on hand (Number must be greater than 12.5):");
-
+        
+        this.console.println("\nPlease enter the amount of inventory (in pounds) your team currently has on hand (Number must be greater than 12.5):");
+        String q = "input 2";
         double inventoryAmount = 0;
 
         try {
-            inventoryAmount = Double.parseDouble(p);
+            q = this.keyboard.readLine();
+        } catch (IOException e) {
+            ErrorView.display(this.getClass().getName(),
+                    "Error reading input: " + e.getMessage());
+        }
+
+        try {
+            inventoryAmount = Double.parseDouble(q);
 
         } catch (InputMismatchException e) {
             ErrorView.display(this.getClass().getName(),
