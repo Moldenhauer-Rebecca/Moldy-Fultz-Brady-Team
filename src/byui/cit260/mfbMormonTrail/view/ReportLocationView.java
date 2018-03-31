@@ -102,7 +102,7 @@ public class ReportLocationView extends View {
             this.console.println("Location Symbols Report successfully saved.");
         } catch (Exception e) {
             ErrorView.display(this.getClass().getName(),
-                    "Error saving Iventory Item Report: " + e.getMessage());
+                    "Error saving Location Symbols Report: " + e.getMessage());
         }
     }
 }

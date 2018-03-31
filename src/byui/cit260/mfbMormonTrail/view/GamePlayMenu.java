@@ -187,8 +187,6 @@ class GamePlayMenu extends View {
         helpMenuView.display();
     }
 
-    
-
     private void moveActorView() {
         MoveActorView moveActorView = new MoveActorView();
         moveActorView.display();
