@@ -5,27 +5,50 @@
  */
 package byui.cit260.mfbMormonTrail.control;
 
+import Exceptions.ItemControlException;
+import byui.cit260.mfbMormonTrail.model.InventoryItemType;
+import java.util.ArrayList;
+
 /**
  *
  * @author crmol
  */
 public class ItemControl {
 
-    private String itemName;
-    private String itemDescription;
-    private int itemWeight;
-
-    public ItemControl(String itemName, String itemDescritpion, int itemWeight) {
-        this.itemName = itemName;
-        this.itemDescription = itemDescription;
-        this.itemWeight = itemWeight;
+    public static ArrayList<InventoryItemType> addInventoryItems() throws ItemControlException {
+        ArrayList<InventoryItemType> inventory = new ArrayList<>();
+        inventory.add(InventoryItemType.Oxen);
+        inventory.add(InventoryItemType.Food);
+        inventory.add(InventoryItemType.SpareWheel);
+        inventory.add(InventoryItemType.Wagon);
+        inventory.add(InventoryItemType.Ammunition);
+        
+        inventory = sortInventory(inventory);
+        
+        return inventory;
+        
     }
 
-    public static int[] itemControl(int[] weight) {
-        for (int i = 0; i < weight.length - 1; i++) {
-            int index = i;
-        }
-        return weight;
-    }
+   private static ArrayList<InventoryItemType> sortInventory(ArrayList<InventoryItemType> inventory) throws ItemControlException {
+       
+       if(inventory.size() < 0) {
+           throw new ItemControlException("There was an inventory error.");
+       }
+       
+       if(inventory.size() < 1) {
+           return inventory;
+       }
+       
+       for(int i=0; i < inventory.size(); i++) {
+           for(int j=i+1; j < inventory.size(); j++) {
+               if(inventory.get(i).getItem().compareTo(inventory.get(j).getItem()) > 0) {
+                   InventoryItemType iit = inventory.get(i);
+                   inventory.set(i, inventory.get(j));
+                   inventory.set(j, iit);
+               }
+           }
+       }
+       return inventory;
+   }
 
 }

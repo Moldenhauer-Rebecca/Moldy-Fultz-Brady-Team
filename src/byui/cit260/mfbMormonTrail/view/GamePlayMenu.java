@@ -82,6 +82,7 @@ class GamePlayMenu extends View {
                 + "\n L - Location Symbols"
                 + "\n A - Move Actor"
                 + "\n D - Calculate Inventory Daily Draw"
+                + "\n R - View and Print Reports"
                 + "\n Q - Quit"
                 + "\n----------------------------------------");
     }
@@ -118,6 +119,9 @@ class GamePlayMenu extends View {
                 break;
             case "D":
                 calcDailyDraw();
+                break;
+            case "R":
+                reportMenuView();
                 break;
             case "Q":
                 return true;
@@ -222,6 +226,11 @@ class GamePlayMenu extends View {
     private void moveActorView() {
         MoveActorView moveActorView = new MoveActorView();
         moveActorView.display();
+    }
+
+    private void reportMenuView() {
+        ReportMenuView reportMenuView = new ReportMenuView();
+        reportMenuView.display();
     }
 
     private double calcDailyDraw() {

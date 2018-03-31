@@ -149,7 +149,7 @@ public class GameControl implements Serializable {
 
         InventoryItem item1 = items[InventoryItemType.Ammunition.ordinal()];
         InventoryItem item2 = items[InventoryItemType.Food.ordinal()];
-        InventoryItem item3 = items[InventoryItemType.Ox.ordinal()];
+        InventoryItem item3 = items[InventoryItemType.Oxen.ordinal()];
         InventoryItem item4 = items[InventoryItemType.SpareWheel.ordinal()];
         InventoryItem item5 = items[InventoryItemType.Wagon.ordinal()];
 

@@ -41,7 +41,7 @@ public class GeneralStoreScene implements Serializable {
     public GeneralStoreScene() {
         inventoryItems = new ArrayList<InventoryItem>();
         InventoryItem inventoryItem = new InventoryItem();
-        inventoryItem.setInventoryType(InventoryItemType.Ox);
+        inventoryItem.setInventoryType(InventoryItemType.Oxen);
         inventoryItems.add(inventoryItem);
 
         inventoryItems = new ArrayList<InventoryItem>();
