@@ -42,12 +42,12 @@ public class ReportLocationView extends View {
             }
             break;
             case "S": {
-            try {
-                this.saveReport();
-            } catch (GameControlException ex) {
-                ErrorView.display(this.getClass().getName(),
+                try {
+                    this.saveReport();
+                } catch (GameControlException ex) {
+                    ErrorView.display(this.getClass().getName(),
                             "Error reading input: " + ex.getMessage());
-            }
+                }
 
             }
             break;
@@ -87,7 +87,7 @@ public class ReportLocationView extends View {
         }
 
     }
-    
+
     private void saveReport() throws GameControlException {
 
         ArrayList<byui.cit260.mfbMormonTrail.model.LocationSymbolsEnum> symbols;

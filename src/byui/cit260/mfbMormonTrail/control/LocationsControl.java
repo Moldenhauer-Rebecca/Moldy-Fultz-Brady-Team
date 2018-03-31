@@ -12,7 +12,7 @@ import static byui.cit260.mfbMormonTrail.control.LocationsControl.symbol;
  * @author Mike
  */
 public class LocationsControl {
-    
+
     private String locationName;
     private String description;
     private String locationSymbol;
@@ -33,10 +33,9 @@ public class LocationsControl {
         return symbols;
 
     }
-    
+
     public String getSymbol() {
         return locationSymbol;
     }
-    
-    
+
 }
