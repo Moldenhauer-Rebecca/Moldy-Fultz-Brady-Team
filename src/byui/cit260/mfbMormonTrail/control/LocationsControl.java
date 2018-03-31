@@ -1,16 +1,21 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package byui.cit260.mfbMormonTrail.control;
 
-public class LocationSymbols {
+import static byui.cit260.mfbMormonTrail.control.LocationsControl.symbol;
 
-    private final String locationName;
-    private final String description;
-    private final String locationSymbol;
-
-    public LocationSymbols(String locationName, String description, String locationSymbol) {
-        this.locationName = locationName;
-        this.description = description;
-        this.locationSymbol = locationSymbol;
-    }
+/**
+ *
+ * @author Mike
+ */
+public class LocationsControl {
+    
+    private String locationName;
+    private String description;
+    private String locationSymbol;
 
     public static int[] symbol(int[] symbols) {
         for (int i = 0; i < symbols.length - 1; i++) {
@@ -28,8 +33,10 @@ public class LocationSymbols {
         return symbols;
 
     }
-
+    
     public String getSymbol() {
         return locationSymbol;
     }
+    
+    
 }

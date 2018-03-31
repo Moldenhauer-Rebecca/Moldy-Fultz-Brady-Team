@@ -43,7 +43,8 @@ public class ReportMenuView extends View {
     }
 
     private void displayLocationReport() {
-        this.console.println("Location Report displayed correctly");
+       ReportLocationView locationReport = new ReportLocationView();
+       locationReport.display();
     }
 
     private void displayInventoryItemsReport() {

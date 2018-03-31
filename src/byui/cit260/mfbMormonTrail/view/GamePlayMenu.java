@@ -9,9 +9,7 @@ import Exceptions.GameControlException;
 import Exceptions.InventoryDailyDrawException;
 import byui.cit260.mfbMormonTrail.model.Game;
 import byui.cit260.mfbMormonTrail.model.Location;
-import byui.cit260.mfbMormonTrail.model.Player;
 import mormontrail.MormonTrail;
-import byui.cit260.mfbMormonTrail.control.LocationSymbols;
 import java.io.IOException;
 
 /**
@@ -80,7 +78,6 @@ class GamePlayMenu extends View {
                 + "\n M - Scene Menu"
                 + "\n V - View Map"
                 + "\n H - Get Help"
-                + "\n L - Location Symbols"
                 + "\n A - Move Actor"
                 + "\n D - Calculate Inventory Daily Draw"
                 + "\n R - View and Print Reports"
@@ -111,9 +108,6 @@ class GamePlayMenu extends View {
                 break;
             case "H":
                 helpMenuView();
-                break;
-            case "L":
-                locationSymbols();
                 break;
             case "A":
                 moveActorView();
@@ -193,36 +187,7 @@ class GamePlayMenu extends View {
         helpMenuView.display();
     }
 
-    private void locationSymbols() {
-        LocationSymbols[] symbols = new LocationSymbols[12];
-
-        symbols[0] = new LocationSymbols("Nauvoo", "Start", "NI");
-        symbols[1] = new LocationSymbols("GardenGrove", "Town", "GG");
-        symbols[2] = new LocationSymbols("MountPisgah", "Town", "MP");
-        symbols[3] = new LocationSymbols("Kanesville", "Town", "KT");
-        symbols[4] = new LocationSymbols("WinterQuarters", "Town", "WQ");
-        symbols[5] = new LocationSymbols("FortKearny", "Fort", "FK");
-        symbols[6] = new LocationSymbols("ChimneyRock", "Null", "CR");
-        symbols[7] = new LocationSymbols("FortLaramie", "Fort", "FL");
-        symbols[8] = new LocationSymbols("IndependenceRock", "Null", "IR");
-        symbols[9] = new LocationSymbols("MartinsCove", "Null", "MC");
-        symbols[10] = new LocationSymbols("FortBridger", "Fort", "FB");
-        symbols[11] = new LocationSymbols("SaltLakeValley", "END", "SL");
-
-        for (int i = 0; i < symbols.length - 1; i++) {
-            for (int j = i + 1; j < symbols.length; j++) {
-                if (symbols[i].getSymbol().compareTo(symbols[j].getSymbol()) > 0) {
-                    LocationSymbols symbols1 = symbols[i];
-                    symbols[i] = symbols[j];
-                    symbols[j] = symbols1;
-                }
-            }
-        }
-        for (LocationSymbols locationSymbolsControl : symbols) {
-            this.console.print(locationSymbolsControl.getSymbol());
-            this.console.print("\n");
-        }
-    }
+    
 
     private void moveActorView() {
         MoveActorView moveActorView = new MoveActorView();

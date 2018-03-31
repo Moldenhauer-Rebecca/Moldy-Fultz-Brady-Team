@@ -43,7 +43,7 @@ public enum LocationSymbolsEnum {
     }
 
     public String getSymbol() {
-        return this.getSymbol();
+        return symbol;
     }
 
 }
