@@ -180,7 +180,7 @@ public class GameControl implements Serializable {
     }
 
     private static Map assignScenesToLocations(Map map, ArrayList<Scenes> sceneList) {
-        System.out.println("Scenes to Locations");
+        System.out.println("New game initiated.");
         Location[][] locations = map.getLocations();
 
         for (Scenes scene : sceneList) {
