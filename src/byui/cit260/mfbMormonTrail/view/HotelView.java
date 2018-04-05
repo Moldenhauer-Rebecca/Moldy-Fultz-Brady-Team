@@ -5,15 +5,11 @@
  */
 package byui.cit260.mfbMormonTrail.view;
 
-import byui.cit260.mfbMormonTrail.control.GameControl;
-import byui.cit260.mfbMormonTrail.model.Scenes;
 import byui.cit260.mfbMormonTrail.model.HotelScene;
 import byui.cit260.mfbMormonTrail.model.Player;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import mormontrail.MormonTrail;
 
 /**
