@@ -42,13 +42,13 @@ public class DailyTrailStopView extends View {
                 crossRiverMenu();
                 break;
             case "R":
-                System.out.println("Rest for the day");
+                this.console.println("Rest for the day");
                 break;
             case "H":
-                System.out.println("Go hunting");
+                this.console.println("Go hunting");
                 break;
             case "L":
-                System.out.println("Look for edible plants");
+                this.console.println("Look for edible plants");
             case "Q":
                 return true;
 
@@ -65,10 +65,7 @@ public class DailyTrailStopView extends View {
         fortView.display();
     }
 
-    private void crossRiverView() {
-        System.out.println("crossRiverView ran successfully");
-    }
-
+ 
     private void restForDayView() {
         System.out.println("restForDay ran successfully");
     }
@@ -87,7 +84,7 @@ public class DailyTrailStopView extends View {
     }
 
     private void crossRiverMenu() {
-        CrossRiverMenu crossRiverMenu = new CrossRiverMenu();
-        crossRiverMenu.display();
+        RiverMenuView riverMenuView = new RiverMenuView();
+        riverMenuView.display();
     }
 }

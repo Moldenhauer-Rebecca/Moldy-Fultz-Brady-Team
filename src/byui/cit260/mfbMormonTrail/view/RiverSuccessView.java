@@ -5,9 +5,6 @@
  */
 package byui.cit260.mfbMormonTrail.view;
 
-import byui.cit260.mfbMormonTrail.control.CalcCrossRiverSuccess;
-import java.util.Random;
-
 /**
  *
  * @author crmol
@@ -17,12 +14,6 @@ class RiverSuccessView extends View {
     public RiverSuccessView() {
 
     }
-    Random random = new Random();
-    String riverStats;
-    int riverDepth = 3;
-    int currentSpeed = 4;
-    int riverWidth = 4;
-    int wagonWeight = 1;
 
     boolean displayRiverSuccess(int riverDepth, int successRate) {
         this.console.println("\n The river is currently " + riverDepth + " feet. Your success rate with your current load are "
